@@ -7,18 +7,19 @@ public class Main {
         String 
         NamaPengirim, AlamatPengirim,
         NamaPenerima, AlamatPenerima,
-        JenisBarang;
+        JenisBarang, TanggalPengiriman,
+        JenisLayanan;
 
         long NomorTeleponPengirim, NomorTeleponPenerima;
 
         int 
         KodePos, Jarak,
-        BiayaJarak,
-        BeratBarang, TotalBiaya,
+        TotalBiaya,
         NomorResi;
 
-        double 
-        BiayaBeratBarang;
+        double
+        BeratBarang ; 
+        
 
         //Tarif Jarak ( \ km = 50)
         // Malang - Bandung = 700km
@@ -29,19 +30,23 @@ public class Main {
 
         System.out.println("\n========== Informasi Pengiriman ==========");
         System.out.print("\nNama Pengirim             : ");
-        NamaPengirim = sc.nextLine();
-        System.out.print("Alamat Pengirim           : ");
-        AlamatPengirim = sc.nextLine();
+        NamaPengirim = sc.next();
         System.out.print("Nomor Telepon Pengirim    : ");
         NomorTeleponPengirim = sc.nextLong();
+        System.out.print("Alamat Pengirim           : ");
+        AlamatPengirim = sc.next();
+        System.out.print("Tanggal Pengiriman        : ");
+        TanggalPengiriman = sc.next();
         System.out.print("Nama Penerima             : " );
         NamaPenerima = sc.next();
-        System.out.print("Alamat Penerima           : ");
-        AlamatPenerima = sc.next();
         System.out.print("Nomor Telepon Penerima    : ");
         NomorTeleponPenerima = sc.nextLong();
+        System.out.print("Alamat Penerima           : ");
+        AlamatPenerima = sc.next();
         System.out.print("Kode Pos                  : ");
         KodePos = sc.nextInt();
+        System.out.print("Jenis Layanan             : ");
+        JenisLayanan = sc.next();
         System.out.print("Jenis Barang              : ");
         JenisBarang = sc.next();
         System.out.print("Nomor Resi                : ");
@@ -49,15 +54,13 @@ public class Main {
         System.out.print("Jarak                     : ");
         Jarak = sc.nextInt();
         System.out.print("Berat Barang              : ");
-        BeratBarang = sc.nextInt();
+        BeratBarang = sc.nextDouble();
         System.out.println();
 
-        BiayaJarak = Jarak*50;
-        BiayaBeratBarang = BeratBarang*5000;
-        TotalBiaya = (int) (BiayaJarak + BiayaBeratBarang);
+        TotalBiaya = (int) ((Jarak*50) + (BeratBarang*5000));
 
         System.out.println("Jumlah Biaya              : " + TotalBiaya);
-        System.out.println("\n========== Terima Kasih ==========\n ");
+        System.out.println("\n============ Terima Kasih ============\n ");
 
     }
 }
