@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner inputUser = new Scanner(System.in);
 
         String 
         NamaPengirim, AlamatPengirim,
@@ -30,31 +30,31 @@ public class Main {
 
         System.out.println("\n========== Informasi Pengiriman ==========");
         System.out.print("\nNama Pengirim             : ");
-        NamaPengirim = sc.next();
+        NamaPengirim = inputUser.next();
         System.out.print("Nomor Telepon Pengirim    : ");
-        NomorTeleponPengirim = sc.nextLong();
+        NomorTeleponPengirim = inputUser.nextLong();
         System.out.print("Alamat Pengirim           : ");
-        AlamatPengirim = sc.next();
+        AlamatPengirim = inputUser.next();
         System.out.print("Tanggal Pengiriman        : ");
-        TanggalPengiriman = sc.next();
+        TanggalPengiriman = inputUser.next();
         System.out.print("Nama Penerima             : " );
-        NamaPenerima = sc.next();
+        NamaPenerima = inputUser.next();
         System.out.print("Nomor Telepon Penerima    : ");
-        NomorTeleponPenerima = sc.nextLong();
+        NomorTeleponPenerima = inputUser.nextLong();
         System.out.print("Alamat Penerima           : ");
-        AlamatPenerima = sc.next();
+        AlamatPenerima = inputUser.next();
         System.out.print("Kode Pos                  : ");
-        KodePos = sc.nextInt();
+        KodePos = inputUser.nextInt();
         System.out.print("Jenis Layanan             : ");
-        JenisLayanan = sc.next();
+        JenisLayanan = inputUser.next();
         System.out.print("Jenis Barang              : ");
-        JenisBarang = sc.next();
+        JenisBarang = inputUser.next();
         System.out.print("Nomor Resi                : ");
-        NomorResi = sc.nextInt();
+        NomorResi = inputUser.nextInt();
         System.out.print("Jarak                     : ");
-        Jarak = sc.nextInt();
+        Jarak = inputUser.nextInt();
         System.out.print("Berat Barang              : ");
-        BeratBarang = sc.nextDouble();
+        BeratBarang = inputUser.nextDouble();
         System.out.println();
 
         TotalBiaya = (int) ((Jarak*50) + (BeratBarang*5000));
