@@ -199,7 +199,13 @@ public class Main {
                 }
                 break;
             default:
-                System.out.println("Wrong Options, Please Try Again");
+
+                System.out.println("\n=================== Sorry =====================");
+                System.out.println("|                                              |");
+                System.out.println("|         Please Choose Admin or User          |");
+                System.out.println("|                                              |");
+                System.out.println("================= Pos Indonesia ================\n");
+
                 break;
         }
     }
