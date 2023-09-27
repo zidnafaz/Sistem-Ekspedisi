@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Login3 {
+public class Main2 {
     public static void main(String[] args) {
         Scanner inputPilihan = new Scanner(System.in);
 
@@ -28,51 +28,31 @@ public class Login3 {
                 System.out.print("Masukkan Password   = ");
                 passwordAdmin = inputLoginAdmin.next();
                 System.out.println("\n=========================================\n");
-                
+
                 if (usernameAdmin.equals("Admin1") && passwordAdmin.equals("IniAdmin1")) {
                     System.out.println("Login Successfully\n");
                 } else {
                     System.out.println("Failed Login Please Try Again or Create Account via Admin\n");
                 }
-                break;
-                case 2:
-                Scanner inputLoginUser = new Scanner(System.in);
-                Scanner inputDataPengiriman = new Scanner(System.in);
-                Scanner inputPilihanAdmin = new Scanner(System.in);
-                
-                String usernameUser, passwordUser;
-                
-                System.out.println("\n=============== Login User ===============\n");
-                System.out.print("Masukkan Username   = ");
-                usernameUser = inputLoginUser.next();
-                System.out.print("Masukkan Password   = ");
-                passwordUser = inputLoginUser.next();
-                System.out.println("\n==========================================\n");
-
-                if (usernameUser.equals("User1") && passwordUser.equals("IniUser1")) {
-                    System.out.println("\nLogin Successfully\n");
-                    System.out.println("\n__________________________________________\n");
-                } else {
-                    System.out.println("Failed Login Please Try Again or Create Account via Admin\n");
-                }
-                break;
 
                 int PilihanAdmin, PilihanPayment;
-                
+
                 System.out.println("\n================= Pos Indonesia ================");
                 System.out.println("|                                              |");
                 System.out.println("|   Hello Admin, Welcome to Admin Dashboard    |");
                 System.out.println("|                                              |");
                 System.out.println("|         1. Input Paket Baru                  |");
                 System.out.println("|         2. Input Lokasi Paket                |");
-                System.out.println("|         3. Laporan Keuangan                  |");
+                System.out.println("|         3. Laporan Keuangan                 |");
                 System.out.println("|                                              |\n");
                 System.out.println("============= Masukkan Pilihan Anda ============");
                 
-                PilihanAdmin = inputPilihanAdmin.nextInt();
+                PilihanAdmin = inputPilihan.nextInt();
 
                 switch (PilihanAdmin) {
                     case 1:
+                        Scanner inputDataPengiriman = new Scanner(System.in);
+                        Scanner inputPilihanAdmin = new Scanner(System.in);
 
                         String 
                         NamaPengirim, AlamatPengirim,
@@ -141,53 +121,83 @@ public class Login3 {
                         System.out.println("============= Masukkan Pilihan Anda ============");
                         PilihanPayment = inputPilihanAdmin.nextInt();
 
-                        switch (PilihanPayment) {
-                            case 1:
-                                System.out.println("\n================= Thank You ===================");
-                                System.out.println("|                                              |");
-                                System.out.println("|       Your package will be sent soon         |");
-                                System.out.println("|                                              |");
-                                System.out.println("================= Pos Indonesia ================\n");
-                                
-                                break;
-                            case 2:
-                                System.out.println("\n=================== Sorry =====================");
-                                System.out.println("|                                              |");
-                                System.out.println("|          Please Finish The Payment           |");
-                                System.out.println("|                                              |");
-                                System.out.println("================= Pos Indonesia ================\n");
-                            default:
-                                System.out.println("\nMasukkan Pilihan Yang Benar\n");
-                                break;
-                        }
-                        break;
-                        case 2 :
+                        if (PilihanPayment == 1) {
+                            
+                            System.out.println("\n================= Thank You ===================");
+                            System.out.println("|                                              |");
+                            System.out.println("|       Your package will be sent soon         |");
+                            System.out.println("|                                              |");
+                            System.out.println("================= Pos Indonesia ================\n");
 
+                        } else if (PilihanPayment == 2) {
+
+                            System.out.println("\n=================== Sorry =====================");
+                            System.out.println("|                                              |");
+                            System.out.println("|          Please Finish The Payment           |");
+                            System.out.println("|                                              |");
+                            System.out.println("================= Pos Indonesia ================\n");
+
+                        } else {
+
+                            System.out.println("\n=================== Sorry =====================");
+                            System.out.println("|                                              |");
+                            System.out.println("|       Please Insert The Right Options        |");
+                            System.out.println("|                                              |");
+                            System.out.println("================= Pos Indonesia ================\n");
+
+                        }
+
+                        break;
+                    case 2:
+                        Scanner inputLokasiPaket = new Scanner(System.in);
                         int NomorResiUpadate;
                         String UpdateLokasi;
 
-                            System.out.println("\n================= Pos Indonesia ================");
-                            System.out.println("|                                              |");
-                            System.out.println("|         Hello Admin, Please Insert           |");
-                            System.out.println("|           The Location Of Package            |");
-                            System.out.println("|                                              |");
-                            System.out.println("================= Pos Indonesia ================\n");
-                            System.out.println("Nomor Resi          : ");
-                            NomorResiUpadate = inputPilihanAdmin.nextInt();
-                            System.out.println("Lokasi Paket        : ");
-                            UpdateLokasi = inputPilihanAdmin.next();
-                            System.out.println("\n================= Thank You ===================");
-                            System.out.println("|                                              |");
-                            System.out.println("|                Have a Nice Day               |");
-                            System.out.println("|                                              |\n");
-                            System.out.println("================= Pos Indonesia ================\n");
-                        case 3:
-                            System.out.println("Laporan Keuangan Menyusul, hehehehehehehehe");
-                        default:
-                            System.out.println("Masukkan Pilihan Yang Benar");
-                            break;
+                        System.out.println("\n================= Pos Indonesia ================");
+                        System.out.println("|                                              |");
+                        System.out.println("|         Hello Admin, Please Insert           |");
+                        System.out.println("|           The Location Of Package            |");
+                        System.out.println("|                                              |");
+                        System.out.println("================= Pos Indonesia ================\n");
+                        System.out.println("Nomor Resi          : ");
+                        NomorResiUpadate = inputLokasiPaket.nextInt();
+                        System.out.println("Lokasi Paket        : ");
+                        UpdateLokasi = inputLokasiPaket.next();
+                        System.out.println("\n================= Thank You ===================");
+                        System.out.println("|                                              |");
+                        System.out.println("|      Package Number :           " + NomorResiUpadate + "               |");
+                        System.out.println("|    Is Now At      :           " + UpdateLokasi + "               |");
+                        System.out.println("|                                              |");
+                        System.out.println("|                Have a Nice Day               |");
+                        System.out.println("|                                              |\n");
+                        System.out.println("================= Pos Indonesia ================\n");
+                        break;
+                    case 3:
+                        System.out.println("Laporan Keuangan Menyusul, hehehehehehehehe");
+                        break;
+                    default:
+                        System.out.println("Masukkan Pilihan Yang Benar");
+                        break;
                 }
+                break;
+            case 2:
+                Scanner inputLoginUser = new Scanner(System.in);
 
+                String usernameUser, passwordUser;
+
+                System.out.println("\n=============== Login User ===============\n");
+                System.out.print("Masukkan Username   = ");
+                usernameUser = inputLoginUser.next();
+                System.out.print("Masukkan Password   = ");
+                passwordUser = inputLoginUser.next();
+                System.out.println("\n==========================================\n");
+
+                if (usernameUser.equals("User1") && passwordUser.equals("IniUser1")) {
+                    System.out.println("\nLogin Successfully\n");
+                } else {
+                    System.out.println("Failed Login Please Try Again or Create Account via Admin\n");
+                }
+                break;
             default:
                 System.out.println("Wrong Options, Please Try Again");
                 break;
