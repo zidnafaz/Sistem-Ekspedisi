@@ -11,15 +11,18 @@ public class Main {
         JenisLayanan, usernameAdmin,
         passwordAdmin, UpdateLokasi,
         usernameUser, passwordUser;
-                
+        
         long
         NomorTeleponPengirim, NomorTeleponPenerima;
-
+        
         int 
-        KodePos, Jarak,
+        KodePos, Jarak = 0,
         TotalBiaya, NomorResi,
         pilihan, PilihanAdmin,
-        NomorResiUpadate, PilihanPayment;
+        NomorResiUpadate, PilihanPayment,
+        BiayaLayanan = 0, PilihanLaporan,
+        PilihanBulanan, PilihanHarian;
+        
                 
         double
         BeratBarang ;
@@ -75,7 +78,7 @@ public class Main {
                         
                         Tarif Berat ( \ kg = 5000) */
                 
-                        System.out.println("\n========== Informasi Pengiriman ==========");
+                        System.out.println("\n============= Informasi Pengiriman =============");
                         System.out.print("\nNama Pengirim             : ");
                         NamaPengirim = inputDataPengiriman.next();
                         System.out.print("Nomor Telepon Pengirim    : ");
@@ -98,14 +101,46 @@ public class Main {
                         JenisBarang = inputDataPengiriman.next();
                         System.out.print("Nomor Resi                : ");
                         NomorResi = inputDataPengiriman.nextInt();
-                        System.out.print("Jarak                     : ");
-                        Jarak = inputDataPengiriman.nextInt();
                         System.out.print("Berat Barang              : ");
                         BeratBarang = inputDataPengiriman.nextDouble();
-                        System.out.println();
-                
-                        TotalBiaya = (int) ((Jarak*50) + (BeratBarang*5000));
-                
+                        
+                        if (JenisLayanan.equals("Regular")) {
+
+                            BiayaLayanan = 50;
+                                
+                        } else if (JenisLayanan.equals("Ekspress")) {
+
+                            BiayaLayanan = 75;                            
+
+                        } else if ((AlamatPenerima.equals("Jakarta") && AlamatPengirim.equals("Malang")) || (AlamatPenerima.equals("Malang") && AlamatPengirim.equals("Jakarta"))) {
+
+                            Jarak = 850;
+
+                        } else if (AlamatPenerima.equals("Bandung") && AlamatPengirim.equals("Malang") || (AlamatPenerima.equals("Malang") && AlamatPengirim.equals("Bandung"))) {
+
+                            Jarak = 700;
+
+                        } else if (AlamatPenerima.equals("Surabaya") && AlamatPengirim.equals("Malang") || (AlamatPenerima.equals("Malang") && AlamatPengirim.equals("Surabaya"))) {
+
+                            Jarak = 40;
+
+                        } else if ((AlamatPenerima.equals("Jakarta") && AlamatPengirim.equals("Bandung")) || (AlamatPenerima.equals("Bandung") && AlamatPengirim.equals("Jakarta"))) {
+
+                            Jarak = 150;
+
+                        } else if ((AlamatPenerima.equals("Jakarta") && AlamatPengirim.equals("Surabaya")) || (AlamatPenerima.equals("Surabaya") && AlamatPengirim.equals("Jakarta"))) {
+
+                            Jarak = 800;
+
+                        }  else if ((AlamatPenerima.equals("Bandung") && AlamatPengirim.equals("Surabaya")) || (AlamatPenerima.equals("Surabaya") && AlamatPengirim.equals("Bandung"))) {
+
+                            Jarak = 750;
+
+                        }
+                        
+                        TotalBiaya = (int) (Jarak * BiayaLayanan + BeratBarang*5000);
+
+                        System.out.println("________________________________________________");
                         System.out.println("Jumlah Biaya              : " + TotalBiaya + ("\n"));
                         System.out.println("\n=================== Payment ====================");
                         System.out.println("|                                              |");
@@ -168,8 +203,120 @@ public class Main {
                         System.out.println("================= Pos Indonesia ================\n");
                         break;
                     case 3:
-                        System.out.println("Laporan Keuangan Menyusul, hehehehehehehehe");
+
+                        System.out.println("\n============ Financial Statements =============");
+                        System.out.println("|                                              |");
+                        System.out.println("|           Select Financial Reports           |");
+                        System.out.println("|                                              |");
+                        System.out.println("|         1. Daily                             |");
+                        System.out.println("|         2. Mountly                           |");
+                        System.out.println("|                                              |\n");
+                        System.out.println("============= Masukkan Pilihan Anda ============");
+                        PilihanLaporan = inputPilihan.nextInt();
+
+                        if (PilihanLaporan == 1) {
+                            
+                            System.out.println("\n============ Financial Statements =============");
+                            System.out.println("|                                              |");
+                            System.out.println("|                  Select Day                  |");
+                            System.out.println("|                                              |");
+                            System.out.println("|         1. Sunday                            |");
+                            System.out.println("|         2. Monday                            |");
+                            System.out.println("|         3. Tuesday                           |");
+                            System.out.println("|         4. Wednesday                         |");
+                            System.out.println("|         5. Thursday                          |");
+                            System.out.println("|         6. Friday                            |");
+                            System.out.println("|         7. Saturday                          |");
+                            System.out.println("|                                              |\n");
+                            System.out.println("============= Masukkan Pilihan Anda ============");
+                            PilihanHarian = inputPilihan.nextInt();
+
+                                if (PilihanHarian == 1) {
+                                    System.out.println("\n=================== Sunday ====================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                    Income                    |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                Rp. 000.000.000               |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+                                } else if (PilihanHarian == 2) {
+                                    System.out.println("\n=================== Monday ====================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                    Income                    |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                Rp. 000.000.000               |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+                                } else if (PilihanHarian == 3) {
+                                    System.out.println("\n================== Tuesday ====================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                    Income                    |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                Rp. 000.000.000               |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+                                } else if (PilihanHarian == 4) {
+                                    System.out.println("\n================= Wednesday ===================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                    Income                    |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                Rp. 000.000.000               |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+                                } else if (PilihanHarian == 2) {
+                                    System.out.println("\n================== Thursday ===================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                    Income                    |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                Rp. 000.000.000               |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+                                } else if (PilihanHarian == 4) {
+                                    System.out.println("\n=================== Friday ====================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                    Income                    |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                Rp. 000.000.000               |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+                                } else if (PilihanHarian == 2) {
+                                    System.out.println("\n================== Saturday ===================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                    Income                    |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                Rp. 000.000.000               |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+                                }
+
+
+
+
+                        } else if (PilihanLaporan == 2) {
+                            
+                            System.out.println("\n============ Financial Statements =============");
+                            System.out.println("|                                              |");
+                            System.out.println("|                   Select Mount               |");
+                            System.out.println("|                                              |");
+                            System.out.println("|         1. January                           |");
+                            System.out.println("|         2. February                          |");
+                            System.out.println("|         3. March                             |");
+                            System.out.println("|         4. April                             |");
+                            System.out.println("|         5. May                               |");
+                            System.out.println("|         6. June                              |");
+                            System.out.println("|         7. July                              |");
+                            System.out.println("|         8. August                            |");
+                            System.out.println("|         9. September                         |");
+                            System.out.println("|         10. October                          |");
+                            System.out.println("|         11. November                         |");
+                            System.out.println("|         12. December                         |");
+                            System.out.println("|                                              |\n");
+                            System.out.println("============= Masukkan Pilihan Anda ============");
+
+                        }
+
                         break;
+
                     default:
                         System.out.println("Masukkan Pilihan Yang Benar");
                         break;
