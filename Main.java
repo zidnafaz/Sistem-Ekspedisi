@@ -4,7 +4,25 @@ public class Main {
     public static void main(String[] args) {
         Scanner inputPilihan = new Scanner(System.in);
 
-        int pilihan;
+        String 
+        NamaPengirim, AlamatPengirim,
+        NamaPenerima, AlamatPenerima,
+        JenisBarang, TanggalPengiriman,
+        JenisLayanan, usernameAdmin,
+        passwordAdmin, UpdateLokasi,
+        usernameUser, passwordUser;
+                
+        long
+        NomorTeleponPengirim, NomorTeleponPenerima;
+
+        int 
+        KodePos, Jarak,
+        TotalBiaya, NomorResi,
+        pilihan, PilihanAdmin,
+        NomorResiUpadate, PilihanPayment;
+                
+        double
+        BeratBarang ;
 
         System.out.println("\n========== Welcome to Pos Indonesia ==========");
         System.out.println("|                                              |");
@@ -20,8 +38,6 @@ public class Main {
             case 1:
                 Scanner inputLoginAdmin = new Scanner(System.in);
 
-                String usernameAdmin, passwordAdmin;
-
                 System.out.println("\n============== Login Admin ==============\n");
                 System.out.print("Masukkan Username   = ");
                 usernameAdmin = inputLoginAdmin.next();
@@ -34,8 +50,6 @@ public class Main {
                 } else {
                     System.out.println("Failed Login Please Try Again or Create Account via Admin\n");
                 }
-
-                int PilihanAdmin, PilihanPayment;
 
                 System.out.println("\n================= Pos Indonesia ================");
                 System.out.println("|                                              |");
@@ -52,31 +66,14 @@ public class Main {
                 switch (PilihanAdmin) {
                     case 1:
                         Scanner inputDataPengiriman = new Scanner(System.in);
-                        Scanner inputPilihanAdmin = new Scanner(System.in);
+                
+                        /*Tarif Jarak ( \ km = 50)
 
-                        String 
-                        NamaPengirim, AlamatPengirim,
-                        NamaPenerima, AlamatPenerima,
-                        JenisBarang, TanggalPengiriman,
-                        JenisLayanan;
-                
-                        long NomorTeleponPengirim, NomorTeleponPenerima;
-                
-                        int 
-                        KodePos, Jarak,
-                        TotalBiaya,
-                        NomorResi;
-                
-                        double
-                        BeratBarang ; 
+                        / Malang - Bandung = 700km
+                        / Malang - Jakarta = 800km
+                        / Malang - Surabaya = 40km
                         
-                
-                        //Tarif Jarak ( \ km = 50)
-                        // Malang - Bandung = 700km
-                        // Malang - Jakarta = 800km
-                        // Malang - Surabaya = 40km
-                        
-                        // Tarif Berat ( \ kg = 5000)
+                        Tarif Berat ( \ kg = 5000) */
                 
                         System.out.println("\n========== Informasi Pengiriman ==========");
                         System.out.print("\nNama Pengirim             : ");
@@ -119,7 +116,7 @@ public class Main {
                         System.out.println("|         2. Undone                            |");
                         System.out.println("|                                              |\n");
                         System.out.println("============= Masukkan Pilihan Anda ============");
-                        PilihanPayment = inputPilihanAdmin.nextInt();
+                        PilihanPayment = inputPilihan.nextInt();
 
                         if (PilihanPayment == 1) {
                             
@@ -150,8 +147,6 @@ public class Main {
                         break;
                     case 2:
                         Scanner inputLokasiPaket = new Scanner(System.in);
-                        int NomorResiUpadate;
-                        String UpdateLokasi;
 
                         System.out.println("\n================= Pos Indonesia ================");
                         System.out.println("|                                              |");
@@ -182,8 +177,6 @@ public class Main {
                 break;
             case 2:
                 Scanner inputLoginUser = new Scanner(System.in);
-
-                String usernameUser, passwordUser;
 
                 System.out.println("\n=============== Login User ===============\n");
                 System.out.print("Masukkan Username   = ");
