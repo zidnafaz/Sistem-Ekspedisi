@@ -120,6 +120,8 @@ public class Main {
                             NomorResi = inputDataPengiriman.nextInt();
                             System.out.print("Berat Barang              : ");
                             BeratBarang = inputDataPengiriman.nextDouble();
+
+                            //Perhitungan Layanan
                             
                             if (JenisLayanan.equals("Regular")) {
 
@@ -129,29 +131,65 @@ public class Main {
 
                                 BiayaLayanan = 75;                            
 
-                            } else if ((AlamatPenerima.equals("Jakarta") && AlamatPengirim.equals("Malang")) || (AlamatPenerima.equals("Malang") && AlamatPengirim.equals("Jakarta"))) {
+                            } else {
 
+                                System.out.println("Layanan Tidak Tersedia");
+                            
+                            }
+                            
+                            //Perhitungan Jarak
+                            
+                            if (AlamatPenerima.equals("Malang") && AlamatPengirim.equals("Jakarta")) {
+                                
                                 Jarak = 850;
 
-                            } else if (AlamatPenerima.equals("Bandung") && AlamatPengirim.equals("Malang") || (AlamatPenerima.equals("Malang") && AlamatPengirim.equals("Bandung"))) {
+                                if (AlamatPenerima.equals("Malang") && AlamatPengirim.equals("Bandung"))
 
                                 Jarak = 700;
 
-                            } else if (AlamatPenerima.equals("Surabaya") && AlamatPengirim.equals("Malang") || (AlamatPenerima.equals("Malang") && AlamatPengirim.equals("Surabaya"))) {
+                                else if (AlamatPenerima.equals("Malang") && AlamatPengirim.equals("Surabaya"))
 
                                 Jarak = 40;
 
-                            } else if ((AlamatPenerima.equals("Jakarta") && AlamatPengirim.equals("Bandung")) || (AlamatPenerima.equals("Bandung") && AlamatPengirim.equals("Jakarta"))) {
+                            } else if ((AlamatPenerima.equals("Jakarta") && AlamatPengirim.equals("Malang"))) {
+
+                                Jarak = 850;
+
+                                if ((AlamatPenerima.equals("Jakarta") && AlamatPengirim.equals("Bandung")))
 
                                 Jarak = 150;
-
-                            } else if ((AlamatPenerima.equals("Jakarta") && AlamatPengirim.equals("Surabaya")) || (AlamatPenerima.equals("Surabaya") && AlamatPengirim.equals("Jakarta"))) {
+                                
+                                else if ((AlamatPenerima.equals("Jakarta") && AlamatPengirim.equals("Surabaya")))
 
                                 Jarak = 800;
 
-                            }  else if ((AlamatPenerima.equals("Bandung") && AlamatPengirim.equals("Surabaya")) || (AlamatPenerima.equals("Surabaya") && AlamatPengirim.equals("Bandung"))) {
+                            } else if (AlamatPenerima.equals("Bandung") && AlamatPengirim.equals("Malang")) {
+
+                                Jarak = 700;
+
+                                if ((AlamatPenerima.equals("Bandung") && AlamatPengirim.equals("Surabaya")))
 
                                 Jarak = 750;
+
+                                else if (AlamatPenerima.equals("Bandung") && AlamatPengirim.equals("Jakarta"))
+
+                                Jarak = 150;
+
+                            } else if (AlamatPenerima.equals("Surabaya") && AlamatPengirim.equals("Malang")) {
+
+                                Jarak = 40;
+
+                                if (AlamatPenerima.equals("Surabaya") && AlamatPengirim.equals("Jakarta"))
+
+                                Jarak = 800;
+
+                                else if (AlamatPenerima.equals("Surabaya") && AlamatPengirim.equals("Bandung"))
+
+                                Jarak = 750;
+
+                            } else {
+
+                                System.out.println("Pengiriman tidak tersedia pada kota tersebut");
 
                             }
                             
