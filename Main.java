@@ -270,7 +270,7 @@ public class Main {
                             System.out.println("|                                              |\n");
                             System.out.println("============= Masukkan Pilihan Anda ============");
                             PilihanLaporan = inputPilihan.nextInt();
-
+// LaporanKeuangan
                             if (PilihanLaporan == 1) {
 
                                 System.out.println("\n============ Financial Statements =============");
@@ -320,7 +320,7 @@ public class Main {
                                     System.out.println("|                Rp. 000.000.000               |");
                                     System.out.println("|                                              |");
                                     System.out.println("================= Pos Indonesia ================\n");
-                                } else if (PilihanHarian == 2) {
+                                } else if (PilihanHarian == 5) {
                                     System.out.println("\n================== Thursday ===================");
                                     System.out.println("|                                              |");
                                     System.out.println("|                    Income                    |");
@@ -328,7 +328,7 @@ public class Main {
                                     System.out.println("|                Rp. 000.000.000               |");
                                     System.out.println("|                                              |");
                                     System.out.println("================= Pos Indonesia ================\n");
-                                } else if (PilihanHarian == 4) {
+                                } else if (PilihanHarian == 6) {
                                     System.out.println("\n=================== Friday ====================");
                                     System.out.println("|                                              |");
                                     System.out.println("|                    Income                    |");
@@ -336,7 +336,7 @@ public class Main {
                                     System.out.println("|                Rp. 000.000.000               |");
                                     System.out.println("|                                              |");
                                     System.out.println("================= Pos Indonesia ================\n");
-                                } else if (PilihanHarian == 2) {
+                                } else if (PilihanHarian == 7) {
                                     System.out.println("\n================== Saturday ===================");
                                     System.out.println("|                                              |");
                                     System.out.println("|                    Income                    |");
@@ -366,6 +366,113 @@ public class Main {
                                 System.out.println("|         12. December                         |");
                                 System.out.println("|                                              |\n");
                                 System.out.println("============= Masukkan Pilihan Anda ============");
+                                PilihanBulanan = inputPilihan.nextInt();
+
+                                if (PilihanBulanan == 1) {
+                                    System.out.println("\n=================== January ====================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                    Income                    |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                Rp. 000.000.000               |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+                                } else if (PilihanBulanan == 2) {
+                                    System.out.println("\n=================== February ====================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                    Income                    |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                Rp. 000.000.000               |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+                                } else if (PilihanBulanan == 3) {
+                                    System.out.println("\n================== March ====================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                    Income                    |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                Rp. 000.000.000               |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+                                } else if (PilihanBulanan == 4) {
+                                    System.out.println("\n================= April ===================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                    Income                    |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                Rp. 000.000.000               |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+                                } else if (PilihanBulanan == 5) {
+                                    System.out.println("\n================== May ===================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                    Income                    |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                Rp. 000.000.000               |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+                                } else if (PilihanBulanan == 6) {
+                                    System.out.println("\n=================== June ====================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                    Income                    |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                Rp. 000.000.000               |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+                                } else if (PilihanBulanan == 7) {
+                                    System.out.println("\n================== July ===================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                    Income                    |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                Rp. 000.000.000               |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+                                } else if (PilihanBulanan == 8) {
+                                    System.out.println("\n=================== August ====================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                    Income                    |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                Rp. 000.000.000               |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+                                } else if (PilihanBulanan == 9) {
+                                    System.out.println("\n=================== September ====================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                    Income                    |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                Rp. 000.000.000               |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+                                } else if (PilihanBulanan == 10) {
+                                    System.out.println("\n================== October ====================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                    Income                    |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                Rp. 000.000.000               |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+                                } else if (PilihanBulanan == 11) {
+                                    System.out.println("\n================= November ===================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                    Income                    |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                Rp. 000.000.000               |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+                                } else if (PilihanBulanan == 12) {
+                                    System.out.println("\n================== Desember ===================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                    Income                    |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|                Rp. 000.000.000               |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+                                } else {
+                                    
+                                    System.out.println("\n=================== Sorry =====================");
+                                    System.out.println("|                                              |");
+                                    System.out.println("|       Please Insert The Right Options        |");
+                                    System.out.println("|                                              |");
+                                    System.out.println("================= Pos Indonesia ================\n");
+
+                                }
 
                             }
 
