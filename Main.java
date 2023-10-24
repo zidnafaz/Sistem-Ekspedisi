@@ -7,31 +7,34 @@ public class Main {
         Scanner inputLoginUser = new Scanner(System.in);
 
         String usernameAdmin, passwordAdmin, // Login Admin
-
-                NamaPengirim, AlamatPengirim, // Data Pengiriman
-                NamaPenerima, AlamatPenerima,
-                JenisBarang, TanggalPengiriman,
-                JenisLayanan,
-
+                
                 UpdateLokasi, // Menu Admin
 
                 usernameUser, passwordUser; // Login User
 
-        long NomorTeleponPengirim, NomorTeleponPenerima; // Data Pengiriman
-
         int maxLoginAttempts = 3, // Login
-
-                KodePos, Jarak = 0, // Data Pengiriman
-                TotalBiaya, NomorResi,
 
                 pilihan, PilihanAdmin, // Menu Admin
                 NomorResiUpadate, PilihanPayment,
-                BiayaLayanan = 0, PilihanLaporan,
+                PilihanLaporan,
                 PilihanBulanan, PilihanHarian;
 
         boolean Login = false; // Login
 
-        double BeratBarang; // Data Pengiriman
+        String[] NamaPengirim = new String[1];
+        long[] NomorTeleponPengirim = new long[1];
+        String[] AlamatPengirim = new String[1];
+        String[] TanggalPengiriman = new String[1];
+        String[] NamaPenerima = new String[1];
+        long[] NomorTeleponPenerima = new long[1];
+        String[] AlamatPenerima = new String[1];
+        int[] KodePos = new int[1];
+        String[] JenisLayanan = new String[1];
+        String[] JenisBarang = new String[1];
+        int[] NomorResi = new int[1];
+        double[] BeratBarang = new double[1];
+
+        int Jarak = 0, BiayaLayanan = 0, TotalBiaya;
 
         System.out.println("\n========== Welcome to Pos Indonesia ==========");
         System.out.println("|                                              |");
@@ -72,7 +75,7 @@ public class Main {
                     System.out.println("|                                              |");
                     System.out.println("|         1. Input Paket Baru                  |");
                     System.out.println("|         2. Input Lokasi Paket                |");
-                    System.out.println("|         3. Laporan Keuangan                 |");
+                    System.out.println("|         3. Laporan Keuangan                  |");
                     System.out.println("|                                              |\n");
                     System.out.println("============= Masukkan Pilihan Anda ============");
 
@@ -92,39 +95,39 @@ public class Main {
                              * Tarif Berat ( \ kg = 5000)
                              */
 
-                            System.out.println("\n============= Informasi Pengiriman =============");
-                            System.out.print("\nNama Pengirim             : ");
-                            NamaPengirim = inputDataPengiriman.next();
-                            System.out.print("Nomor Telepon Pengirim    : ");
-                            NomorTeleponPengirim = inputDataPengiriman.nextLong();
-                            System.out.print("Alamat Pengirim           : ");
-                            AlamatPengirim = inputDataPengiriman.next();
-                            System.out.print("Tanggal Pengiriman        : ");
-                            TanggalPengiriman = inputDataPengiriman.next();
-                            System.out.print("Nama Penerima             : ");
-                            NamaPenerima = inputDataPengiriman.next();
-                            System.out.print("Nomor Telepon Penerima    : ");
-                            NomorTeleponPenerima = inputDataPengiriman.nextLong();
-                            System.out.print("Alamat Penerima           : ");
-                            AlamatPenerima = inputDataPengiriman.next();
-                            System.out.print("Kode Pos                  : ");
-                            KodePos = inputDataPengiriman.nextInt();
-                            System.out.print("Jenis Layanan             : ");
-                            JenisLayanan = inputDataPengiriman.next();
-                            System.out.print("Jenis Barang              : ");
-                            JenisBarang = inputDataPengiriman.next();
-                            System.out.print("Nomor Resi                : ");
-                            NomorResi = inputDataPengiriman.nextInt();
-                            System.out.print("Berat Barang              : ");
-                            BeratBarang = inputDataPengiriman.nextDouble();
+                             System.out.println("\n============= Informasi Pengiriman =============");
+                             System.out.print("\nNama Pengirim             : ");
+                             NamaPengirim[0] = inputDataPengiriman.next();
+                             System.out.print("Nomor Telepon Pengirim    : ");
+                             NomorTeleponPengirim[0] = inputDataPengiriman.nextLong();
+                             System.out.print("Alamat Pengirim           : ");
+                             AlamatPengirim[0] = inputDataPengiriman.next();
+                             System.out.print("Tanggal Pengiriman        : ");
+                             TanggalPengiriman[0] = inputDataPengiriman.next();
+                             System.out.print("Nama Penerima             : ");
+                             NamaPenerima[0] = inputDataPengiriman.next();
+                             System.out.print("Nomor Telepon Penerima    : ");
+                             NomorTeleponPenerima[0] = inputDataPengiriman.nextLong();
+                             System.out.print("Alamat Penerima           : ");
+                             AlamatPenerima[0] = inputDataPengiriman.next();
+                             System.out.print("Kode Pos                  : ");
+                             KodePos[0] = inputDataPengiriman.nextInt();
+                             System.out.print("Jenis Layanan             : ");
+                             JenisLayanan[0] = inputDataPengiriman.next();
+                             System.out.print("Jenis Barang              : ");
+                             JenisBarang[0] = inputDataPengiriman.next();
+                             System.out.print("Nomor Resi                : ");
+                             NomorResi[0] = inputDataPengiriman.nextInt();
+                             System.out.print("Berat Barang (in kg)      : ");
+                             BeratBarang[0] = inputDataPengiriman.nextDouble();
 
                             // Perhitungan Layanan
 
-                            if (JenisLayanan.equals("Regular")) {
+                            if (JenisLayanan[0].equals("Regular")) {
 
                                 BiayaLayanan = 50;
 
-                            } else if (JenisLayanan.equals("Ekspress")) {
+                            } else if (JenisLayanan[0].equals("Ekspress")) {
 
                                 BiayaLayanan = 75;
 
@@ -134,68 +137,54 @@ public class Main {
 
                             }
 
-                            // Perhitungan Jarak
-
-                            if (AlamatPenerima.equals("Malang") && AlamatPengirim.equals("Jakarta")) {
-
+                            if (AlamatPenerima[0].equals("Malang") && AlamatPengirim[0].equals("Jakarta")) {
                                 Jarak = 850;
-
-                                if (AlamatPenerima.equals("Malang") && AlamatPengirim.equals("Bandung"))
-
-                                    Jarak = 700;
-
-                                else if (AlamatPenerima.equals("Malang") && AlamatPengirim.equals("Surabaya"))
-
-                                    Jarak = 40;
-
-                            } else if ((AlamatPenerima.equals("Jakarta") && AlamatPengirim.equals("Malang"))) {
-
-                                Jarak = 850;
-
-                                if ((AlamatPenerima.equals("Jakarta") && AlamatPengirim.equals("Bandung")))
-
-                                    Jarak = 150;
-
-                                else if ((AlamatPenerima.equals("Jakarta") && AlamatPengirim.equals("Surabaya")))
-
-                                    Jarak = 800;
-
-                            } else if (AlamatPenerima.equals("Bandung") && AlamatPengirim.equals("Malang")) {
-
+                            } else if (AlamatPenerima[0].equals("Malang") && AlamatPengirim[0].equals("Bandung")) {
                                 Jarak = 700;
-
-                                if ((AlamatPenerima.equals("Bandung") && AlamatPengirim.equals("Surabaya")))
-
-                                    Jarak = 750;
-
-                                else if (AlamatPenerima.equals("Bandung") && AlamatPengirim.equals("Jakarta"))
-
-                                    Jarak = 150;
-
-                            } else if (AlamatPenerima.equals("Surabaya") && AlamatPengirim.equals("Malang")) {
-
+                            } else if (AlamatPenerima[0].equals("Malang") && AlamatPengirim[0].equals("Surabaya")) {
                                 Jarak = 40;
-
-                                if (AlamatPenerima.equals("Surabaya") && AlamatPengirim.equals("Jakarta"))
-
-                                    Jarak = 800;
-
-                                else if (AlamatPenerima.equals("Surabaya") && AlamatPengirim.equals("Bandung"))
-
-                                    Jarak = 750;
-
+                            } else if (AlamatPenerima[0].equals("Jakarta") && AlamatPengirim[0].equals("Malang")) {
+                                Jarak = 850;
+                            } else if (AlamatPenerima[0].equals("Jakarta") && AlamatPengirim[0].equals("Bandung")) {
+                                Jarak = 150;
+                            } else if (AlamatPenerima[0].equals("Jakarta") && AlamatPengirim[0].equals("Surabaya")) {
+                                Jarak = 800;
+                            } else if (AlamatPenerima[0].equals("Bandung") && AlamatPengirim[0].equals("Malang")) {
+                                Jarak = 700;
+                            } else if (AlamatPenerima[0].equals("Bandung") && AlamatPengirim[0].equals("Surabaya")) {
+                                Jarak = 750;
+                            } else if (AlamatPenerima[0].equals("Bandung") && AlamatPengirim[0].equals("Jakarta")) {
+                                Jarak = 150;
+                            } else if (AlamatPenerima[0].equals("Surabaya") && AlamatPengirim[0].equals("Malang")) {
+                                Jarak = 40;
+                            } else if (AlamatPenerima[0].equals("Surabaya") && AlamatPengirim[0].equals("Jakarta")) {
+                                Jarak = 800;
+                            } else if (AlamatPenerima[0].equals("Surabaya") && AlamatPengirim[0].equals("Bandung")) {
+                                Jarak = 750;
                             } else {
-
                                 System.out.println("Pengiriman tidak tersedia pada kota tersebut");
-
                             }
 
-                            TotalBiaya = (int) (Jarak * BiayaLayanan + BeratBarang * 5000);
+
+                            TotalBiaya = (int) (Jarak * BiayaLayanan + BeratBarang[0] * 5000);
 
                             boolean payment;
                             while (payment = true) {
+                                System.out.println("\n============= Resi Pengiriman =============");
+                                System.out.println("Nama Pengirim             : " + NamaPengirim[0]);
+                                System.out.println("Nomor Telepon Pengirim    : " + NomorTeleponPengirim[0]);
+                                System.out.println("Alamat Pengirim           : " + AlamatPengirim[0]);
+                                System.out.println("Tanggal Pengiriman        : " + TanggalPengiriman[0]);
+                                System.out.println("Nama Penerima             : " + NamaPenerima[0]);
+                                System.out.println("Nomor Telepon Penerima    : " + NomorTeleponPenerima[0]);
+                                System.out.println("Alamat Penerima           : " + AlamatPenerima[0]);
+                                System.out.println("Kode Pos                  : " + KodePos[0]);
+                                System.out.println("Jenis Layanan             : " + JenisLayanan[0]);
+                                System.out.println("Jenis Barang              : " + JenisBarang[0]);
+                                System.out.println("Nomor Resi                : " + NomorResi[0]);
+                                System.out.println("Berat Barang (in kg)      : " + BeratBarang[0]);
                                 System.out.println("________________________________________________");
-                                System.out.println("Jumlah Biaya              : " + TotalBiaya + ("\n"));
+                                System.out.println("Total Biaya               : Rp." + TotalBiaya);
                                 System.out.println("=================== Payment ====================");
                                 System.out.println("|                                              |");
                                 System.out.println("|           Make Sure That Customer            |");
@@ -234,6 +223,7 @@ public class Main {
 
                                 }
                             }
+
                             break;
 
                         case 2:
