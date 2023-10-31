@@ -315,18 +315,110 @@ public class Main_Demo2 {
                                     login = false;
                                     return;
                                 default:
+                                    System.out.println("Masukkan Pilihan Yang Benar");
                                     break;
                             }
+                        } else {
+                            break;
                         }
                     }
-                    // break;
+                    break;
 
                 case 2:
+                    for (int loginAttempt = 1; loginAttempt <= maxLoginAttempts; loginAttempt++) {
+
+                        System.out.println(header);
+                        System.out.println("                LOGIN USER");
+                        System.out.println(header);
+                        System.out.print("Masukkan Username   = ");
+                        usernameUser = inputLogin.next();
+                        System.out.print("Masukkan Password   = ");
+                        passwordUser = inputLogin.next();
+                        System.out.println(header);
+
+                        if (usernameUser.equals("User1") && passwordUser.equals("IniAdmin1")) {
+                            System.out.println("Login Successfully\n");
+                            login = true;
+                            break;
+                        } else if (loginAttempt >= 3) {
+                            System.out.println("Melebihi Maksimal Login Anda Akan Kembali Ke Menu Awal\n");
+                        } else {
+                            System.out.println("Login Gagal Silahkan Coba lagi atau Hubungi Admin\n");
+                        }
+                    }
+
+                    while (true) {
+                        if (login) {
+                            System.out.println(header);
+                            System.out.println("              HELLO USER");
+                            System.out.println(header);
+                            System.out.println("1. Cek Paket");
+                            System.out.println("2. Kembali");
+                            System.out.println("            Masukkan Pilihan");
+                            System.out.println(header);
+                            pilihan = inputPilihan.nextInt();
+
+                            switch (pilihan) {
+                                case 1:
+                                    boolean cekPaket = true;
+
+                                    while (cekPaket) {
+                                        System.out.print("Silahkan Masukkan Nomor Resi : ");
+                                        String cariNomorResi = inputPilihan.next();
+
+                                        if (cariNomorResi.equals(nomorResi[0])) {
+                                            System.out.println("Lokasi Paket            : " + lokasiPaket[0]);
+                                            System.out.println("Nama Pengirim             : " + NamaPengirim[0]);
+                                            System.out
+                                                    .println("Nomor Telepon Pengirim    : " + NomorTeleponPengirim[0]);
+                                            System.out.println("Alamat Pengirim           : " + AlamatPengirim[0]);
+                                            System.out.println("Tanggal Pengiriman        : " + TanggalPengiriman[0]);
+                                            System.out.println("Nama Penerima             : " + NamaPenerima[0]);
+                                            System.out
+                                                    .println("Nomor Telepon Penerima    : " + NomorTeleponPenerima[0]);
+                                            System.out.println("Alamat Penerima           : " + AlamatPenerima[0]);
+                                            System.out.println("Kode Pos                  : " + KodePos[0]);
+                                            System.out.println("Jenis Layanan             : " + JenisLayanan[0]);
+                                            System.out.println("Jenis Barang              : " + JenisBarang[0]);
+                                            System.out.println("Berat Barang (in kg)      : " + BeratBarang[0]);
+                                            cekPaket = false;
+                                        } else {
+                                            System.out.println("Nomor Resi Tidak Ditemukan");
+                                            System.out.println("Cek Lagi? (Y/N)");
+                                            pilihaString = inputPilihan.next();
+
+                                            if (pilihaString.equalsIgnoreCase("y")) {
+                                                cekPaket = true;
+                                            } else if (pilihaString.equalsIgnoreCase("n")) {
+                                                cekPaket = false;
+                                            }
+                                        }
+                                    }
+                                    break;
+                                case 2:
+                                    System.out.println(header);
+                                    System.out.println("    THANK YOU - POS INDONESIA");
+                                    System.out.println(header);
+                                    login = false;
+                                    break;
+                                default:
+                                    System.out.println("Masukkan Pilihan Yang Benar");
+                                    break;
+                            }
+                        } else {
+                            break;
+                        }
+                        break;
+                    }
                     break;
                 case 3:
+                    System.out.println(header);
+                    System.out.println("       THANK YOU - POS INDONESIA");
+                    System.out.println(header);
                     menuLogin = false;
                     break;
                 default:
+                    System.out.println("Masukkan Pilihan Yang Benar");
                     break;
             }
         }
