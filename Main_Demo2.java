@@ -14,6 +14,8 @@ public class Main_Demo2 {
         String pilihaString;
 
         // Login
+        String usernameDanPassword[][] = new String[][] {{"Admin1", "User1"},
+                                                        {"IniAdmin1", "IniUser1"}};
         String usernameAdmin = "", passwordAdmin, usernameUser, passwordUser;
         int maxLoginAttempts = 3;
         boolean login = false;
@@ -66,7 +68,7 @@ public class Main_Demo2 {
                         passwordAdmin = inputLogin.next();
                         System.out.println(header);
 
-                        if (usernameAdmin.equals("Admin1") && passwordAdmin.equals("IniAdmin1")) {
+                        if (usernameDanPassword[0][0].equals(usernameAdmin) && usernameDanPassword[0][1].equals(passwordAdmin)) {
                             System.out.println("Login Successfully\n");
                             login = true;
                             break;
@@ -337,7 +339,7 @@ public class Main_Demo2 {
                         passwordUser = inputLogin.next();
                         System.out.println(header);
 
-                        if (usernameUser.equals("User1") && passwordUser.equals("IniAdmin1")) {
+                        if (usernameDanPassword[1][0].equals(usernameUser) && usernameDanPassword[1][1].equals(passwordUser)) {
                             System.out.println("Login Successfully\n");
                             login = true;
                             break;
