@@ -19,6 +19,7 @@ public class Main_Demo2 {
         boolean login = false;
 
         // Data Pengiriman
+        // String[][] dataPengiriman = new String[][];
         String[] lokasiPaket = new String[1];
         String[] NamaPengirim = new String[1];
         long[] NomorTeleponPengirim = new long[1];
