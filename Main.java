@@ -207,11 +207,10 @@ public class Main {
 
                                         TotalBiaya = (int) (Jarak * BiayaLayanan + BeratBarang * 5000);
 
-                                        dataPengiriman[dataBaru] = NamaPengirim + "," + AlamatPengirim + ","
-                                                + NamaPenerima + "," +
-                                                "," + AlamatPenerima + "," +
-                                                "," + JenisBarang + "," + TanggalPengiriman +
-                                                "," + JenisLayanan;
+                                        dataPengiriman[dataBaru] = NamaPengirim + "," + AlamatPengirim + "," +
+                                                NamaPenerima + "," + AlamatPenerima + "," +
+                                                JenisBarang + "," + TanggalPengiriman + "," +
+                                                JenisLayanan;
                                         maximalData++;
 
                                         System.out.println("\nData Berhasil Ditambahkan");
