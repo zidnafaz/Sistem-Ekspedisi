@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class Main_Demo2 {
+public class DemoPresentasi {
     public static void main(String[] args) {
         Scanner inputPilihan = new Scanner(System.in);
         Scanner inputLogin = new Scanner(System.in);
@@ -21,19 +21,16 @@ public class Main_Demo2 {
         boolean login = false;
 
         // Data Pengiriman
-        String[] lokasiPaket = new String[10];
-        String[] NamaPengirim = new String[10];
-        long[] NomorTeleponPengirim = new long[10];
-        String[] AlamatPengirim = new String[10];
-        String[] TanggalPengiriman = new String[10];
-        String[] NamaPenerima = new String[10];
-        long[] NomorTeleponPenerima = new long[10];
-        String[] AlamatPenerima = new String[10];
-        int[] KodePos = new int[10];
-        String[] JenisLayanan = new String[10];
-        String[] JenisBarang = new String[10];
-        double[] BeratBarang = new double[10];
-        String[] nomorResi = new String[10];
+        String dataPengiriman[][] = new String[50][20];
+
+        String lokasiPaket, NamaPengirim, AlamatPengirim, TanggalPengiriman, NamaPenerima, AlamatPenerima, JenisBarang,
+                nomorResi;
+
+        long NomorTeleponPengirim, NomorTeleponPenerima;
+
+        int KodePos, JenisLayanan;
+
+        double BeratBarang;
 
         // Perhitungan Jarak dan Layanan
         int Jarak = 0, BiayaLayanan = 0, TotalBiaya = 0;
@@ -74,6 +71,7 @@ public class Main_Demo2 {
                             break;
                         } else if (loginAttempt >= 3) {
                             System.out.println("Melebihi Maksimal Login Anda Akan Kembali Ke Menu Awal\n");
+                            login = false;
                         } else {
                             System.out.println("Login Gagal Silahkan Coba lagi atau Hubungi Admin\n");
                         }
@@ -96,78 +94,103 @@ public class Main_Demo2 {
                             switch (pilihan) {
                                 case 1:
 
-                                    for (int i = 0; i < 10; i++) {
-                                        System.out.print("\nNama Admin              : ");
-                                        usernameAdmin = inputDataPengiriman.next();
+                                    for (int i = 0; i < 50; i++) {
+                                        // dataPengiriman[dataBaru] = new String[20];
+                                        System.out.println("Nama Admin              : " + usernameDanPassword[0][0]);
+                                        System.out.print("Nomor Urut              : ");
+                                        dataBaru = inputDataPengiriman.nextInt();
+                                        dataPengiriman[dataBaru][0] = String.valueOf(dataBaru);
 
                                         System.out.print("Lokasi Agen             : ");
-                                        lokasiPaket[i] = inputDataPengiriman.next();
+                                        lokasiPaket = inputDataPengiriman.next();
+                                        dataPengiriman[dataBaru][1] = lokasiPaket;
 
-                                        System.out.print("\nNama Pengirim           : ");
-                                        NamaPengirim[i] = inputDataPengiriman.next();
+                                        System.out.print("Nama Pengirim           : ");
+                                        NamaPengirim = inputDataPengiriman.next();
+                                        dataPengiriman[dataBaru][2] = NamaPengirim;
 
                                         System.out.print("Nomor Telepon Pengirim  : ");
-                                        NomorTeleponPengirim[i] = inputDataPengiriman.nextLong();
+                                        NomorTeleponPengirim = inputDataPengiriman.nextLong();
+                                        dataPengiriman[dataBaru][3] = String.valueOf(NomorTeleponPengirim);
 
                                         System.out.print("Alamat Pengirim         : ");
-                                        AlamatPengirim[i] = inputDataPengiriman.next();
+                                        AlamatPengirim = inputDataPengiriman.next();
+                                        dataPengiriman[dataBaru][4] = AlamatPengirim;
 
                                         System.out.print("Tanggal Pengiriman      : ");
-                                        TanggalPengiriman[i] = inputDataPengiriman.next();
+                                        TanggalPengiriman = inputDataPengiriman.next();
+                                        dataPengiriman[dataBaru][5] = TanggalPengiriman;
 
                                         System.out.print("Nama Penerima           : ");
-                                        NamaPenerima[i] = inputDataPengiriman.next();
+                                        NamaPenerima = inputDataPengiriman.next();
+                                        dataPengiriman[dataBaru][6] = NamaPenerima;
 
                                         System.out.print("Nomor Telepon Penerima  : ");
-                                        NomorTeleponPenerima[i] = inputDataPengiriman.nextLong();
+                                        NomorTeleponPenerima = inputDataPengiriman.nextLong();
+                                        dataPengiriman[dataBaru][7] = String.valueOf(NomorTeleponPenerima);
 
                                         System.out.print("Alamat Penerima         : ");
-                                        AlamatPenerima[i] = inputDataPengiriman.next();
+                                        AlamatPenerima = inputDataPengiriman.next();
+                                        dataPengiriman[dataBaru][8] = AlamatPenerima;
 
                                         System.out.print("Kode Pos                : ");
-                                        KodePos[i] = inputDataPengiriman.nextInt();
+                                        KodePos = inputDataPengiriman.nextInt();
+                                        dataPengiriman[dataBaru][9] = String.valueOf(KodePos);
 
                                         System.out.println("\nPilihan layanan");
                                         System.out.println("1. Regular");
                                         System.out.println("2. Ekspress\n");
 
                                         System.out.print("Jenis Layanan           : ");
+                                        JenisLayanan = inputDataPengiriman.nextInt();
+
+                                        switch (JenisLayanan) {
+                                            case 1:
+                                                BiayaLayanan = 50;
+                                                dataPengiriman[dataBaru][10] = "Regular";
+                                                break;
+                                            case 2:
+                                                BiayaLayanan = 75;
+                                                dataPengiriman[dataBaru][10] = "Ekspress";
+                                                break;
+                                            default:
+                                                System.out.println("Layanan Tidak Tersedia. Masukkan Dengan Benar.\n");
+                                                break;
+                                        }
 
                                         System.out.print("Jenis Barang            : ");
-                                        JenisBarang[i] = inputDataPengiriman.next();
+                                        JenisBarang = inputDataPengiriman.next();
+                                        dataPengiriman[dataBaru][11] = JenisBarang;
 
                                         System.out.print("Berat Barang (kg)       : ");
-                                        BeratBarang[i] = inputDataPengiriman.nextDouble();
+                                        BeratBarang = inputDataPengiriman.nextDouble();
+                                        dataPengiriman[dataBaru][12] = String.valueOf(BeratBarang);
 
-                                        // Perhitungan Jarak
-                                        if ((AlamatPengirim[i].equalsIgnoreCase("Malang")
-                                                && AlamatPenerima[i].equalsIgnoreCase("Jakarta")) ||
-                                                (AlamatPengirim[i].equalsIgnoreCase("Jakarta")
-                                                        && AlamatPenerima[i].equalsIgnoreCase("Malang"))) {
+                                        if (dataPengiriman[dataBaru][4].equalsIgnoreCase("Malang")
+                                                && dataPengiriman[dataBaru][8].equalsIgnoreCase("Jakarta")) {
                                             Jarak = 850;
-                                        } else if ((AlamatPengirim[i].equalsIgnoreCase("Malang")
-                                                && AlamatPenerima[i].equalsIgnoreCase("Bandung")) ||
-                                                (AlamatPengirim[i].equalsIgnoreCase("Bandung")
-                                                        && AlamatPenerima[i].equalsIgnoreCase("Malang"))) {
+                                        } else if (dataPengiriman[dataBaru][4].equalsIgnoreCase("Malang")
+                                                && dataPengiriman[dataBaru][8].equalsIgnoreCase("Bandung")) {
                                             Jarak = 700;
-                                        } else if ((AlamatPengirim[i].equalsIgnoreCase("Malang")
-                                                && AlamatPenerima[i].equalsIgnoreCase("Surabaya")) ||
-                                                (AlamatPengirim[i].equalsIgnoreCase("Surabaya")
-                                                        && AlamatPenerima[i].equalsIgnoreCase("Malang"))) {
+                                        } else if (dataPengiriman[dataBaru][4].equalsIgnoreCase("Malang")
+                                                && dataPengiriman[dataBaru][8].equalsIgnoreCase("Surabaya")) {
                                             Jarak = 40;
                                         } else {
                                             System.out.println(
                                                     "Pengiriman tidak tersedia masukkan alamat dengan benar\n");
                                             System.out.print("Masukkan Alamat Pengirim : ");
-                                            AlamatPengirim[i] = inputDataPengiriman.next();
-                                            
+                                            AlamatPengirim = inputDataPengiriman.next();
+                                            dataPengiriman[dataBaru][4] = AlamatPengirim;
+
                                             System.out.print("Masukkan Alamat Penerima : ");
-                                            AlamatPenerima[i] = inputDataPengiriman.next();                                            
+                                            AlamatPenerima = inputDataPengiriman.next();
+                                            dataPengiriman[dataBaru][8] = AlamatPenerima;
                                         }
 
-                                        TotalBiaya = (int) (Jarak * BiayaLayanan + BeratBarang[i] * 5000);
+                                        TotalBiaya = (int) (Jarak * BiayaLayanan + BeratBarang * 5000);
+                                        dataPengiriman[dataBaru][13] = String.valueOf(TotalBiaya);
 
-                                        System.out.println("Total Biaya             : " + TotalBiaya);
+                                        System.out.println("Total Biaya             : " + dataPengiriman[dataBaru][13]);
 
                                         // // Memeriksa apakah ingin memasukkan data pengiriman lagi
                                         // System.out.println("Apakah ingin memasukkan data pengiriman lagi?
@@ -185,11 +208,13 @@ public class Main_Demo2 {
                                             LocalDate today = LocalDate.now();
                                             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMM");
                                             String tanggal = today.format(formatter);
-                                            nomorResi[i] = tanggal + Jarak + dataBaru;
+                                            nomorResi = tanggal + Jarak + dataPengiriman[dataBaru][0];
+                                            dataPengiriman[dataBaru][14] = (nomorResi);
 
                                             System.out.println(header);
-                                            System.out.println("Nomor Resi Anda adalah " + nomorResi[i]);
-                                            System.out.println("Total Biaya adalah Rp." + TotalBiaya);
+                                            System.out
+                                                    .println("Nomor Resi Anda adalah " + dataPengiriman[dataBaru][14]);
+                                            System.out.println("Total Biaya adalah Rp." + dataPengiriman[dataBaru][13]);
                                             System.out.println(header);
 
                                             System.out.println(header);
@@ -248,63 +273,100 @@ public class Main_Demo2 {
                                     System.out.println("Hello Admin, Silahkan Masukkan Lokasi Paket");
                                     System.out.println(header);
 
-                                    String cekResiString;
-                                    boolean cekResi = true;
-                                    while (cekResi) {
-                                        System.out.print("Masukkan Nomor Resi    : ");
-                                        cekResiString = inputDataPengiriman.next();
+                                    // String cekResiString;
+                                    boolean cekResi;
 
-                                        if (cekResiString.equals(nomorResi[0])) {
-                                            System.out.print("Input Lokasi Paket  : ");
-                                            lokasiPaket[0] = inputDataPengiriman.next();
-                                            cekResi = false;
-                                        } else {
-                                            System.out.println("Nomor Resi Tidak Ditemukan");
-                                            System.out.println("Cek Lagi? (Y/N)");
+                                    while (true) {
+                                        System.out.print("Masukkan Nomor Urut          : ");
+                                        int cariNomorUrut = inputPilihan.nextInt();
+                                        System.out.print("Silahkan Masukkan Nomor Resi : ");
+                                        String cariNomorResi = inputPilihan.next();
+
+                                        for (int i = 0; i < dataPengiriman.length;) {
+                                            if (dataPengiriman[cariNomorUrut][14].equals(cariNomorResi)) {
+                                                System.out.print("Input Lokasi Paket  : ");
+                                                lokasiPaket = inputDataPengiriman.next();
+                                                dataPengiriman[dataBaru][0] = lokasiPaket;
+                                                break;
+                                            } else {
+                                                System.out.println("Nomor Resi Tidak Ditemukan");
+                                            }
+
+                                            System.out.print("Cek Lagi? (Y/N)");
                                             pilihaString = inputPilihan.next();
 
                                             if (pilihaString.equalsIgnoreCase("y")) {
                                                 cekResi = true;
                                             } else if (pilihaString.equalsIgnoreCase("n")) {
-                                                cekResi = false;
+                                                break;
                                             }
+                                            break;
                                         }
+                                        break;
                                     }
                                     break;
                                 case 3:
-                                    boolean cekPaket = true;
+                                    boolean cekPaket;
 
-                                    while (cekPaket) {
+                                    while (true) {
+                                        System.out.print("Masukkan Nomor Urut          : ");
+                                        int cariNomorUrut = inputPilihan.nextInt();
                                         System.out.print("Silahkan Masukkan Nomor Resi : ");
                                         String cariNomorResi = inputPilihan.next();
 
-                                        if (cariNomorResi.equals(nomorResi[0])) {
-                                            System.out.println("Lokasi Paket            : " + lokasiPaket[0]);
-                                            System.out.println("Nama Pengirim             : " + NamaPengirim[0]);
-                                            System.out
-                                                    .println("Nomor Telepon Pengirim    : " + NomorTeleponPengirim[0]);
-                                            System.out.println("Alamat Pengirim           : " + AlamatPengirim[0]);
-                                            System.out.println("Tanggal Pengiriman        : " + TanggalPengiriman[0]);
-                                            System.out.println("Nama Penerima             : " + NamaPenerima[0]);
-                                            System.out
-                                                    .println("Nomor Telepon Penerima    : " + NomorTeleponPenerima[0]);
-                                            System.out.println("Alamat Penerima           : " + AlamatPenerima[0]);
-                                            System.out.println("Kode Pos                  : " + KodePos[0]);
-                                            System.out.println("Jenis Layanan             : " + JenisLayanan[0]);
-                                            System.out.println("Jenis Barang              : " + JenisBarang[0]);
-                                            System.out.println("Berat Barang (in kg)      : " + BeratBarang[0]);
-                                            cekPaket = false;
-                                        } else {
-                                            System.out.println("Nomor Resi Tidak Ditemukan");
-                                            System.out.println("Cek Lagi? (Y/N)");
+                                        for (int i = 0; i < dataPengiriman.length;) {
+                                            if (dataPengiriman[cariNomorUrut][14].equals(cariNomorResi)) {
+
+                                                System.out.println(
+                                                        "Nomor Urut              : " + dataPengiriman[dataBaru][0]);
+                                                System.out.println(
+                                                        "Lokasi Agen             : " + dataPengiriman[dataBaru][1]);
+                                                System.out.println(
+                                                        "Nama Pengirim           : " + dataPengiriman[dataBaru][2]);
+                                                System.out.println(
+                                                        "Nomor Telepon Pengirim  : " + dataPengiriman[dataBaru][3]);
+                                                System.out.println(
+                                                        "Alamat Pengirim         : " + dataPengiriman[dataBaru][4]);
+                                                System.out.println(
+                                                        "Tanggal Pengiriman      : " + dataPengiriman[dataBaru][5]);
+                                                System.out.println(
+                                                        "Nama Penerima           : " + dataPengiriman[dataBaru][6]);
+                                                System.out.println(
+                                                        "Nomor Telepon Penerima  : " + dataPengiriman[dataBaru][7]);
+                                                System.out.println(
+                                                        "Alamat Penerima         : " + dataPengiriman[dataBaru][8]);
+                                                System.out.println(
+                                                        "Kode Pos                : " + dataPengiriman[dataBaru][9]);
+                                                System.out
+                                                        .println("Jenis Layanan           : "
+                                                                + dataPengiriman[dataBaru][10]);
+                                                System.out
+                                                        .println("Jenis Barang            : "
+                                                                + dataPengiriman[dataBaru][11]);
+                                                System.out
+                                                        .println("Berat Barang (kg)       : "
+                                                                + dataPengiriman[dataBaru][12]);
+                                                System.out
+                                                        .println("Total Biaya             : "
+                                                                + dataPengiriman[dataBaru][13]);
+                                                System.out.println(
+                                                        "Nomor Resi              : " + dataPengiriman[dataBaru][14]);
+
+                                            } else {
+                                                System.out.println("Nomor Resi Tidak Ditemukan");
+                                            }
+
+                                            System.out.print("Cek Lagi? (Y/N)");
                                             pilihaString = inputPilihan.next();
 
                                             if (pilihaString.equalsIgnoreCase("y")) {
                                                 cekPaket = true;
                                             } else if (pilihaString.equalsIgnoreCase("n")) {
-                                                cekPaket = false;
+                                                break;
                                             }
+                                            break;
                                         }
+                                        break;
                                     }
                                     break;
                                 case 4:
@@ -363,39 +425,67 @@ public class Main_Demo2 {
 
                             switch (pilihan) {
                                 case 1:
-                                    boolean cekPaket = true;
+                                    boolean cekPaket;
 
-                                    while (cekPaket) {
+                                    while (true) {
+                                        System.out.print("Masukkan Nomor Urut          : ");
+                                        int cariNomorUrut = inputPilihan.nextInt();
                                         System.out.print("Silahkan Masukkan Nomor Resi : ");
                                         String cariNomorResi = inputPilihan.next();
 
-                                        if (cariNomorResi.equals(nomorResi[0])) {
-                                            System.out.println("Lokasi Paket            : " + lokasiPaket[0]);
-                                            System.out.println("Nama Pengirim             : " + NamaPengirim[0]);
-                                            System.out
-                                                    .println("Nomor Telepon Pengirim    : " + NomorTeleponPengirim[0]);
-                                            System.out.println("Alamat Pengirim           : " + AlamatPengirim[0]);
-                                            System.out.println("Tanggal Pengiriman        : " + TanggalPengiriman[0]);
-                                            System.out.println("Nama Penerima             : " + NamaPenerima[0]);
-                                            System.out
-                                                    .println("Nomor Telepon Penerima    : " + NomorTeleponPenerima[0]);
-                                            System.out.println("Alamat Penerima           : " + AlamatPenerima[0]);
-                                            System.out.println("Kode Pos                  : " + KodePos[0]);
-                                            System.out.println("Jenis Layanan             : " + JenisLayanan[0]);
-                                            System.out.println("Jenis Barang              : " + JenisBarang[0]);
-                                            System.out.println("Berat Barang (in kg)      : " + BeratBarang[0]);
-                                            cekPaket = false;
-                                        } else {
-                                            System.out.println("Nomor Resi Tidak Ditemukan");
-                                            System.out.println("Cek Lagi? (Y/N)");
+                                        for (int i = 0; i < dataPengiriman.length;) {
+                                            if (dataPengiriman[cariNomorUrut][14].equals(cariNomorResi)) {
+
+                                                System.out.println(
+                                                        "Nomor Urut              : " + dataPengiriman[dataBaru][0]);
+                                                System.out.println(
+                                                        "Lokasi Agen             : " + dataPengiriman[dataBaru][1]);
+                                                System.out.println(
+                                                        "Nama Pengirim           : " + dataPengiriman[dataBaru][2]);
+                                                System.out.println(
+                                                        "Nomor Telepon Pengirim  : " + dataPengiriman[dataBaru][3]);
+                                                System.out.println(
+                                                        "Alamat Pengirim         : " + dataPengiriman[dataBaru][4]);
+                                                System.out.println(
+                                                        "Tanggal Pengiriman      : " + dataPengiriman[dataBaru][5]);
+                                                System.out.println(
+                                                        "Nama Penerima           : " + dataPengiriman[dataBaru][6]);
+                                                System.out.println(
+                                                        "Nomor Telepon Penerima  : " + dataPengiriman[dataBaru][7]);
+                                                System.out.println(
+                                                        "Alamat Penerima         : " + dataPengiriman[dataBaru][8]);
+                                                System.out.println(
+                                                        "Kode Pos                : " + dataPengiriman[dataBaru][9]);
+                                                System.out
+                                                        .println("Jenis Layanan           : "
+                                                                + dataPengiriman[dataBaru][10]);
+                                                System.out
+                                                        .println("Jenis Barang            : "
+                                                                + dataPengiriman[dataBaru][11]);
+                                                System.out
+                                                        .println("Berat Barang (kg)       : "
+                                                                + dataPengiriman[dataBaru][12]);
+                                                System.out
+                                                        .println("Total Biaya             : "
+                                                                + dataPengiriman[dataBaru][13]);
+                                                System.out.println(
+                                                        "Nomor Resi              : " + dataPengiriman[dataBaru][14]);
+
+                                            } else {
+                                                System.out.println("Nomor Resi Tidak Ditemukan");
+                                            }
+
+                                            System.out.print("Cek Lagi? (Y/N)");
                                             pilihaString = inputPilihan.next();
 
                                             if (pilihaString.equalsIgnoreCase("y")) {
                                                 cekPaket = true;
                                             } else if (pilihaString.equalsIgnoreCase("n")) {
-                                                cekPaket = false;
+                                                break;
                                             }
+                                            break;
                                         }
+                                        break;
                                     }
                                     break;
                                 case 2:
