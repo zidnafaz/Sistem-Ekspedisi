@@ -161,7 +161,7 @@ public class DemoPresentasi {
                                         System.out.print("Jenis Barang            : ");
                                         JenisBarang = inputDataPengiriman.next();
                                         dataPengiriman[dataBaru][11] = JenisBarang;
-
+                                        
                                         System.out.print("Berat Barang (kg)       : ");
                                         BeratBarang = inputDataPengiriman.nextDouble();
                                         dataPengiriman[dataBaru][12] = String.valueOf(BeratBarang);
@@ -229,6 +229,41 @@ public class DemoPresentasi {
 
                                             if (pilihan == 1) {
 
+                                                System.out.println(
+                                                        "Nomor Urut              : " + dataPengiriman[dataBaru][0]);
+                                                System.out.println(
+                                                        "Lokasi Paket            : " + dataPengiriman[dataBaru][1]);
+                                                System.out.println(
+                                                        "Nama Pengirim           : " + dataPengiriman[dataBaru][2]);
+                                                System.out.println(
+                                                        "Nomor Telepon Pengirim  : " + dataPengiriman[dataBaru][3]);
+                                                System.out.println(
+                                                        "Alamat Pengirim         : " + dataPengiriman[dataBaru][4]);
+                                                System.out.println(
+                                                        "Tanggal Pengiriman      : " + dataPengiriman[dataBaru][5]);
+                                                System.out.println(
+                                                        "Nama Penerima           : " + dataPengiriman[dataBaru][6]);
+                                                System.out.println(
+                                                        "Nomor Telepon Penerima  : " + dataPengiriman[dataBaru][7]);
+                                                System.out.println(
+                                                        "Alamat Penerima         : " + dataPengiriman[dataBaru][8]);
+                                                System.out.println(
+                                                        "Kode Pos                : " + dataPengiriman[dataBaru][9]);
+                                                System.out
+                                                        .println("Jenis Layanan           : "
+                                                                + dataPengiriman[dataBaru][10]);
+                                                System.out
+                                                        .println("Jenis Barang            : "
+                                                                + dataPengiriman[dataBaru][11]);
+                                                System.out
+                                                        .println("Berat Barang (kg)       : "
+                                                                + dataPengiriman[dataBaru][12]);
+                                                System.out
+                                                        .println("Total Biaya             : "
+                                                                + dataPengiriman[dataBaru][13]);
+                                                System.out.println(
+                                                        "Nomor Resi              : " + dataPengiriman[dataBaru][14]);
+
                                                 System.out.println(header);
                                                 System.out.println("                THANK YOU");
                                                 System.out.println(header);
@@ -286,7 +321,7 @@ public class DemoPresentasi {
                                             if (dataPengiriman[cariNomorUrut][14].equals(cariNomorResi)) {
                                                 System.out.print("Input Lokasi Paket  : ");
                                                 lokasiPaket = inputDataPengiriman.next();
-                                                dataPengiriman[dataBaru][0] = lokasiPaket;
+                                                dataPengiriman[dataBaru][1] = lokasiPaket;
                                                 break;
                                             } else {
                                                 System.out.println("Nomor Resi Tidak Ditemukan");
@@ -299,12 +334,11 @@ public class DemoPresentasi {
                                                 cekResi = true;
                                             } else if (pilihaString.equalsIgnoreCase("n")) {
                                                 break;
-                                            }
-                                            break;
-                                        }
-                                        break;
+                                            } break;
+                                            
+                                        } break;
+                                        
                                     }
-                                    break;
                                 case 3:
                                     boolean cekPaket;
 
@@ -320,7 +354,7 @@ public class DemoPresentasi {
                                                 System.out.println(
                                                         "Nomor Urut              : " + dataPengiriman[dataBaru][0]);
                                                 System.out.println(
-                                                        "Lokasi Agen             : " + dataPengiriman[dataBaru][1]);
+                                                        "Lokasi Paket            : " + dataPengiriman[dataBaru][1]);
                                                 System.out.println(
                                                         "Nama Pengirim           : " + dataPengiriman[dataBaru][2]);
                                                 System.out.println(
@@ -364,7 +398,7 @@ public class DemoPresentasi {
                                             } else if (pilihaString.equalsIgnoreCase("n")) {
                                                 break;
                                             }
-                                            break;
+                                            
                                         }
                                         break;
                                     }
@@ -377,7 +411,7 @@ public class DemoPresentasi {
                                     System.out.println("    THANK YOU ADMIN - POS INDONESIA");
                                     System.out.println(header);
                                     login = false;
-                                    return;
+                                    
                                 default:
                                     System.out.println("Masukkan Pilihan Yang Benar");
                                     break;
@@ -439,7 +473,7 @@ public class DemoPresentasi {
                                                 System.out.println(
                                                         "Nomor Urut              : " + dataPengiriman[dataBaru][0]);
                                                 System.out.println(
-                                                        "Lokasi Agen             : " + dataPengiriman[dataBaru][1]);
+                                                        "Lokasi Paket            : " + dataPengiriman[dataBaru][1]);
                                                 System.out.println(
                                                         "Nama Pengirim           : " + dataPengiriman[dataBaru][2]);
                                                 System.out.println(
@@ -483,7 +517,7 @@ public class DemoPresentasi {
                                             } else if (pilihaString.equalsIgnoreCase("n")) {
                                                 break;
                                             }
-                                            break;
+                                            
                                         }
                                         break;
                                     }
