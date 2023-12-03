@@ -87,9 +87,13 @@ public class FungsiKel05_18 {
 
                                 case 5:
 
+                                    breakText();
+
                                     break;
 
                                 default:
+
+                                    defaultText();
 
                                     break;
                             }
@@ -115,16 +119,21 @@ public class FungsiKel05_18 {
                                 case 1:
 
                                     while (cekResi(dataBaru, cekResi)) {
-                                        
+
                                     }
 
                                     break;
 
                                 case 2:
 
+                                    breakText();
+
                                     break;
 
                                 default:
+
+                                    defaultText();
+
                                     break;
                             }
                         }
@@ -134,9 +143,14 @@ public class FungsiKel05_18 {
 
                 case 3:
 
+                    breakText();
+
                     break;
 
                 default:
+
+                    defaultText();
+
                     break;
             }
         }
@@ -543,6 +557,22 @@ public class FungsiKel05_18 {
         }
 
         return update;
+
+    }
+
+    public static void breakText() {
+
+        header();
+        System.out.println("    THANK YOU - POS INDONESIA");
+        header();
+
+    }
+
+    public static void defaultText() {
+
+        header();
+        System.out.println("       Masukkan Pilihan Yang Benar");
+        header();
 
     }
 
