@@ -24,9 +24,7 @@ public class DemoPresentasi {
         String dataPengiriman[][] = new String[50][20];
 
         String lokasiPaket, NamaPengirim, AlamatPengirim, TanggalPengiriman, NamaPenerima, AlamatPenerima, JenisBarang,
-                nomorResi;
-
-        long NomorTeleponPengirim, NomorTeleponPenerima;
+                nomorResi, NomorTeleponPengirim, NomorTeleponPenerima;
 
         int KodePos, JenisLayanan;
 
@@ -95,7 +93,7 @@ public class DemoPresentasi {
                                 case 1:
 
                                     for (int i = 0; i < 50; i++) {
-                                        // dataPengiriman[dataBaru] = new String[20];
+                                        
                                         System.out.println("Nama Admin              : " + usernameDanPassword[0][0]);
                                         System.out.print("Nomor Urut              : ");
                                         dataBaru = inputDataPengiriman.nextInt();
@@ -110,7 +108,7 @@ public class DemoPresentasi {
                                         dataPengiriman[dataBaru][2] = NamaPengirim;
 
                                         System.out.print("Nomor Telepon Pengirim  : ");
-                                        NomorTeleponPengirim = inputDataPengiriman.nextLong();
+                                        NomorTeleponPengirim = inputDataPengiriman.next();
                                         dataPengiriman[dataBaru][3] = String.valueOf(NomorTeleponPengirim);
 
                                         System.out.print("Alamat Pengirim         : ");
@@ -126,7 +124,7 @@ public class DemoPresentasi {
                                         dataPengiriman[dataBaru][6] = NamaPenerima;
 
                                         System.out.print("Nomor Telepon Penerima  : ");
-                                        NomorTeleponPenerima = inputDataPengiriman.nextLong();
+                                        NomorTeleponPenerima = inputDataPengiriman.next();
                                         dataPengiriman[dataBaru][7] = String.valueOf(NomorTeleponPenerima);
 
                                         System.out.print("Alamat Penerima         : ");
@@ -136,6 +134,14 @@ public class DemoPresentasi {
                                         System.out.print("Kode Pos                : ");
                                         KodePos = inputDataPengiriman.nextInt();
                                         dataPengiriman[dataBaru][9] = String.valueOf(KodePos);
+
+                                        System.out.print("Jenis Barang            : ");
+                                        JenisBarang = inputDataPengiriman.next();
+                                        dataPengiriman[dataBaru][11] = JenisBarang;
+
+                                        System.out.print("Berat Barang (kg)       : ");
+                                        BeratBarang = inputDataPengiriman.nextDouble();
+                                        dataPengiriman[dataBaru][12] = String.valueOf(BeratBarang);
 
                                         System.out.println("\nPilihan layanan");
                                         System.out.println("1. Regular");
@@ -157,15 +163,7 @@ public class DemoPresentasi {
                                                 System.out.println("Layanan Tidak Tersedia. Masukkan Dengan Benar.\n");
                                                 break;
                                         }
-
-                                        System.out.print("Jenis Barang            : ");
-                                        JenisBarang = inputDataPengiriman.next();
-                                        dataPengiriman[dataBaru][11] = JenisBarang;
                                         
-                                        System.out.print("Berat Barang (kg)       : ");
-                                        BeratBarang = inputDataPengiriman.nextDouble();
-                                        dataPengiriman[dataBaru][12] = String.valueOf(BeratBarang);
-
                                         if (dataPengiriman[dataBaru][4].equalsIgnoreCase("Malang")
                                                 && dataPengiriman[dataBaru][8].equalsIgnoreCase("Jakarta")) {
                                             Jarak = 850;
@@ -307,8 +305,7 @@ public class DemoPresentasi {
                                     System.out.println(header);
                                     System.out.println("Hello Admin, Silahkan Masukkan Lokasi Paket");
                                     System.out.println(header);
-
-                                    // String cekResiString;
+                                    
                                     boolean cekResi;
 
                                     while (true) {
