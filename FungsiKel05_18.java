@@ -233,10 +233,10 @@ public class FungsiKel05_18 {
             Tinggi = inputDataPengiriman.nextDouble();
             dataPengiriman[dataBaru][15] = String.valueOf(Tinggi);
 
-            int biayaLayanan = pilihanLayanan(dataBaru);
-            int jarak = hitungJarak(AlamatPengirim, AlamatPenerima);
-            double totalBiaya = hitungBiayaPengiriman(Panjang, Lebar, Tinggi, BeratBarang, jarak, biayaLayanan,
-                    dataBaru);
+            double volume = hitungVolume(Panjang, Lebar, Tinggi, dataBaru);
+            int biayaLayanan = pilihanLayanan(dataBaru, volume);
+            int jarak = hitungJarak(dataBaru, AlamatPengirim, AlamatPenerima);
+            double totalBiaya = hitungBiayaPengiriman(volume, BeratBarang, jarak, biayaLayanan, dataBaru);
 
             NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
             String formattedPrice = numberFormat.format(totalBiaya);
@@ -311,6 +311,8 @@ public class FungsiKel05_18 {
         System.out.println(
                 "Lokasi Paket            : " + dataPengiriman[dataBaru][1]);
         System.out.println(
+                "Estimasi Pengiriman     : " + dataPengiriman[dataBaru][19]);
+        System.out.println(
                 "Nama Pengirim           : " + dataPengiriman[dataBaru][2]);
         System.out.println(
                 "Nomor Telepon Pengirim  : " + dataPengiriman[dataBaru][3]);
@@ -352,7 +354,7 @@ public class FungsiKel05_18 {
         LocalDate today = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMM");
         String tanggal = today.format(formatter);
-        int jarak = hitungJarak(alamatPengirim, alamatPenerima);
+        int jarak = hitungJarak(dataBaru, alamatPengirim, alamatPenerima);
         String nomorResi = tanggal + jarak + dataPengiriman[dataBaru][0];
         dataPengiriman[dataBaru][18] = (nomorResi);
 
@@ -427,7 +429,7 @@ public class FungsiKel05_18 {
         return login = true;
     }
 
-    public static int pilihanLayanan(int dataBaru) {
+    public static int pilihanLayanan(int dataBaru, double volume) {
 
         int biayaLayanan = 0;
 
@@ -435,45 +437,57 @@ public class FungsiKel05_18 {
         System.out.println("             Pilihan layanan");
         header();
         System.out.println("\n1. Regular");
-        System.out.println("2. Ekspress\n");
+        System.out.println("2. Ekspress");
+        System.out.println("3. Kargo\n");
         System.out.println("            Masukkan Pilihan");
         header();
         int jenisLayanan = inputPilihan.nextInt();
 
         switch (jenisLayanan) {
             case 1:
-                System.out.println("Anda memilih layanan Regular.");
                 biayaLayanan = 50;
                 dataPengiriman[dataBaru][10] = "Regular";
                 break;
             case 2:
-                System.out.println("Anda memilih layanan Ekspress.");
+                biayaLayanan = 75;
                 dataPengiriman[dataBaru][10] = "Ekspress";
+                break;
+            case 3:
+                if (volume >= 1000000) {
+                    biayaLayanan = 75;
+                    dataPengiriman[dataBaru][10] = "Kargo";
+                } else {
+                    header();
+                    System.out.println("        Paket anda terlalu kecil");
+                    System.out.println("       Silahkan pilih layanan lain");
+                    header();
+
+                    pilihanLayanan(dataBaru, volume);
+                }
                 break;
             default:
                 System.out.println("Layanan Tidak Tersedia. Masukkan Dengan Benar.\n");
-                return pilihanLayanan(dataBaru);
+                return pilihanLayanan(dataBaru, volume);
         }
 
         return biayaLayanan;
     }
 
-    public static int hitungJarak(String alamatPengirim, String alamatPenerima) {
+    public static int hitungJarak(int dataBaru, String alamatPengirim, String alamatPenerima) {
         int jarak;
-        String estimasi;
 
         if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Jakarta")) ||
                 (alamatPengirim.equalsIgnoreCase("Jakarta") && alamatPenerima.equalsIgnoreCase("Malang"))) {
             jarak = 850;
-            estimasi = "4 Hari"
+            dataPengiriman[dataBaru][19] = "4 Hari";
         } else if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Bandung")) ||
                 (alamatPengirim.equalsIgnoreCase("Bandung") && alamatPenerima.equalsIgnoreCase("Malang"))) {
             jarak = 700;
-            estimasi = "3 Hari"
+            dataPengiriman[dataBaru][19] = "3 Hari";
         } else if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Surabaya")) ||
                 (alamatPengirim.equalsIgnoreCase("Surabaya") && alamatPenerima.equalsIgnoreCase("Malang"))) {
             jarak = 40;
-            estimasi = "2 Hari"
+            dataPengiriman[dataBaru][19] = "2 Hari";
         } else {
             System.out.println("Pengiriman tidak tersedia. Masukkan alamat dengan benar.\n");
             System.out.print("Masukkan Alamat Pengirim : ");
@@ -482,18 +496,23 @@ public class FungsiKel05_18 {
             System.out.print("Masukkan Alamat Penerima : ");
             alamatPenerima = inputDataPengiriman.next();
 
-            return hitungJarak(alamatPengirim, alamatPenerima);
+            return hitungJarak(dataBaru, alamatPengirim, alamatPenerima);
         }
 
-        return jarak, estimasi;
+        return jarak;
     }
 
-    public static double hitungBiayaPengiriman(double panjangBarang, double lebarBarang, double tinggiBarang,
-            double berat, int jarak, int biayaLayanan, int dataBaru) {
-
+    public static double hitungVolume(double panjangBarang, double lebarBarang, double tinggiBarang, int dataBaru) {
+        
         double volume = panjangBarang * lebarBarang * tinggiBarang;
         String volumeString = String.valueOf(volume);
         dataPengiriman[dataBaru][16] = (volumeString);
+
+        return volume;
+    }
+
+    public static double hitungBiayaPengiriman(double volume, double berat, int jarak, int biayaLayanan, int dataBaru) {
+        
         double biayaBerat = berat * volume;
         double totalBiaya = (jarak * biayaLayanan) + (biayaBerat / 2);
 
