@@ -23,11 +23,11 @@ public class Main_Demo2 {
         // Data Pengiriman
         String[] lokasiPaket = new String[10];
         String[] NamaPengirim = new String[10];
-        long[] NomorTeleponPengirim = new long[10];
+        String[] NomorTeleponPengirim = new String[10];
         String[] AlamatPengirim = new String[10];
         String[] TanggalPengiriman = new String[10];
         String[] NamaPenerima = new String[10];
-        long[] NomorTeleponPenerima = new long[10];
+        String[] NomorTeleponPenerima = new String[10];
         String[] AlamatPenerima = new String[10];
         int[] KodePos = new int[10];
         String[] JenisLayanan = new String[10];
@@ -97,9 +97,8 @@ public class Main_Demo2 {
                                 case 1:
 
                                     for (int i = 0; i < 10; i++) {
-                                        System.out.print("\nNama Admin              : ");
-                                        usernameAdmin = inputDataPengiriman.next();
-
+                                        System.out.println("\nNama Admin              : " + usernameDanPassword[0][0]);
+                                        
                                         System.out.print("Lokasi Agen             : ");
                                         lokasiPaket[i] = inputDataPengiriman.next();
 
@@ -107,7 +106,7 @@ public class Main_Demo2 {
                                         NamaPengirim[i] = inputDataPengiriman.next();
 
                                         System.out.print("Nomor Telepon Pengirim  : ");
-                                        NomorTeleponPengirim[i] = inputDataPengiriman.nextLong();
+                                        NomorTeleponPengirim[i] = inputDataPengiriman.next();
 
                                         System.out.print("Alamat Pengirim         : ");
                                         AlamatPengirim[i] = inputDataPengiriman.next();
@@ -119,7 +118,7 @@ public class Main_Demo2 {
                                         NamaPenerima[i] = inputDataPengiriman.next();
 
                                         System.out.print("Nomor Telepon Penerima  : ");
-                                        NomorTeleponPenerima[i] = inputDataPengiriman.nextLong();
+                                        NomorTeleponPenerima[i] = inputDataPengiriman.next();
 
                                         System.out.print("Alamat Penerima         : ");
                                         AlamatPenerima[i] = inputDataPengiriman.next();
