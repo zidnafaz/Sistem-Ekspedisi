@@ -460,16 +460,20 @@ public class FungsiKel05_18 {
 
     public static int hitungJarak(String alamatPengirim, String alamatPenerima) {
         int jarak;
+        String estimasi;
 
         if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Jakarta")) ||
                 (alamatPengirim.equalsIgnoreCase("Jakarta") && alamatPenerima.equalsIgnoreCase("Malang"))) {
             jarak = 850;
+            estimasi = "4 Hari"
         } else if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Bandung")) ||
                 (alamatPengirim.equalsIgnoreCase("Bandung") && alamatPenerima.equalsIgnoreCase("Malang"))) {
             jarak = 700;
+            estimasi = "3 Hari"
         } else if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Surabaya")) ||
                 (alamatPengirim.equalsIgnoreCase("Surabaya") && alamatPenerima.equalsIgnoreCase("Malang"))) {
             jarak = 40;
+            estimasi = "2 Hari"
         } else {
             System.out.println("Pengiriman tidak tersedia. Masukkan alamat dengan benar.\n");
             System.out.print("Masukkan Alamat Pengirim : ");
@@ -481,7 +485,7 @@ public class FungsiKel05_18 {
             return hitungJarak(alamatPengirim, alamatPenerima);
         }
 
-        return jarak;
+        return jarak, estimasi;
     }
 
     public static double hitungBiayaPengiriman(double panjangBarang, double lebarBarang, double tinggiBarang,
