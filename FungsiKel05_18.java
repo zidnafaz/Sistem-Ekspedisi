@@ -262,7 +262,7 @@ public class FungsiKel05_18 {
 
             double volume = hitungVolume(Panjang, Lebar, Tinggi, dataBaru);
             int biayaLayanan = pilihanLayanan(dataBaru, volume);
-            int jarak = hitungJarak(dataBaru, AlamatPengirim, AlamatPenerima);
+            int jarak = hitungJarak(dataBaru, AlamatPengirim, AlamatPenerima, biayaLayanan);
             double totalBiaya = hitungBiayaPengiriman(volume, BeratBarang, jarak, biayaLayanan, dataBaru);
 
             NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
@@ -509,21 +509,81 @@ public class FungsiKel05_18 {
         return biayaLayanan;
     }
 
-    public static int hitungJarak(int dataBaru, String alamatPengirim, String alamatPenerima) {
+    public static int hitungJarak(int dataBaru, String alamatPengirim, String alamatPenerima, int biayaLayanan) {
         int jarak;
 
         if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Jakarta")) ||
                 (alamatPengirim.equalsIgnoreCase("Jakarta") && alamatPenerima.equalsIgnoreCase("Malang"))) {
             jarak = 850;
-            dataPengiriman[dataBaru][19] = "4 Hari";
+            if (biayaLayanan == 50) { //regular
+                dataPengiriman[dataBaru][19] = "5 Hari";
+            }
+            else if (biayaLayanan == 75) { //ekspress
+                dataPengiriman[dataBaru][19] = "4 Hari";
+            }
+            else { //kargo
+                dataPengiriman[dataBaru][19] = "7 Hari";
+            }
         } else if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Bandung")) ||
                 (alamatPengirim.equalsIgnoreCase("Bandung") && alamatPenerima.equalsIgnoreCase("Malang"))) {
             jarak = 700;
-            dataPengiriman[dataBaru][19] = "3 Hari";
+            if (biayaLayanan == 50) {
+                dataPengiriman[dataBaru][19] = "6 Hari";
+            }
+            else if (biayaLayanan == 75) {
+                dataPengiriman[dataBaru][19] = "5 Hari";
+            }
+            else {
+                dataPengiriman[dataBaru][19] = "8 Hari";
+            }
         } else if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Surabaya")) ||
                 (alamatPengirim.equalsIgnoreCase("Surabaya") && alamatPenerima.equalsIgnoreCase("Malang"))) {
             jarak = 40;
-            dataPengiriman[dataBaru][19] = "2 Hari";
+            if (biayaLayanan == 50) {
+                dataPengiriman[dataBaru][19] = "2 Hari";
+            }
+            else if (biayaLayanan == 75) {
+                dataPengiriman[dataBaru][19] = "1 Hari";
+            }
+            else {
+                dataPengiriman[dataBaru][19] = "3 Hari";
+            }
+        } else if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Semarang")) ||
+                (alamatPengirim.equalsIgnoreCase("Semarang") && alamatPenerima.equalsIgnoreCase("Malang"))) {
+            jarak = 400;
+            if (biayaLayanan == 50) {
+                dataPengiriman[dataBaru][19] = "3 Hari";
+            }
+            else if (biayaLayanan == 75) {
+                dataPengiriman[dataBaru][19] = "2 Hari";
+            }
+            else {
+                dataPengiriman[dataBaru][19] = "5 Hari";
+            }
+        } else if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Serang")) ||
+                (alamatPengirim.equalsIgnoreCase("Serang") && alamatPenerima.equalsIgnoreCase("Malang"))) {
+            jarak = 900;
+            if (biayaLayanan == 50) {
+                dataPengiriman[dataBaru][19] = "7 Hari";
+            }
+            else if (biayaLayanan == 75) {
+                dataPengiriman[dataBaru][19] = "5 Hari";
+            }
+            else {
+                dataPengiriman[dataBaru][19] = "10 Hari";
+            }
+        } else if ((alamatPengirim.equalsIgnoreCase("Surabaya") && alamatPenerima.equalsIgnoreCase("Solo")) ||
+                (alamatPengirim.equalsIgnoreCase("Solo") && alamatPenerima.equalsIgnoreCase("Surabaya"))) {
+            jarak = 250;
+            if (biayaLayanan == 50) {
+                dataPengiriman[dataBaru][19] = "5 Hari";
+            }
+            else if (biayaLayanan == 75) {
+                dataPengiriman[dataBaru][19] = "4 Hari";
+            }
+            else {
+                dataPengiriman[dataBaru][19] = "6 Hari";
+            }
         } else {
             System.out.println("Pengiriman tidak tersedia. Masukkan alamat dengan benar.\n");
             System.out.print("Masukkan Alamat Pengirim : ");
@@ -532,7 +592,7 @@ public class FungsiKel05_18 {
             System.out.print("Masukkan Alamat Penerima : ");
             alamatPenerima = inputDataPengiriman.next();
 
-            return hitungJarak(dataBaru, alamatPengirim, alamatPenerima);
+            return hitungJarak(dataBaru, alamatPengirim, alamatPenerima, biayaLayanan);
         }
 
         return jarak;
