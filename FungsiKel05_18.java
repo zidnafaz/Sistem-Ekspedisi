@@ -386,11 +386,6 @@ public class FungsiKel05_18 {
 
         Integer[] hasilArray = angkaRandom.toArray(new Integer[0]);
 
-        int angkaPertama = hasilArray[0];
-
-        String hasilString = String.valueOf(angkaPertama);
-
-        dataPengiriman[dataBaru][18] = (hasilString);
 
         header();
         System.out
