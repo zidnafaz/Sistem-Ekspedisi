@@ -311,8 +311,6 @@ public class FungsiKel05_18 {
         System.out.println(
                 "Lokasi Paket            : " + dataPengiriman[dataBaru][1]);
         System.out.println(
-                "Estimasi Pengiriman     : " + dataPengiriman[dataBaru][19]);
-        System.out.println(
                 "Nama Pengirim           : " + dataPengiriman[dataBaru][2]);
         System.out.println(
                 "Nomor Telepon Pengirim  : " + dataPengiriman[dataBaru][3]);
@@ -429,7 +427,7 @@ public class FungsiKel05_18 {
         return login = true;
     }
 
-    public static int pilihanLayanan(int dataBaru, double volume) {
+    public static int pilihanLayanan(int dataBaru) {
 
         int biayaLayanan = 0;
 
@@ -437,37 +435,24 @@ public class FungsiKel05_18 {
         System.out.println("             Pilihan layanan");
         header();
         System.out.println("\n1. Regular");
-        System.out.println("2. Ekspress");
-        System.out.println("3. Kargo\n");
+        System.out.println("2. Ekspress\n");
         System.out.println("            Masukkan Pilihan");
         header();
         int jenisLayanan = inputPilihan.nextInt();
 
         switch (jenisLayanan) {
             case 1:
+                System.out.println("Anda memilih layanan Regular.");
                 biayaLayanan = 50;
                 dataPengiriman[dataBaru][10] = "Regular";
                 break;
             case 2:
-                biayaLayanan = 75;
+                System.out.println("Anda memilih layanan Ekspress.");
                 dataPengiriman[dataBaru][10] = "Ekspress";
-                break;
-            case 3:
-                if (volume >= 1000000) {
-                    biayaLayanan = 75;
-                    dataPengiriman[dataBaru][10] = "Kargo";
-                } else {
-                    header();
-                    System.out.println("        Paket anda terlalu kecil");
-                    System.out.println("       Silahkan pilih layanan lain");
-                    header();
-
-                    pilihanLayanan(dataBaru, volume);
-                }
                 break;
             default:
                 System.out.println("Layanan Tidak Tersedia. Masukkan Dengan Benar.\n");
-                return pilihanLayanan(dataBaru, volume);
+                return pilihanLayanan(dataBaru);
         }
 
         return biayaLayanan;
