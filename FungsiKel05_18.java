@@ -1,8 +1,9 @@
 import java.text.NumberFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Random;
 import java.util.Scanner;
+import java.util.Set;
 
 public class FungsiKel05_18 {
     static Scanner inputPilihan = new Scanner(System.in);
@@ -16,7 +17,7 @@ public class FungsiKel05_18 {
     public static void main(String[] args) {
 
         int pilihan;
-        String pilihaString;
+        String pilihaString, Resi = "";
 
         // Login
 
@@ -27,7 +28,7 @@ public class FungsiKel05_18 {
         // Admin
 
         boolean menuLogin = true;
-        boolean cekResi = true;
+        boolean cekResi = false;
 
         while (menuLogin) {
             header();
@@ -67,16 +68,32 @@ public class FungsiKel05_18 {
 
                                 case 2:
 
-                                    while (updateLokasiPaket(cekResi, dataBaru)) {
+                                    while (cekResi = true) {
+                                        updateLokasiPaket(cekResi, dataBaru);
 
+                                        System.out.print("Update Lagi? (Y/N) : ");
+                                        String kembaliKeMenu = inputPilihan.next();
+                                        if (kembaliKeMenu.equalsIgnoreCase("N")) {
+                                            break;
+                                        } else if (kembaliKeMenu.equalsIgnoreCase("Y")) {
+                                            cekResi = true;
+                                        }
                                     }
 
                                     break;
 
                                 case 3:
 
-                                    while (cekResi(dataBaru, cekResi)) {
+                                    while (cekResi = true) {
+                                        cekResi(dataBaru, cekResi);
 
+                                        System.out.print("Cek Lagi? (Y/N) : ");
+                                        String kembaliKeMenu = inputPilihan.next();
+                                        if (kembaliKeMenu.equalsIgnoreCase("N")) {
+                                            break;
+                                        } else if (kembaliKeMenu.equalsIgnoreCase("Y")) {
+                                            cekResi = true;
+                                        }
                                     }
 
                                     break;
@@ -118,8 +135,16 @@ public class FungsiKel05_18 {
                             switch (pilihan) {
                                 case 1:
 
-                                    while (cekResi(dataBaru, cekResi)) {
+                                    while (cekResi = true) {
+                                        cekResi(dataBaru, cekResi);
 
+                                        System.out.print("Cek Lagi? (Y/N) : ");
+                                        String kembaliKeMenu = inputPilihan.next();
+                                        if (kembaliKeMenu.equalsIgnoreCase("N")) {
+                                            break;
+                                        } else if (kembaliKeMenu.equalsIgnoreCase("Y")) {
+                                            cekResi = true;
+                                        }
                                     }
 
                                     break;
@@ -166,7 +191,7 @@ public class FungsiKel05_18 {
     public static void inputDataPengiriman(int dataBaru) {
 
         String lokasiPaket, NamaPengirim, AlamatPengirim, TanggalPengiriman, NamaPenerima, AlamatPenerima, JenisBarang,
-                nomorResi, NomorTeleponPengirim, NomorTeleponPenerima, KodePos;
+                nomorResi, NomorTeleponPengirim, NomorTeleponPenerima, KodePos, Resi;
 
         double BeratBarang, Panjang, Lebar, Tinggi;
 
@@ -235,14 +260,13 @@ public class FungsiKel05_18 {
 
             double volume = hitungVolume(Panjang, Lebar, Tinggi, dataBaru);
             int biayaLayanan = pilihanLayanan(dataBaru, volume);
-            int jarak = hitungJarak(dataBaru, AlamatPengirim, AlamatPenerima, biayaLayanan);
-            double totalBiaya = hitungBiayaPengiriman(volume, BeratBarang, jarak, biayaLayanan, dataBaru);
+ double totalBiaya = hitungBiayaPengiriman(volume, BeratBarang, jarak, biayaLayanan, dataBaru);
 
             NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
             String formattedPrice = numberFormat.format(totalBiaya);
             dataPengiriman[dataBaru][17] = String.valueOf(formattedPrice);
 
-            buatNomorResi(dataBaru, AlamatPengirim, AlamatPenerima, biayaLayanan);
+
             System.out.println(
                     "Apakah ingin memasukkan data pengiriman lagi? (Y/T)");
             String lanjutkan = inputDataPengiriman.next();
@@ -347,14 +371,6 @@ public class FungsiKel05_18 {
 
     }
 
-    public static String buatNomorResi(int dataBaru, String alamatPengirim, String alamatPenerima, int biayaLayanan) {
-
-        LocalDate today = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMM");
-        String tanggal = today.format(formatter);
-        int jarak = hitungJarak(dataBaru, alamatPengirim, alamatPenerima, biayaLayanan);
-        String nomorResi = tanggal + jarak + dataPengiriman[dataBaru][0];
-        dataPengiriman[dataBaru][18] = (nomorResi);
 
         header();
         System.out
@@ -362,7 +378,7 @@ public class FungsiKel05_18 {
         System.out.println("Total Biaya adalah Rp." + dataPengiriman[dataBaru][17]);
         header();
 
-        return nomorResi;
+        return hasilString;
     }
 
     public static boolean loginAdmin(boolean login) {
@@ -471,82 +487,13 @@ public class FungsiKel05_18 {
         return biayaLayanan;
     }
 
-    public static int hitungJarak(int dataBaru, String alamatPengirim, String alamatPenerima, int biayaLayanan) {
+
         int jarak;
         biayaLayanan = 0;
 
         if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Jakarta")) ||
                 (alamatPengirim.equalsIgnoreCase("Jakarta") && alamatPenerima.equalsIgnoreCase("Malang"))) {
             jarak = 850;
-            if (biayaLayanan == 50) { //regular
-                dataPengiriman[dataBaru][19] = "5 Hari";
-            }
-            else if (biayaLayanan == 75) { //ekspress
-                dataPengiriman[dataBaru][19] = "4 Hari";
-            }
-            else { //kargo
-                dataPengiriman[dataBaru][19] = "7 Hari";
-            }
-        } else if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Bandung")) ||
-                (alamatPengirim.equalsIgnoreCase("Bandung") && alamatPenerima.equalsIgnoreCase("Malang"))) {
-            jarak = 700;
-            if (biayaLayanan == 50) {
-                dataPengiriman[dataBaru][19] = "6 Hari";
-            }
-            else if (biayaLayanan == 75) {
-                dataPengiriman[dataBaru][19] = "5 Hari";
-            }
-            else {
-                dataPengiriman[dataBaru][19] = "8 Hari";
-            }
-        } else if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Surabaya")) ||
-                (alamatPengirim.equalsIgnoreCase("Surabaya") && alamatPenerima.equalsIgnoreCase("Malang"))) {
-            jarak = 40;
-            if (biayaLayanan == 50) {
-                dataPengiriman[dataBaru][19] = "2 Hari";
-            }
-            else if (biayaLayanan == 75) {
-                dataPengiriman[dataBaru][19] = "1 Hari";
-            }
-            else {
-                dataPengiriman[dataBaru][19] = "3 Hari";
-            }
-        } else if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Semarang")) ||
-                (alamatPengirim.equalsIgnoreCase("Semarang") && alamatPenerima.equalsIgnoreCase("Malang"))) {
-            jarak = 400;
-            if (biayaLayanan == 50) {
-                dataPengiriman[dataBaru][19] = "3 Hari";
-            }
-            else if (biayaLayanan == 75) {
-                dataPengiriman[dataBaru][19] = "2 Hari";
-            }
-            else {
-                dataPengiriman[dataBaru][19] = "5 Hari";
-            }
-        } else if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Serang")) ||
-                (alamatPengirim.equalsIgnoreCase("Serang") && alamatPenerima.equalsIgnoreCase("Malang"))) {
-            jarak = 900;
-            if (biayaLayanan == 50) {
-                dataPengiriman[dataBaru][19] = "7 Hari";
-            }
-            else if (biayaLayanan == 75) {
-                dataPengiriman[dataBaru][19] = "5 Hari";
-            }
-            else {
-                dataPengiriman[dataBaru][19] = "10 Hari";
-            }
-        } else if ((alamatPengirim.equalsIgnoreCase("Surabaya") && alamatPenerima.equalsIgnoreCase("Solo")) ||
-                (alamatPengirim.equalsIgnoreCase("Solo") && alamatPenerima.equalsIgnoreCase("Surabaya"))) {
-            jarak = 250;
-            if (biayaLayanan == 50) {
-                dataPengiriman[dataBaru][19] = "5 Hari";
-            }
-            else if (biayaLayanan == 75) {
-                dataPengiriman[dataBaru][19] = "4 Hari";
-            }
-            else {
-                dataPengiriman[dataBaru][19] = "6 Hari";
-            }
         } else {
             System.out.println("Pengiriman tidak tersedia. Masukkan alamat dengan benar.\n");
             System.out.print("Masukkan Alamat Pengirim : ");
@@ -555,7 +502,7 @@ public class FungsiKel05_18 {
             System.out.print("Masukkan Alamat Penerima : ");
             alamatPenerima = inputDataPengiriman.next();
 
-            return hitungJarak(dataBaru, alamatPengirim, alamatPenerima, biayaLayanan);
+
         }
 
         return jarak;
@@ -578,68 +525,52 @@ public class FungsiKel05_18 {
         return totalBiaya;
     }
 
-    public static boolean cekResi(int dataBaru, boolean cekResi) {
+    public static int searchingResi(String resiToFind) {
+        int foundIndex = -1;
+        for (int i = 0; i < dataPengiriman.length; i++) {
+            if (dataPengiriman[i][18] != null && dataPengiriman[i][18].equals(resiToFind)) {
+                foundIndex = i;
+                break;
+            }
+        }
+        return foundIndex;
+    }
 
-        System.out.print("Masukkan Nomor Urut          : ");
-        int cariNomorUrut = inputPilihan.nextInt();
+    public static boolean cekResi(int dataBaru, boolean cekResi) {
         System.out.print("Silahkan Masukkan Nomor Resi : ");
         String cariNomorResi = inputPilihan.next();
 
-        for (int i = 0; i < dataPengiriman.length;) {
-            if (dataPengiriman[cariNomorUrut][18].equals(cariNomorResi)) {
-                cekResi = true;
-                cetakResi(dataBaru);
-                break;
-            } else {
-                System.out.println("Nomor Resi Tidak Ditemukan");
-            }
+        int index = searchingResi(cariNomorResi);
 
-            System.out.print("Cek Lagi? (Y/N)");
-            String pilihaString = inputPilihan.next();
-
-            if (pilihaString.equalsIgnoreCase("y")) {
-                cekResi(dataBaru, cekResi);
-            } else if (pilihaString.equalsIgnoreCase("n")) {
-                break;
-            }
-            break;
+        if (index != -1) {
+            cekResi = true;
+            cetakResi(index);
+        } else {
+            cekResi = false;
+            System.out.println("Nomor Resi Tidak Ditemukan");
         }
 
         return cekResi;
-
     }
 
     public static boolean updateLokasiPaket(boolean update, int dataBaru) {
 
-        System.out.print("Masukkan Nomor Urut          : ");
-        int cariNomorUrut = inputPilihan.nextInt();
         System.out.print("Silahkan Masukkan Nomor Resi : ");
         String cariNomorResi = inputPilihan.next();
 
-        for (int i = 0; i < dataPengiriman.length;) {
-            if (dataPengiriman[cariNomorUrut][18].equals(cariNomorResi)) {
-                update = true;
-                System.out.print("Input Lokasi Paket  : ");
-                String lokasiPaket = inputDataPengiriman.next();
-                dataPengiriman[dataBaru][1] = lokasiPaket;
-                break;
-            } else {
-                System.out.println("Nomor Resi Tidak Ditemukan");
-            }
+        int index = searchingResi(cariNomorResi);
 
-            System.out.print("Cek Lagi? (Y/N)");
-            String pilihaString = inputPilihan.next();
-
-            if (pilihaString.equalsIgnoreCase("y")) {
-                updateLokasiPaket(update, dataBaru);
-            } else if (pilihaString.equalsIgnoreCase("n")) {
-                break;
-            }
-            break;
+        if (index != -1) {
+            update = true;
+            System.out.print("Input Lokasi Paket  : ");
+            String lokasiPaket = inputDataPengiriman.next();
+            dataPengiriman[dataBaru][1] = lokasiPaket;
+        } else {
+            update = false;
+            System.out.println("Nomor Resi Tidak Ditemukan");
         }
 
         return update;
-
     }
 
     public static void breakText() {
