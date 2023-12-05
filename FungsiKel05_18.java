@@ -1,6 +1,4 @@
 import java.text.NumberFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Random;
@@ -19,12 +17,12 @@ public class FungsiKel05_18 {
     public static void main(String[] args) {
 
         int pilihan;
-        String pilihaString, Resi = "";
+        String pilihaString;
 
         // Login
 
         // Perhitungan Jarak dan Layanan
-        int Jarak = 0, BiayaLayanan = 0, TotalBiaya = 0, dataBaru = 0;
+        int dataBaru = 0;
         ;
 
         // Admin
@@ -192,8 +190,7 @@ public class FungsiKel05_18 {
 
     public static void inputDataPengiriman(int dataBaru) {
 
-        String lokasiPaket, NamaPengirim, AlamatPengirim, TanggalPengiriman, NamaPenerima, AlamatPenerima, JenisBarang,
-                nomorResi, NomorTeleponPengirim, NomorTeleponPenerima, KodePos, Resi;
+        String lokasiPaket, NamaPengirim, AlamatPengirim, TanggalPengiriman, NamaPenerima, AlamatPenerima, JenisBarang, NomorTeleponPengirim, NomorTeleponPenerima, KodePos;
 
         double BeratBarang, Panjang, Lebar, Tinggi;
 
