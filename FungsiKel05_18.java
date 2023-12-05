@@ -242,9 +242,7 @@ public class FungsiKel05_18 {
             String formattedPrice = numberFormat.format(totalBiaya);
             dataPengiriman[dataBaru][17] = String.valueOf(formattedPrice);
 
-            buatNomorResi(dataBaru, AlamatPengirim, AlamatPenerima);
-            pembayaran(dataBaru);
-
+            buatNomorResi(dataBaru, AlamatPengirim, AlamatPenerima, biayaLayanan);
             System.out.println(
                     "Apakah ingin memasukkan data pengiriman lagi? (Y/T)");
             String lanjutkan = inputDataPengiriman.next();
@@ -349,7 +347,7 @@ public class FungsiKel05_18 {
 
     }
 
-    public static String buatNomorResi(int dataBaru, String alamatPengirim, String alamatPenerima) {
+    public static String buatNomorResi(int dataBaru, String alamatPengirim, String alamatPenerima, int biayaLayanan) {
 
         LocalDate today = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMM");
