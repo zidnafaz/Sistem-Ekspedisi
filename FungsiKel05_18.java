@@ -260,15 +260,12 @@ public class FungsiKel05_18 {
 
             double volume = hitungVolume(Panjang, Lebar, Tinggi, dataBaru);
             int biayaLayanan = pilihanLayanan(dataBaru, volume);
-            int jarak = hitungJarak(dataBaru, AlamatPengirim, AlamatPenerima);
-            double totalBiaya = hitungBiayaPengiriman(volume, BeratBarang, jarak, biayaLayanan, dataBaru);
+ double totalBiaya = hitungBiayaPengiriman(volume, BeratBarang, jarak, biayaLayanan, dataBaru);
 
             NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
             String formattedPrice = numberFormat.format(totalBiaya);
             dataPengiriman[dataBaru][17] = String.valueOf(formattedPrice);
 
-            buatNomorResi(dataBaru);
-            pembayaran(dataBaru);
 
             System.out.println(
                     "Apakah ingin memasukkan data pengiriman lagi? (Y/T)");
@@ -373,18 +370,6 @@ public class FungsiKel05_18 {
         System.out.println();
 
     }
-
-    public static String buatNomorResi(int dataBaru) {
-
-        int jumlahAngka = 10000000;
-        Set<Integer> angkaRandom = new HashSet<>();
-        Random random = new Random();
-
-        while (angkaRandom.size() < jumlahAngka) {
-            angkaRandom.add(random.nextInt(Integer.MAX_VALUE));
-        }
-
-        Integer[] hasilArray = angkaRandom.toArray(new Integer[0]);
 
 
         header();
@@ -502,21 +487,13 @@ public class FungsiKel05_18 {
         return biayaLayanan;
     }
 
-    public static int hitungJarak(int dataBaru, String alamatPengirim, String alamatPenerima) {
+
         int jarak;
+        biayaLayanan = 0;
 
         if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Jakarta")) ||
                 (alamatPengirim.equalsIgnoreCase("Jakarta") && alamatPenerima.equalsIgnoreCase("Malang"))) {
             jarak = 850;
-            dataPengiriman[dataBaru][19] = "4 Hari";
-        } else if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Bandung")) ||
-                (alamatPengirim.equalsIgnoreCase("Bandung") && alamatPenerima.equalsIgnoreCase("Malang"))) {
-            jarak = 700;
-            dataPengiriman[dataBaru][19] = "3 Hari";
-        } else if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Surabaya")) ||
-                (alamatPengirim.equalsIgnoreCase("Surabaya") && alamatPenerima.equalsIgnoreCase("Malang"))) {
-            jarak = 40;
-            dataPengiriman[dataBaru][19] = "2 Hari";
         } else {
             System.out.println("Pengiriman tidak tersedia. Masukkan alamat dengan benar.\n");
             System.out.print("Masukkan Alamat Pengirim : ");
@@ -525,7 +502,7 @@ public class FungsiKel05_18 {
             System.out.print("Masukkan Alamat Penerima : ");
             alamatPenerima = inputDataPengiriman.next();
 
-            return hitungJarak(dataBaru, alamatPengirim, alamatPenerima);
+
         }
 
         return jarak;
