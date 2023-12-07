@@ -197,7 +197,8 @@ public class FungsiKel05_18 {
 
     public static void inputDataPengiriman(int dataBaru) {
 
-        String lokasiPaket, NamaPengirim, AlamatPengirim, TanggalPengiriman, BulanPengiriman, TahunPengiriman, NamaPenerima, AlamatPenerima, JenisBarang, NomorTeleponPengirim, NomorTeleponPenerima, KodePos;
+        String lokasiPaket, NamaPengirim, AlamatPengirim, TanggalPengiriman, BulanPengiriman, TahunPengiriman,
+                NamaPenerima, AlamatPenerima, JenisBarang, NomorTeleponPengirim, NomorTeleponPenerima, KodePos;
 
         double BeratBarang, Panjang, Lebar, Tinggi;
 
@@ -246,31 +247,31 @@ public class FungsiKel05_18 {
 
             System.out.print("Alamat Penerima         : ");
             AlamatPenerima = inputDataPengiriman.next();
-            dataPengiriman[dataBaru][11] = AlamatPenerima;
+            dataPengiriman[dataBaru][10] = AlamatPenerima;
 
             System.out.print("Kode Pos                : ");
             KodePos = inputDataPengiriman.next();
-            dataPengiriman[dataBaru][12] = KodePos;
+            dataPengiriman[dataBaru][11] = KodePos;
 
             System.out.print("Jenis Barang            : ");
             JenisBarang = inputDataPengiriman.next();
-            dataPengiriman[dataBaru][13] = JenisBarang;
+            dataPengiriman[dataBaru][12] = JenisBarang;
 
             System.out.print("Berat Barang (kg)       : ");
             BeratBarang = inputDataPengiriman.nextDouble();
-            dataPengiriman[dataBaru][14] = String.valueOf(BeratBarang);
+            dataPengiriman[dataBaru][13] = String.valueOf(BeratBarang);
 
             System.out.print("Panjang Barang (cm)     : ");
             Panjang = inputDataPengiriman.nextDouble();
-            dataPengiriman[dataBaru][15] = String.valueOf(Panjang);
+            dataPengiriman[dataBaru][14] = String.valueOf(Panjang);
 
             System.out.print("Lebar Barang (cm)       : ");
             Lebar = inputDataPengiriman.nextDouble();
-            dataPengiriman[dataBaru][16] = String.valueOf(Lebar);
+            dataPengiriman[dataBaru][15] = String.valueOf(Lebar);
 
             System.out.print("Tinggi Barang (cm)      : ");
             Tinggi = inputDataPengiriman.nextDouble();
-            dataPengiriman[dataBaru][17] = String.valueOf(Tinggi);
+            dataPengiriman[dataBaru][16] = String.valueOf(Tinggi);
 
             double volume = hitungVolume(Panjang, Lebar, Tinggi, dataBaru);
             int biayaLayanan = pilihanLayanan(dataBaru, volume);
@@ -279,7 +280,7 @@ public class FungsiKel05_18 {
 
             NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
             String formattedPrice = numberFormat.format(totalBiaya);
-            dataPengiriman[dataBaru][17] = String.valueOf(formattedPrice);
+            dataPengiriman[dataBaru][19] = String.valueOf(formattedPrice);
 
             buatNomorResi(dataBaru);
             pembayaran(dataBaru);
@@ -351,39 +352,40 @@ public class FungsiKel05_18 {
                 "Lokasi Paket            : " + dataPengiriman[dataBaru][1]);
         System.out.println(
                 "Estimasi Pengiriman     : " + dataPengiriman[dataBaru][19]);
-        System.out.println(
-                "Nama Pengirim           : " + dataPengiriman[dataBaru][2]);
-        System.out.println(
-                "Nomor Telepon Pengirim  : " + dataPengiriman[dataBaru][3]);
-        System.out.println(
-                "Alamat Pengirim         : " + dataPengiriman[dataBaru][4]);
-        System.out.println(
-                "Tanggal Pengiriman      : " + dataPengiriman[dataBaru][5]);
-        System.out.println(
-                "Nama Penerima           : " + dataPengiriman[dataBaru][6]);
-        System.out.println(
-                "Nomor Telepon Penerima  : " + dataPengiriman[dataBaru][7]);
-        System.out.println(
-                "Alamat Penerima         : " + dataPengiriman[dataBaru][8]);
-        System.out.println(
-                "Kode Pos                : " + dataPengiriman[dataBaru][9]);
         System.out
                 .println("Jenis Layanan           : "
-                        + dataPengiriman[dataBaru][10]);
-        System.out
-                .println("Jenis Barang            : "
-                        + dataPengiriman[dataBaru][11]);
-        System.out
-                .println("Berat Barang (kg)       : "
-                        + dataPengiriman[dataBaru][12]);
-        System.out
-                .println("Volume Barang (cm)      : "
-                        + dataPengiriman[dataBaru][16]);
-        System.out
-                .println("Total Biaya             : Rp."
                         + dataPengiriman[dataBaru][17]);
         System.out.println(
-                "Nomor Resi              : " + dataPengiriman[dataBaru][18]);
+                "Tanggal Pengiriman      : " + dataPengiriman[dataBaru][2] + "-" + dataPengiriman[dataBaru][3] + "-"
+                        + dataPengiriman[dataBaru][3]);
+        System.out.println(
+                "Nama Pengirim           : " + dataPengiriman[dataBaru][5]);
+        System.out.println(
+                "Nomor Telepon Pengirim  : " + dataPengiriman[dataBaru][6]);
+        System.out.println(
+                "Alamat Pengirim         : " + dataPengiriman[dataBaru][7]);
+        System.out.println(
+                "Nama Penerima           : " + dataPengiriman[dataBaru][8]);
+        System.out.println(
+                "Nomor Telepon Penerima  : " + dataPengiriman[dataBaru][9]);
+        System.out.println(
+                "Alamat Penerima         : " + dataPengiriman[dataBaru][10]);
+        System.out.println(
+                "Kode Pos                : " + dataPengiriman[dataBaru][11]);
+        System.out
+                .println("Jenis Barang            : "
+                        + dataPengiriman[dataBaru][12]);
+        System.out
+                .println("Berat Barang (kg)       : "
+                        + dataPengiriman[dataBaru][13]);
+        System.out
+                .println("Volume Barang (cm)      : "
+                        + dataPengiriman[dataBaru][18]);
+        System.out
+                .println("Total Biaya             : Rp."
+                        + dataPengiriman[dataBaru][19]);
+        System.out.println(
+                "Nomor Resi              : " + dataPengiriman[dataBaru][20]);
         System.out.println();
 
     }
@@ -404,12 +406,12 @@ public class FungsiKel05_18 {
 
         String hasilString = String.valueOf(angkaPertama);
 
-        dataPengiriman[dataBaru][18] = (hasilString);
+        dataPengiriman[dataBaru][20] = (hasilString);
 
         header();
         System.out
-                .println("Nomor Resi Anda adalah " + dataPengiriman[dataBaru][18]);
-        System.out.println("Total Biaya adalah Rp." + dataPengiriman[dataBaru][17]);
+                .println("Nomor Resi Anda adalah " + dataPengiriman[dataBaru][20]);
+        System.out.println("Total Biaya adalah Rp." + dataPengiriman[dataBaru][19]);
         header();
 
         return hasilString;
@@ -494,16 +496,16 @@ public class FungsiKel05_18 {
         switch (jenisLayanan) {
             case 1:
                 biayaLayanan = 50;
-                dataPengiriman[dataBaru][10] = "Regular";
+                dataPengiriman[dataBaru][17] = "Regular";
                 break;
             case 2:
                 biayaLayanan = 75;
-                dataPengiriman[dataBaru][10] = "Ekspress";
+                dataPengiriman[dataBaru][17] = "Ekspress";
                 break;
             case 3:
                 if (volume >= 1000000) {
                     biayaLayanan = 100;
-                    dataPengiriman[dataBaru][10] = "Kargo";
+                    dataPengiriman[dataBaru][17] = "Kargo";
                 } else {
                     header();
                     System.out.println("        Paket anda terlalu kecil");
@@ -527,13 +529,11 @@ public class FungsiKel05_18 {
         if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Jakarta")) ||
                 (alamatPengirim.equalsIgnoreCase("Jakarta") && alamatPenerima.equalsIgnoreCase("Malang"))) {
             jarak = 850;
-            if (biayaLayanan == 50) { //regular
+            if (biayaLayanan == 50) { // regular
                 dataPengiriman[dataBaru][19] = "5 Hari";
-            }
-            else if (biayaLayanan == 75) { //ekspress
+            } else if (biayaLayanan == 75) { // ekspress
                 dataPengiriman[dataBaru][19] = "4 Hari";
-            }
-            else { //kargo
+            } else { // kargo
                 dataPengiriman[dataBaru][19] = "7 Hari";
             }
         } else if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Bandung")) ||
@@ -541,11 +541,9 @@ public class FungsiKel05_18 {
             jarak = 700;
             if (biayaLayanan == 50) {
                 dataPengiriman[dataBaru][19] = "6 Hari";
-            }
-            else if (biayaLayanan == 75) {
+            } else if (biayaLayanan == 75) {
                 dataPengiriman[dataBaru][19] = "5 Hari";
-            }
-            else {
+            } else {
                 dataPengiriman[dataBaru][19] = "8 Hari";
             }
         } else if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Surabaya")) ||
@@ -553,11 +551,9 @@ public class FungsiKel05_18 {
             jarak = 40;
             if (biayaLayanan == 50) {
                 dataPengiriman[dataBaru][19] = "2 Hari";
-            }
-            else if (biayaLayanan == 75) {
+            } else if (biayaLayanan == 75) {
                 dataPengiriman[dataBaru][19] = "1 Hari";
-            }
-            else {
+            } else {
                 dataPengiriman[dataBaru][19] = "3 Hari";
             }
         } else if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Semarang")) ||
@@ -565,11 +561,9 @@ public class FungsiKel05_18 {
             jarak = 400;
             if (biayaLayanan == 50) {
                 dataPengiriman[dataBaru][19] = "3 Hari";
-            }
-            else if (biayaLayanan == 75) {
+            } else if (biayaLayanan == 75) {
                 dataPengiriman[dataBaru][19] = "2 Hari";
-            }
-            else {
+            } else {
                 dataPengiriman[dataBaru][19] = "5 Hari";
             }
         } else if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Serang")) ||
@@ -577,11 +571,9 @@ public class FungsiKel05_18 {
             jarak = 900;
             if (biayaLayanan == 50) {
                 dataPengiriman[dataBaru][19] = "7 Hari";
-            }
-            else if (biayaLayanan == 75) {
+            } else if (biayaLayanan == 75) {
                 dataPengiriman[dataBaru][19] = "5 Hari";
-            }
-            else {
+            } else {
                 dataPengiriman[dataBaru][19] = "10 Hari";
             }
         } else if ((alamatPengirim.equalsIgnoreCase("Surabaya") && alamatPenerima.equalsIgnoreCase("Solo")) ||
@@ -589,11 +581,9 @@ public class FungsiKel05_18 {
             jarak = 250;
             if (biayaLayanan == 50) {
                 dataPengiriman[dataBaru][19] = "5 Hari";
-            }
-            else if (biayaLayanan == 75) {
+            } else if (biayaLayanan == 75) {
                 dataPengiriman[dataBaru][19] = "4 Hari";
-            }
-            else {
+            } else {
                 dataPengiriman[dataBaru][19] = "6 Hari";
             }
         } else {
@@ -614,7 +604,7 @@ public class FungsiKel05_18 {
 
         double volume = panjangBarang * lebarBarang * tinggiBarang;
         String volumeString = String.valueOf(volume);
-        dataPengiriman[dataBaru][16] = (volumeString);
+        dataPengiriman[dataBaru][18] = (volumeString);
 
         return volume;
     }
