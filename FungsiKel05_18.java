@@ -30,6 +30,7 @@ public class FungsiKel05_18 {
         // Admin
 
         boolean menuLogin = true;
+        boolean menu = true;
         boolean cekResi = false;
 
         while (menuLogin) {
@@ -47,7 +48,7 @@ public class FungsiKel05_18 {
             switch (pilihan) {
                 case 1:
                     if (loginAdmin(true)) {
-                        while (true) {
+                        while (menu) {
 
                             header();
                             System.out.println("             HELLO ADMIN");
@@ -108,6 +109,8 @@ public class FungsiKel05_18 {
 
                                     breakText();
 
+                                    menu = false;
+
                                     break;
 
                                 default:
@@ -155,6 +158,8 @@ public class FungsiKel05_18 {
 
                                     breakText();
 
+                                    menuLogin = false;
+
                                     break;
 
                                 default:
@@ -169,6 +174,8 @@ public class FungsiKel05_18 {
                     break;
 
                 case 3:
+
+                    menuLogin = false;
 
                     breakText();
 
