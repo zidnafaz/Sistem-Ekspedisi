@@ -408,7 +408,7 @@ public class FungsiKel05_18 {
                 ANSI_YELLOW + "Jenis Layanan           : " + dataPengiriman[dataBaru][17] + ANSI_RESET);
         System.out.println(ANSI_YELLOW +
                 "Tanggal Pengiriman      : " + dataPengiriman[dataBaru][2] + "-" + dataPengiriman[dataBaru][3] + "-"
-                        + dataPengiriman[dataBaru][4] + ANSI_RESET);
+                + dataPengiriman[dataBaru][4] + ANSI_RESET);
         System.out.println(
                 ANSI_YELLOW + "Nama Pengirim           : " + dataPengiriman[dataBaru][5] + ANSI_RESET);
         System.out.println(
@@ -725,7 +725,7 @@ public class FungsiKel05_18 {
         return cekResi;
     }
 
-    public static boolean updateLokasiPaket(boolean update, int dataBaru) {
+    public static boolean updateLokasiPaket(boolean update, int index) {
 
         final String ANSI_RED = "\u001B[33m";
         final String ANSI_RESET = "\u001B[0m";
@@ -733,13 +733,16 @@ public class FungsiKel05_18 {
         System.out.print("Silahkan Masukkan Nomor Resi : ");
         String cariNomorResi = inputPilihan.next();
 
-        int index = searchingResi(cariNomorResi);
+        index = searchingResi(cariNomorResi);
 
         if (index != -1) {
             update = true;
             System.out.print("Input Lokasi Paket  : ");
             String lokasiPaket = inputDataPengiriman.next();
             dataPengiriman[index][1] = lokasiPaket;
+
+            cetakResi(index);
+
         } else {
             update = false;
             System.out.println(ANSI_RED + "Nomor Resi Tidak Ditemukan" + ANSI_RESET);
@@ -782,29 +785,80 @@ public class FungsiKel05_18 {
 
         int totalHarian = 0;
 
-        for (int i = 0; i < dataPengiriman.length; i++) {
-            for (int j = 0; j < dataPengiriman.length; j++) {
-                if (dataPengiriman[i][2] != null && dataPengiriman[i][2].equals(caritanggalString)
-                        && dataPengiriman[i][3].equals(cariBulanString)) {
-                    String totalHarianString = String.valueOf(dataPengiriman[i][19]);
-                    totalHarianString = totalHarianString.replace(",", "");
-                    totalHarian += Integer.parseInt(totalHarianString);
-                    System.out.println("Ketemu");
+        System.out.println(
+                "Rincian Pendapatan Pada Tanggal " + caritanggalString + " Bulan " + cariBulanString + " : \n");
 
-                    System.out.println(
-                            "\nTotal Pendapatan Pada Tanggal " + cariTanggal + " Bulan " + cariBulan + " adalah : "
-                                    + totalHarian);
-                } else {
-                    System.out.println("Tanggal tidak ditemukan");
-                }
+        for (int i = 0; i < dataPengiriman.length; i++) {
+
+            if (dataPengiriman[i][0] != null && dataPengiriman[i][2].equals(caritanggalString)
+                    && dataPengiriman[i][3].equals(cariBulanString)) {
+
+                String totalHarianString = String.valueOf(dataPengiriman[i][19]);
+                System.out.println("Rp." + totalHarianString);
+                totalHarianString = totalHarianString.replace(",", "");
+                totalHarian += Integer.parseInt(totalHarianString);
+                break;
+
+            } else {
+                System.out.println("Tanggal tidak ditemukan");
+                break;
             }
+
         }
+
+        NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
+        String formattedPrice = numberFormat.format(totalHarian);
+        System.out.println(
+                "\nTotal Pendapatan Pada Tanggal " + cariTanggal + " Bulan " + cariBulan + " adalah Rp."
+                        + formattedPrice);
 
         System.out.print("\nCek Laporan lagi? (Y/T) : ");
         String lanjutkan = inputPilihan.next();
 
         if (lanjutkan.equalsIgnoreCase("y")) {
             laporanKeuanganHarian();
+        }
+    }
+
+    public static void laporanKeuanganBulanan() {
+
+        System.out.print("Masukkan Bulan          : ");
+        int cariBulan = inputPilihan.nextInt();
+        String cariBulanString = String.valueOf(cariBulan);
+
+        int totalBulanan = 0;
+
+        System.out.println(
+                "Rincian Pendapatan Pada Bulan " + cariBulanString + " : \n");
+
+        for (int i = 0; i < dataPengiriman.length; i++) {
+
+            if (dataPengiriman[i][0] != null && dataPengiriman[i][3].equals(cariBulanString)) {
+
+                String totalHarianString = String.valueOf(dataPengiriman[i][19]);
+                System.out.println("Rp." + totalHarianString);
+                totalHarianString = totalHarianString.replace(",", "");
+                totalBulanan += Integer.parseInt(totalHarianString);
+                break;
+
+            } else {
+                System.out.println("Tanggal tidak ditemukan");
+                break;
+            }
+
+        }
+
+        NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
+        String formattedPrice = numberFormat.format(totalBulanan);
+        System.out.println(
+                "\nTotal Pendapatan Pada Bulan " + cariBulan + " adalah Rp."
+                        + formattedPrice);
+
+        System.out.print("\nCek Laporan lagi? (Y/T) : ");
+        String lanjutkan = inputPilihan.next();
+
+        if (lanjutkan.equalsIgnoreCase("y")) {
+            laporanKeuanganBulanan();
         }
     }
 
