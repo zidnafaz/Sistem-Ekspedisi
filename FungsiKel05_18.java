@@ -43,7 +43,7 @@ public class FungsiKel05_18 {
             System.out.println("             Silahkan Login");
             System.out.println("1. Admin");
             System.out.println("2. User");
-            System.out.println("3. Exit\n");
+            System.out.println("3. Keluar\n");
             System.out.println("            Masukkan Pilihan");
             header();
             pilihan = inputPilihan.nextInt();
@@ -60,7 +60,7 @@ public class FungsiKel05_18 {
                             System.out.println("2. Input Lokasi Paket");
                             System.out.println("3. Cek Paket");
                             System.out.println("4. Laporan Keuangan");
-                            System.out.println("5. Kembali\n");
+                            System.out.println("5. Keluar\n");
                             System.out.println("            Masukkan Pilihan");
                             header();
                             pilihan = inputPilihan.nextInt();
@@ -790,7 +790,8 @@ public class FungsiKel05_18 {
                     + formattedPrice + RESET);
             header();
         } else {
-            System.out.println(RED + "\nData tidak ditemukan pada bulan " + YELLOW + cariBulanString + RESET);
+            System.out.println(RED + "Data tidak ditemukan pada bulan " + YELLOW + cariBulanString + RESET);
+            header();
         }
 
         System.out.print("Cek Lagi? (Y/N) : ");
@@ -839,6 +840,7 @@ public class FungsiKel05_18 {
             header();
         } else {
             System.out.println(RED + "Data tidak ditemukan pada bulan " + cariBulanString + RESET);
+            header();
         }
 
         System.out.print("Cek Lagi? (Y/N) : ");
