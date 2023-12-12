@@ -300,6 +300,7 @@ public class FungsiKel05_18 {
 
     public static void pembayaran(int dataBaru) {
 
+        final String ANSI_RED = "\u001B[33m";
         final String ANSI_GREEN = "\u001B[33m";
         final String ANSI_YELLOW = "\u001B[33m";
         final String ANSI_RESET = "\u001B[0m";
@@ -319,17 +320,17 @@ public class FungsiKel05_18 {
             cetakResi(dataBaru);
 
             header();
-            System.out.println("                TERIMA KASIH");
+            System.out.println(ANSI_GREEN + "               TERIMA KASIH" + ANSI_RESET);
             header();
-            System.out.println("       Paket Akan Segera Dikirimkan");
+            System.out.println(ANSI_GREEN + "       Paket Akan Segera Dikirimkan" + ANSI_RESET);
             header();
 
         } else if (pilihan == 2) {
 
             header();
-            System.out.println("                  MAAF");
+            System.out.println(ANSI_YELLOW + "                  MAAF" + ANSI_RESET);
             header();
-            System.out.println("       Mohon Selesaikan Pembayaran");
+            System.out.println(ANSI_YELLOW + "       Mohon Selesaikan Pembayaran" + ANSI_RESET);
             header();
 
             pembayaran(dataBaru);
@@ -337,9 +338,9 @@ public class FungsiKel05_18 {
         } else {
 
             header();
-            System.out.println("                  MAAF");
+            System.out.println(ANSI_RED + "                  MAAF" + ANSI_RESET);
             header();
-            System.out.println("       Masukkan Pilihan Yang Benar");
+            System.out.println(ANSI_RED +"       Masukkan Pilihan Yang Benar" + ANSI_RESET);
             header();
 
             pembayaran(dataBaru);
