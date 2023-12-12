@@ -300,6 +300,10 @@ public class FungsiKel05_18 {
 
     public static void pembayaran(int dataBaru) {
 
+        final String ANSI_GREEN = "\u001B[33m";
+        final String ANSI_YELLOW = "\u001B[33m";
+        final String ANSI_RESET = "\u001B[0m";
+
         header();
         System.out.println("               PEMBAYARAN");
         header();
@@ -346,52 +350,54 @@ public class FungsiKel05_18 {
 
     public static void cetakResi(int dataBaru) {
 
+        final String ANSI_YELLOW = "\u001B[33m";
+        final String ANSI_RESET = "\u001B[0m";
+
         header();
         System.out.println("             DATA PENGIRIMAN");
         header();
 
         System.out.println(
-                "\nNomor Urut              : " + dataPengiriman[dataBaru][0]);
+                ANSI_YELLOW + "\nNomor Urut              : " + dataPengiriman[dataBaru][0] + ANSI_RESET);
         System.out.println(
-                "Lokasi Paket            : " + dataPengiriman[dataBaru][1]);
+                ANSI_YELLOW + "Lokasi Paket            : " + dataPengiriman[dataBaru][1] + ANSI_RESET);
         System.out.println(
-                "Estimasi Pengiriman     : " + dataPengiriman[dataBaru][21]);
+                ANSI_YELLOW + "Estimasi Pengiriman     : " + dataPengiriman[dataBaru][21] + ANSI_RESET);
+        System.out.println(
+                ANSI_YELLOW + "Jenis Layanan           : " + dataPengiriman[dataBaru][17] + ANSI_RESET);
+        System.out.println(
+                ANSI_YELLOW + "Tanggal Pengiriman      : " + dataPengiriman[dataBaru][2] + "-" + dataPengiriman[dataBaru][3] + "-"
+                        + dataPengiriman[dataBaru][3] + ANSI_RESET);
+        System.out.println(
+                ANSI_YELLOW + "Nama Pengirim           : " + dataPengiriman[dataBaru][5] + ANSI_RESET);
+        System.out.println(
+                ANSI_YELLOW + "Nomor Telepon Pengirim  : " + dataPengiriman[dataBaru][6] + ANSI_RESET);
+        System.out.println(
+                ANSI_YELLOW + "Alamat Pengirim         : " + dataPengiriman[dataBaru][7] + ANSI_RESET);
+        System.out.println(
+                ANSI_YELLOW + "Nama Penerima           : " + dataPengiriman[dataBaru][8] + ANSI_RESET);
+        System.out.println(
+                ANSI_YELLOW + "Nomor Telepon Penerima  : " + dataPengiriman[dataBaru][9] + ANSI_RESET);
+        System.out.println(
+                ANSI_YELLOW + "Kota Penerima           : " + dataPengiriman[dataBaru][10] + ANSI_RESET);
+        System.out.println(
+                ANSI_YELLOW + "Alamat Lengkap Penerima : " + dataPengiriman[dataBaru][22] + ANSI_RESET);
+        System.out.println(
+                ANSI_YELLOW + "Kode Pos                : " + dataPengiriman[dataBaru][11] + ANSI_RESET);
         System.out
-                .println("Jenis Layanan           : "
-                        + dataPengiriman[dataBaru][17]);
-        System.out.println(
-                "Tanggal Pengiriman      : " + dataPengiriman[dataBaru][2] + "-" + dataPengiriman[dataBaru][3] + "-"
-                        + dataPengiriman[dataBaru][3]);
-        System.out.println(
-                "Nama Pengirim           : " + dataPengiriman[dataBaru][5]);
-        System.out.println(
-                "Nomor Telepon Pengirim  : " + dataPengiriman[dataBaru][6]);
-        System.out.println(
-                "Alamat Pengirim         : " + dataPengiriman[dataBaru][7]);
-        System.out.println(
-                "Nama Penerima           : " + dataPengiriman[dataBaru][8]);
-        System.out.println(
-                "Nomor Telepon Penerima  : " + dataPengiriman[dataBaru][9]);
-        System.out.println(
-                "Kota Penerima           : " + dataPengiriman[dataBaru][10]);
-        System.out.println(
-                "Alamat Lengkap Penerima : " + dataPengiriman[dataBaru][22]);
-        System.out.println(
-                "Kode Pos                : " + dataPengiriman[dataBaru][11]);
+                .println(ANSI_YELLOW + "Jenis Barang            : "
+                        + dataPengiriman[dataBaru][12] + ANSI_RESET);
         System.out
-                .println("Jenis Barang            : "
-                        + dataPengiriman[dataBaru][12]);
+                .println(ANSI_YELLOW + "Berat Barang (kg)       : "
+                        + dataPengiriman[dataBaru][13] + ANSI_RESET);
         System.out
-                .println("Berat Barang (kg)       : "
-                        + dataPengiriman[dataBaru][13]);
+                .println(ANSI_YELLOW + "Volume Barang (cm)      : "
+                        + dataPengiriman[dataBaru][18] + ANSI_RESET);
         System.out
-                .println("Volume Barang (cm)      : "
-                        + dataPengiriman[dataBaru][18]);
-        System.out
-                .println("Total Biaya             : Rp."
-                        + dataPengiriman[dataBaru][19]);
+                .println(ANSI_YELLOW + "Total Biaya             : Rp."
+                        + dataPengiriman[dataBaru][19] + ANSI_RESET);
         System.out.println(
-                "Nomor Resi              : " + dataPengiriman[dataBaru][20]);
+                ANSI_YELLOW + "Nomor Resi              : " + dataPengiriman[dataBaru][20] + ANSI_RESET);
         System.out.println();
 
     }
@@ -487,6 +493,9 @@ public class FungsiKel05_18 {
 
     public static int pilihanLayanan(int dataBaru, double volume) {
 
+        final String ANSI_RED = "\u001B[33m";
+        final String ANSI_RESET = "\u001B[0m";
+        
         int biayaLayanan = 0;
 
         header();
@@ -522,7 +531,7 @@ public class FungsiKel05_18 {
                 }
                 break;
             default:
-                System.out.println("Layanan Tidak Tersedia. Masukkan Dengan Benar.\n");
+                System.out.println(ANSI_RED + "Layanan Tidak Tersedia. Masukkan Dengan Benar.\n" + ANSI_RESET);
                 return pilihanLayanan(dataBaru, volume);
         }
 
