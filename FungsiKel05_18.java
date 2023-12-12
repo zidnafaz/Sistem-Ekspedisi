@@ -497,7 +497,7 @@ public class FungsiKel05_18 {
 
             if (usernameDanPasswordAdmin[0].equals(usernameAdmin)
                     && usernameDanPasswordAdmin[1].equals(passwordAdmin)) {
-                System.out.println(ANSI_GREEN + "Login Successfully\n" + ANSI_RESET);
+                System.out.println(ANSI_GREEN + "           Login Successfully" + ANSI_RESET);
                 login = true;
                 break;
             } else if (loginAttempt >= 3) {
@@ -534,7 +534,7 @@ public class FungsiKel05_18 {
 
             if (usernameDanPasswordUser[0].equals(usernameUser)
                     && usernameDanPasswordUser[1].equals(passwordUser)) {
-                System.out.println(ANSI_GREEN + "Login Successfully\n" + ANSI_RESET);
+                System.out.println(ANSI_GREEN + "           Login Successfully" + ANSI_RESET);
                 login = true;
                 break;
             } else if (loginAttempt >= 3) {
@@ -687,8 +687,17 @@ public class FungsiKel05_18 {
 
     public static double hitungBiayaPengiriman(double volume, double berat, int jarak, int biayaLayanan, int dataBaru) {
 
-        double biayaBerat = berat * volume;
-        double totalBiaya = (jarak * biayaLayanan) + (biayaBerat / 2);
+        double biayaVolume = volume;
+        double biayaBerat = berat * 5000;
+        double biaya = 0;
+
+        if (biayaBerat > biayaVolume) {
+            biaya = biayaBerat;
+        } else if (biayaVolume > biayaBerat) {
+            biaya = biayaVolume;
+        }
+
+        double totalBiaya = (jarak * biayaLayanan) + biaya;
 
         return totalBiaya;
     }
@@ -737,7 +746,7 @@ public class FungsiKel05_18 {
 
         if (index != -1) {
             update = true;
-            System.out.print("Input Lokasi Paket  : ");
+            System.out.print("Input Lokasi Paket           : ");
             String lokasiPaket = inputDataPengiriman.next();
             dataPengiriman[index][1] = lokasiPaket;
 
@@ -797,9 +806,8 @@ public class FungsiKel05_18 {
                 System.out.println("Rp." + totalHarianString);
                 totalHarianString = totalHarianString.replace(",", "");
                 totalHarian += Integer.parseInt(totalHarianString);
-                break;
-
-            } else {
+                
+            } else if (dataPengiriman[i][0] == null) {
                 System.out.println("Tanggal tidak ditemukan");
                 break;
             }
@@ -839,9 +847,8 @@ public class FungsiKel05_18 {
                 System.out.println("Rp." + totalHarianString);
                 totalHarianString = totalHarianString.replace(",", "");
                 totalBulanan += Integer.parseInt(totalHarianString);
-                break;
-
-            } else {
+            
+            } else if (dataPengiriman[i][0] == null) {
                 System.out.println("Tanggal tidak ditemukan");
                 break;
             }
