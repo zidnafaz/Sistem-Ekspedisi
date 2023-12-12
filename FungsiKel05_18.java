@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class FungsiKel05_18 {
-    
+
     static Scanner inputPilihan = new Scanner(System.in);
     static Scanner inputLogin = new Scanner(System.in);
     static Scanner inputDataPengiriman = new Scanner(System.in);
@@ -14,6 +14,16 @@ public class FungsiKel05_18 {
     static String dataPengiriman[][] = new String[50][25];
     static String usernameDanPasswordAdmin[] = new String[] { "Wawan", "IniWawan" };
     static String usernameDanPasswordUser[] = new String[] { "Iwan", "IniIwan" };
+
+    public static final String RESET = "\u001B[0m";
+    public static final String BLACK = "\u001B[30m";
+    public static final String RED = "\u001B[31m";
+    public static final String GREEN = "\u001B[32m";
+    public static final String YELLOW = "\u001B[33m";
+    public static final String BLUE = "\u001B[34m";
+    public static final String PURPLE = "\u001B[35m";
+    public static final String CYAN = "\u001B[36m";
+    public static final String WHITE = "\u001B[37m";
 
     public static void main(String[] args) {
 
@@ -308,11 +318,6 @@ public class FungsiKel05_18 {
 
     public static void pembayaran(int dataBaru) {
 
-        final String ANSI_RED = "\u001B[33m";
-        final String ANSI_GREEN = "\u001B[33m";
-        final String ANSI_YELLOW = "\u001B[33m";
-        final String ANSI_RESET = "\u001B[0m";
-
         header();
         System.out.println("               PEMBAYARAN");
         header();
@@ -329,17 +334,17 @@ public class FungsiKel05_18 {
             cetakResi(dataBaru);
 
             header();
-            System.out.println(ANSI_GREEN + "               TERIMA KASIH" + ANSI_RESET);
+            System.out.println("               TERIMA KASIH");
             header();
-            System.out.println(ANSI_GREEN + "       Paket Akan Segera Dikirimkan" + ANSI_RESET);
+            System.out.println("       Paket Akan Segera Dikirimkan");
             header();
 
         } else if (pilihan == 2) {
 
             header();
-            System.out.println(ANSI_YELLOW + "                  MAAF" + ANSI_RESET);
+            System.out.println("                  MAAF");
             header();
-            System.out.println(ANSI_YELLOW + "       Mohon Selesaikan Pembayaran" + ANSI_RESET);
+            System.out.println("       Mohon Selesaikan Pembayaran");
             header();
 
             pembayaran(dataBaru);
@@ -347,7 +352,7 @@ public class FungsiKel05_18 {
         } else if (pilihan == 3) {
 
             header();
-            System.out.println(ANSI_GREEN + "               TERIMA KASIH" + ANSI_RESET);
+            System.out.println("               TERIMA KASIH");
             header();
 
             for (int j = 0; j < 25; j++) {
@@ -357,9 +362,9 @@ public class FungsiKel05_18 {
         } else {
 
             header();
-            System.out.println(ANSI_RED + "                  MAAF" + ANSI_RESET);
+            System.out.println("                  MAAF");
             header();
-            System.out.println(ANSI_RED + "       Masukkan Pilihan Yang Benar" + ANSI_RESET);
+            System.out.println("       Masukkan Pilihan Yang Benar");
             header();
 
             pembayaran(dataBaru);
@@ -370,62 +375,56 @@ public class FungsiKel05_18 {
 
     public static void cetakResi(int dataBaru) {
 
-        final String ANSI_YELLOW = "\u001B[33m";
-        final String ANSI_RESET = "\u001B[0m";
-
         header();
         System.out.println("             DATA PENGIRIMAN");
         header();
 
         System.out.println(
-                ANSI_YELLOW + "\nNomor Urut              : " + dataPengiriman[dataBaru][0] + ANSI_RESET);
+                "\nNomor Urut              : " + dataPengiriman[dataBaru][0]);
         System.out.println(
-                ANSI_YELLOW + "Lokasi Paket            : " + dataPengiriman[dataBaru][1] + ANSI_RESET);
+                "Lokasi Paket            : " + dataPengiriman[dataBaru][1]);
         System.out.println(
-                ANSI_YELLOW + "Estimasi Pengiriman     : " + dataPengiriman[dataBaru][21] + ANSI_RESET);
+                "Estimasi Pengiriman     : " + dataPengiriman[dataBaru][21]);
         System.out.println(
-                ANSI_YELLOW + "Jenis Layanan           : " + dataPengiriman[dataBaru][17] + ANSI_RESET);
-        System.out.println(ANSI_YELLOW +
+                "Jenis Layanan           : " + dataPengiriman[dataBaru][17]);
+        System.out.println(
                 "Tanggal Pengiriman      : " + dataPengiriman[dataBaru][2] + "-" + dataPengiriman[dataBaru][3] + "-"
-                + dataPengiriman[dataBaru][4] + ANSI_RESET);
+                        + dataPengiriman[dataBaru][4]);
         System.out.println(
-                ANSI_YELLOW + "Nama Pengirim           : " + dataPengiriman[dataBaru][5] + ANSI_RESET);
+                "Nama Pengirim           : " + dataPengiriman[dataBaru][5]);
         System.out.println(
-                ANSI_YELLOW + "Nomor Telepon Pengirim  : " + dataPengiriman[dataBaru][6] + ANSI_RESET);
+                "Nomor Telepon Pengirim  : " + dataPengiriman[dataBaru][6]);
         System.out.println(
-                ANSI_YELLOW + "Alamat Pengirim         : " + dataPengiriman[dataBaru][7] + ANSI_RESET);
+                "Alamat Pengirim         : " + dataPengiriman[dataBaru][7]);
         System.out.println(
-                ANSI_YELLOW + "Nama Penerima           : " + dataPengiriman[dataBaru][8] + ANSI_RESET);
+                "Nama Penerima           : " + dataPengiriman[dataBaru][8]);
         System.out.println(
-                ANSI_YELLOW + "Nomor Telepon Penerima  : " + dataPengiriman[dataBaru][9] + ANSI_RESET);
+                "Nomor Telepon Penerima  : " + dataPengiriman[dataBaru][9]);
         System.out.println(
-                ANSI_YELLOW + "Kota Penerima           : " + dataPengiriman[dataBaru][10] + ANSI_RESET);
+                "Kota Penerima           : " + dataPengiriman[dataBaru][10]);
         System.out.println(
-                ANSI_YELLOW + "Alamat Lengkap Penerima : " + dataPengiriman[dataBaru][22] + ANSI_RESET);
+                "Alamat Lengkap Penerima : " + dataPengiriman[dataBaru][22]);
         System.out.println(
-                ANSI_YELLOW + "Kode Pos                : " + dataPengiriman[dataBaru][11] + ANSI_RESET);
+                "Kode Pos                : " + dataPengiriman[dataBaru][11]);
         System.out
-                .println(ANSI_YELLOW + "Jenis Barang            : "
-                        + dataPengiriman[dataBaru][12] + ANSI_RESET);
+                .println("Jenis Barang            : "
+                        + dataPengiriman[dataBaru][12]);
         System.out
-                .println(ANSI_YELLOW + "Berat Barang (kg)       : "
-                        + dataPengiriman[dataBaru][13] + ANSI_RESET);
+                .println("Berat Barang (kg)       : "
+                        + dataPengiriman[dataBaru][13]);
         System.out
-                .println(ANSI_YELLOW + "Volume Barang (cm)      : "
-                        + dataPengiriman[dataBaru][18] + ANSI_RESET);
+                .println("Volume Barang (cm)      : "
+                        + dataPengiriman[dataBaru][18]);
         System.out
-                .println(ANSI_YELLOW + "Total Biaya             : Rp."
-                        + dataPengiriman[dataBaru][19] + ANSI_RESET);
+                .println("Total Biaya             : Rp."
+                        + dataPengiriman[dataBaru][19]);
         System.out.println(
-                ANSI_YELLOW + "Nomor Resi              : " + dataPengiriman[dataBaru][20] + ANSI_RESET);
+                "Nomor Resi              : " + dataPengiriman[dataBaru][20]);
         System.out.println();
 
     }
 
     public static String buatNomorResi(int dataBaru) {
-
-        final String ANSI_CYAN = "\u001B[33m";
-        final String ANSI_RESET = "\u001B[0m";
 
         int jumlahAngka = 100000;
         Set<Integer> angkaRandom = new HashSet<>();
@@ -444,20 +443,15 @@ public class FungsiKel05_18 {
         dataPengiriman[dataBaru][20] = (hasilString);
 
         header();
-        System.out.println(ANSI_CYAN + "Nomor Resi Anda adalah " + dataPengiriman[dataBaru][20] + ANSI_RESET);
+        System.out.println("Nomor Resi Anda adalah " + dataPengiriman[dataBaru][20]);
         header();
-        System.out.println(ANSI_CYAN + "Total Biaya adalah Rp." + dataPengiriman[dataBaru][19] + ANSI_RESET);
+        System.out.println("Total Biaya adalah Rp." + dataPengiriman[dataBaru][19]);
         header();
 
         return hasilString;
     }
 
     public static boolean loginAdmin(boolean login) {
-
-        final String ANSI_GREEN = "\u001B[33m";
-        final String ANSI_RED = "\u001B[33m";
-        final String ANSI_YELLOW = "\u001B[33m";
-        final String ANSI_RESET = "\u001B[0m";
 
         String usernameAdmin, passwordAdmin;
         int maxLoginAttempts = 3;
@@ -476,26 +470,20 @@ public class FungsiKel05_18 {
 
             if (usernameDanPasswordAdmin[0].equals(usernameAdmin)
                     && usernameDanPasswordAdmin[1].equals(passwordAdmin)) {
-                System.out.println(ANSI_GREEN + "           Login Successfully" + ANSI_RESET);
+                System.out.println("           Login Successfully");
                 login = true;
                 break;
             } else if (loginAttempt >= 3) {
-                System.out.println(ANSI_RED + "Melebihi Maksimal Login, Anda Akan Kembali Ke Menu Awal\n" + ANSI_RESET);
+                System.out.println("Melebihi Maksimal Login, Anda Akan Kembali Ke Menu Awal\n");
                 login = false;
             } else {
-                System.out.println(ANSI_YELLOW + "     Login Gagal Silahkan Coba lagi" + ANSI_RESET);
+                System.out.println("     Login Gagal Silahkan Coba lagi");
             }
         }
         return login;
     }
 
     public static boolean loginUser(boolean login) {
-
-        final String ANSI_GREEN = "\u001B[33m";
-        final String ANSI_YELLOW = "\u001B[33m";
-        final String ANSI_RED = "\u001B[33m";
-        final String ANSI_RESET = "\u001B[0m";
-
         String usernameUser, passwordUser;
         int maxLoginAttempts = 3;
         login = false;
@@ -513,24 +501,20 @@ public class FungsiKel05_18 {
 
             if (usernameDanPasswordUser[0].equals(usernameUser)
                     && usernameDanPasswordUser[1].equals(passwordUser)) {
-                System.out.println(ANSI_GREEN + "           Login Successfully" + ANSI_RESET);
+                System.out.println("           Login Successfully");
                 login = true;
                 break;
             } else if (loginAttempt >= 3) {
-                System.out.println(ANSI_RED + "Melebihi Maksimal Login Anda Akan Kembali Ke Menu Awal\n" + ANSI_RESET);
+                System.out.println("Melebihi Maksimal Login Anda Akan Kembali Ke Menu Awal\n");
                 login = false;
             } else {
-                System.out.println(ANSI_YELLOW + "     Login Gagal Silahkan Coba lagi" + ANSI_RESET);
+                System.out.println("     Login Gagal Silahkan Coba lagi");
             }
         }
         return login = true;
     }
 
     public static int pilihanLayanan(int dataBaru, double volume) {
-
-        final String ANSI_RED = "\u001B[33m";
-        final String ANSI_YELLOW = "\u001B[33m";
-        final String ANSI_RESET = "\u001B[0m";
 
         int biayaLayanan = 0;
 
@@ -559,15 +543,15 @@ public class FungsiKel05_18 {
                     dataPengiriman[dataBaru][17] = "Kargo";
                 } else {
                     header();
-                    System.out.println(ANSI_YELLOW + "        Paket anda terlalu kecil" + ANSI_RESET);
-                    System.out.println(ANSI_YELLOW + "       Silahkan pilih layanan lain" + ANSI_RESET);
+                    System.out.println("        Paket anda terlalu kecil");
+                    System.out.println("       Silahkan pilih layanan lain");
                     header();
 
                     pilihanLayanan(dataBaru, volume);
                 }
                 break;
             default:
-                System.out.println(ANSI_RED + "Layanan Tidak Tersedia. Masukkan Dengan Benar.\n" + ANSI_RESET);
+                System.out.println("Layanan Tidak Tersedia. Masukkan Dengan Benar.\n");
                 return pilihanLayanan(dataBaru, volume);
         }
 
@@ -575,9 +559,6 @@ public class FungsiKel05_18 {
     }
 
     public static int hitungJarak(int dataBaru, String alamatPengirim, String alamatPenerima, int biayaLayanan) {
-
-        final String ANSI_YELLOW = "\u001B[33m";
-        final String ANSI_RESET = "\u001B[0m";
 
         int jarak;
 
@@ -642,7 +623,7 @@ public class FungsiKel05_18 {
                 dataPengiriman[dataBaru][21] = "6 Hari";
             }
         } else {
-            System.out.println(ANSI_YELLOW + "Pengiriman tidak tersedia. Masukkan alamat dengan benar.\n" + ANSI_RESET);
+            System.out.println("Pengiriman tidak tersedia. Masukkan alamat dengan benar.\n");
             System.out.print("Masukkan Alamat Pengirim : ");
             alamatPengirim = inputDataPengiriman.next();
 
@@ -694,9 +675,6 @@ public class FungsiKel05_18 {
 
     public static boolean cekResi(int dataBaru, boolean cekResi) {
 
-        final String ANSI_RED = "\u001B[33m";
-        final String ANSI_RESET = "\u001B[0m";
-
         System.out.print("Silahkan Masukkan Nomor Resi : ");
         String cariNomorResi = inputPilihan.next();
 
@@ -707,16 +685,13 @@ public class FungsiKel05_18 {
             cetakResi(index);
         } else {
             cekResi = false;
-            System.out.println(ANSI_RED + "Nomor Resi Tidak Ditemukan" + ANSI_RESET);
+            System.out.println("Nomor Resi Tidak Ditemukan");
         }
 
         return cekResi;
     }
 
     public static boolean updateLokasiPaket(boolean update, int index) {
-
-        final String ANSI_RED = "\u001B[33m";
-        final String ANSI_RESET = "\u001B[0m";
 
         System.out.print("Silahkan Masukkan Nomor Resi : ");
         String cariNomorResi = inputPilihan.next();
@@ -733,7 +708,7 @@ public class FungsiKel05_18 {
 
         } else {
             update = false;
-            System.out.println(ANSI_RED + "Nomor Resi Tidak Ditemukan" + ANSI_RESET);
+            System.out.println("Nomor Resi Tidak Ditemukan");
         }
 
         return update;
@@ -741,22 +716,16 @@ public class FungsiKel05_18 {
 
     public static void breakText() {
 
-        final String ANSI_GREEN = "\u001B[33m";
-        final String ANSI_RESET = "\u001B[0m";
-
         header();
-        System.out.println(ANSI_GREEN + "        THANK YOU - POS INDONESIA" + ANSI_RESET);
+        System.out.println("        THANK YOU - POS INDONESIA");
         header();
 
     }
 
     public static void defaultText() {
 
-        final String ANSI_YELLOW = "\u001B[33m";
-        final String ANSI_RESET = "\u001B[0m";
-
         header();
-        System.out.println(ANSI_YELLOW + "       Masukkan Pilihan Yang Benar" + ANSI_RESET);
+        System.out.println("       Masukkan Pilihan Yang Benar");
         header();
 
     }
