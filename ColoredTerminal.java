@@ -16,5 +16,8 @@ public class ColoredTerminal {
         System.out.println(GREEN + "Ini teks berwarna hijau" + RESET);
         System.out.println(BLUE + "Ini teks berwarna biru" + RESET);
         System.out.println(YELLOW + "Ini teks berwarna kuning" + RESET);
+        System.out.println(PURPLE + "Ini teks berwarna ungu" + RESET);
+        System.out.println(CYAN + "Ini teks berwarna cyan" + RESET);
+        System.out.println(WHITE + "Ini teks berwarna putih" + RESET);
     }
 }
