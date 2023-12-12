@@ -6,6 +6,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class FungsiKel05_18 {
+    
     static Scanner inputPilihan = new Scanner(System.in);
     static Scanner inputLogin = new Scanner(System.in);
     static Scanner inputDataPengiriman = new Scanner(System.in);
@@ -17,15 +18,8 @@ public class FungsiKel05_18 {
     public static void main(String[] args) {
 
         int pilihan;
-        String pilihaString;
-
-        // Login
-
-        // Perhitungan Jarak dan Layanan
         int dataBaru = 0;
-        ;
-
-        // Admin
+        String pilihaString;
 
         boolean menuLogin = true;
         boolean menu = true;
