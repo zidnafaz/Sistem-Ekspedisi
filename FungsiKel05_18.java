@@ -237,7 +237,7 @@ public class FungsiKel05_18 {
             if (dataPengiriman[dataBaru][0] == null) {
 
                 System.out.println("Nama Admin              : " + usernameDanPasswordAdmin[0]);
-                System.out.println("Nomor Urut              : " + dataBaru);
+                System.out.println("Nomor Urut              : " + (dataBaru + 1));
 
                 System.out.print("Lokasi Agen             : ");
                 lokasiPaket = inputDataPengiriman.next();
