@@ -29,8 +29,8 @@ public class FungsiKel05_18 {
 
         boolean menuLogin = true;
         boolean menu = true;
-        boolean cekResi = false;             
-
+        boolean cekResi = false;                                
+                     
         while (menuLogin) {
             header();
             System.out.println("        WELCOME TO POS INDONESIA");
@@ -433,7 +433,6 @@ public class FungsiKel05_18 {
     public static boolean loginAdmin(boolean login) {
         
         final String ANSI_GREEN = "\u001B[33m";
-        final String ANSI_YELLOW = "\u001B[33m";
         final String ANSI_RED = "\u001B[33m";
         final String ANSI_RESET = "\u001B[0m";
         
