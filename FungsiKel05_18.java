@@ -30,7 +30,7 @@ public class FungsiKel05_18 {
         boolean menuLogin = true;
         boolean menu = true;
         boolean cekResi = false;
-        boolean menuLaporan = false;
+        boolean menuLaporan = true;
 
         while (menuLogin) {
             header();
@@ -102,61 +102,7 @@ public class FungsiKel05_18 {
 
                                 case 4:
 
-                                    while (menu) {
-                                        header();
-                                        System.out.println("            Laporan Keuangan");
-                                        header();
-                                        System.out.println("1. Laporan Keuangan Harian");
-                                        System.out.println("2. Laporan Keuangan Bulanan");
-                                        System.out.println("3. Kembali\n");
-                                        System.out.println("            Masukkan Pilihan");
-                                        header();
-                                        pilihan = inputPilihan.nextInt();
-
-                                        switch (pilihan) {
-                                            case 1:
-                                                boolean menuLaporanHarian = true;
-
-                                                while (menuLaporanHarian) {
-                                                    laporanKeuanganHarian();
-
-                                                    System.out.print("Cek Lagi? (Y/N) : ");
-                                                    String kembaliKeMenu = inputPilihan.next();
-                                                    if (kembaliKeMenu.equalsIgnoreCase("N")) {
-                                                        menuLaporanHarian = false;
-                                                    } else if (kembaliKeMenu.equalsIgnoreCase("Y")) {
-                                                        menuLaporanHarian = true;
-                                                    }
-                                                }
-                                                break;
-
-                                            case 2:
-                                                boolean menuLaporanBulanan = true;
-
-                                                while (menuLaporanBulanan) {
-                                                    laporanKeuanganBulanan();
-
-                                                    System.out.print("Cek Lagi? (Y/N) : ");
-                                                    String kembaliKeMenu = inputPilihan.next();
-                                                    if (kembaliKeMenu.equalsIgnoreCase("N")) {
-                                                        menuLaporanBulanan = false;
-                                                    } else if (kembaliKeMenu.equalsIgnoreCase("Y")) {
-                                                        menuLaporanBulanan = true;
-                                                    }
-                                                }
-                                                break;
-
-                                            case 3:
-                                                breakText();                                                
-                                                break;
-
-                                            default:
-                                                defaultText();
-                                                menu = true;
-                                        }
-                                        
-                                        break;
-                                    }
+                                    menuLaporanKeuangan(menuLaporan, pilihan);
 
                                     break;
 
@@ -821,7 +767,7 @@ public class FungsiKel05_18 {
 
     }
 
-    public static void laporanKeuanganHarian() {
+    public static boolean laporanKeuanganHarian(boolean menuLaporan) {
 
         System.out.print("\nMasukkan Tanggal        : ");
         int cariTanggal = inputPilihan.nextInt();
@@ -866,9 +812,20 @@ public class FungsiKel05_18 {
         } else {
             System.out.println("\nData tidak ditemukan pada bulan " + cariBulanString);
         }
+
+        System.out.print("Cek Lagi? (Y/N) : ");
+        String kembaliKeMenu = inputPilihan.next();
+        if (kembaliKeMenu.equalsIgnoreCase("Y")) {
+            laporanKeuanganHarian(menuLaporan);
+        } else if (kembaliKeMenu.equalsIgnoreCase("N")) {
+            menuLaporanKeuangan(menuLaporan, totalHarian);
+        }
+
+        return menuLaporan;
+
     }
 
-    public static void laporanKeuanganBulanan() {
+    public static boolean laporanKeuanganBulanan(boolean menuLaporan) {
 
         System.out.print("Masukkan Bulan          : ");
         int cariBulan = inputPilihan.nextInt();
@@ -902,6 +859,61 @@ public class FungsiKel05_18 {
         } else {
             System.out.println("Data tidak ditemukan pada bulan " + cariBulanString);
         }
+
+        System.out.print("Cek Lagi? (Y/N) : ");
+        String kembaliKeMenu = inputPilihan.next();
+        if (kembaliKeMenu.equalsIgnoreCase("Y")) {
+            laporanKeuanganBulanan(menuLaporan);
+        } else if (kembaliKeMenu.equalsIgnoreCase("N")) {
+            menuLaporanKeuangan(menuLaporan, totalBulanan);
+        }
+
+        return menuLaporan;
+
+    }
+
+    public static boolean menuLaporanKeuangan(boolean menuLaporan, int pilihan) {
+
+        while (menuLaporan = true) {
+            header();
+            System.out.println("            Laporan Keuangan");
+            header();
+            System.out.println("1. Laporan Keuangan Harian");
+            System.out.println("2. Laporan Keuangan Bulanan");
+            System.out.println("3. Kembali\n");
+            System.out.println("            Masukkan Pilihan");
+            header();
+            pilihan = inputPilihan.nextInt();
+
+            switch (pilihan) {
+                case 1:
+
+                    laporanKeuanganHarian(menuLaporan);
+
+                    break;
+
+                case 2:
+
+                    laporanKeuanganBulanan(menuLaporan);
+
+                    break;
+
+                case 3:
+                    breakText();
+                    menuLaporan = false;
+                    break;
+
+                default:
+                    menuLaporanKeuangan(menuLaporan, pilihan);
+                    menuLaporan = true;
+            }
+
+            break;
+
+        }
+
+        return menuLaporan;
+
     }
 
 }
