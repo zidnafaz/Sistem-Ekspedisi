@@ -29,8 +29,8 @@ public class FungsiKel05_18 {
 
         boolean menuLogin = true;
         boolean menu = true;
-        boolean cekResi = false;                                
-                     
+        boolean cekResi = false;
+
         while (menuLogin) {
             header();
             System.out.println("        WELCOME TO POS INDONESIA");
@@ -232,99 +232,107 @@ public class FungsiKel05_18 {
 
         double BeratBarang, Panjang, Lebar, Tinggi;
 
-        for (int i = 0; i < 50; i++) {
+        for (dataBaru = 0; dataBaru < 50; dataBaru++) {
 
-            System.out.println("Nama Admin              : " + usernameDanPasswordAdmin[0]);
-            System.out.print("Nomor Urut              : ");
-            dataBaru = inputDataPengiriman.nextInt();
-            dataPengiriman[dataBaru][0] = String.valueOf(dataBaru);
+            if (dataPengiriman[dataBaru][0] == null) {
 
-            System.out.print("Lokasi Agen             : ");
-            lokasiPaket = inputDataPengiriman.next();
-            dataPengiriman[dataBaru][1] = lokasiPaket;
+                System.out.println("Nama Admin              : " + usernameDanPasswordAdmin[0]);
+                System.out.println("Nomor Urut              : " + dataBaru);
 
-            System.out.print("Tanggal Pengiriman      : ");
-            TanggalPengiriman = inputDataPengiriman.next();
-            dataPengiriman[dataBaru][2] = TanggalPengiriman;
+                System.out.print("Lokasi Agen             : ");
+                lokasiPaket = inputDataPengiriman.next();
+                dataPengiriman[dataBaru][1] = lokasiPaket;
 
-            System.out.print("Bulan Pengiriman        : ");
-            BulanPengiriman = inputDataPengiriman.next();
-            dataPengiriman[dataBaru][3] = BulanPengiriman;
+                System.out.print("Tanggal Pengiriman      : ");
+                TanggalPengiriman = inputDataPengiriman.next();
+                dataPengiriman[dataBaru][2] = TanggalPengiriman;
 
-            System.out.print("Tahun Pengiriman        : ");
-            TahunPengiriman = inputDataPengiriman.next();
-            dataPengiriman[dataBaru][4] = TahunPengiriman;
+                System.out.print("Bulan Pengiriman        : ");
+                BulanPengiriman = inputDataPengiriman.next();
+                dataPengiriman[dataBaru][3] = BulanPengiriman;
 
-            System.out.print("Nama Pengirim           : ");
-            NamaPengirim = inputDataPengiriman.next();
-            dataPengiriman[dataBaru][5] = NamaPengirim;
+                System.out.print("Tahun Pengiriman        : ");
+                TahunPengiriman = inputDataPengiriman.next();
+                dataPengiriman[dataBaru][4] = TahunPengiriman;
 
-            System.out.print("Nomor Telepon Pengirim  : ");
-            NomorTeleponPengirim = inputDataPengiriman.next();
-            dataPengiriman[dataBaru][6] = String.valueOf(NomorTeleponPengirim);
+                System.out.print("Nama Pengirim           : ");
+                NamaPengirim = inputDataPengiriman.next();
+                dataPengiriman[dataBaru][5] = NamaPengirim;
 
-            System.out.print("Alamat Pengirim         : ");
-            AlamatPengirim = inputDataPengiriman.next();
-            dataPengiriman[dataBaru][7] = AlamatPengirim;
+                System.out.print("Nomor Telepon Pengirim  : ");
+                NomorTeleponPengirim = inputDataPengiriman.next();
+                dataPengiriman[dataBaru][6] = String.valueOf(NomorTeleponPengirim);
 
-            System.out.print("Nama Penerima           : ");
-            NamaPenerima = inputDataPengiriman.next();
-            dataPengiriman[dataBaru][8] = NamaPenerima;
+                System.out.print("Alamat Pengirim         : ");
+                AlamatPengirim = inputDataPengiriman.next();
+                dataPengiriman[dataBaru][7] = AlamatPengirim;
 
-            System.out.print("Nomor Telepon Penerima  : ");
-            NomorTeleponPenerima = inputDataPengiriman.next();
-            dataPengiriman[dataBaru][9] = String.valueOf(NomorTeleponPenerima);
+                System.out.print("Nama Penerima           : ");
+                NamaPenerima = inputDataPengiriman.next();
+                dataPengiriman[dataBaru][8] = NamaPenerima;
 
-            System.out.print("Kota Penerima           : ");
-            AlamatPenerima = inputDataPengiriman.next();
-            dataPengiriman[dataBaru][10] = AlamatPenerima;
-            inputDataPengiriman.nextLine();
+                System.out.print("Nomor Telepon Penerima  : ");
+                NomorTeleponPenerima = inputDataPengiriman.next();
+                dataPengiriman[dataBaru][9] = String.valueOf(NomorTeleponPenerima);
 
-            System.out.print("Alamat Lengkap Penerima : ");
-            AlamatLengkapPenerima = inputDataPengiriman.nextLine();
-            dataPengiriman[dataBaru][22] = AlamatLengkapPenerima;
+                System.out.print("Kota Penerima           : ");
+                AlamatPenerima = inputDataPengiriman.next();
+                dataPengiriman[dataBaru][10] = AlamatPenerima;
+                inputDataPengiriman.nextLine();
 
-            System.out.print("Kode Pos                : ");
-            KodePos = inputDataPengiriman.next();
-            dataPengiriman[dataBaru][11] = KodePos;
+                System.out.print("Alamat Lengkap Penerima : ");
+                AlamatLengkapPenerima = inputDataPengiriman.nextLine();
+                dataPengiriman[dataBaru][22] = AlamatLengkapPenerima;
 
-            System.out.print("Jenis Barang            : ");
-            JenisBarang = inputDataPengiriman.next();
-            dataPengiriman[dataBaru][12] = JenisBarang;
+                System.out.print("Kode Pos                : ");
+                KodePos = inputDataPengiriman.next();
+                dataPengiriman[dataBaru][11] = KodePos;
 
-            System.out.print("Berat Barang (kg)       : ");
-            BeratBarang = inputDataPengiriman.nextDouble();
-            dataPengiriman[dataBaru][13] = String.valueOf(BeratBarang);
+                System.out.print("Jenis Barang            : ");
+                JenisBarang = inputDataPengiriman.next();
+                dataPengiriman[dataBaru][12] = JenisBarang;
 
-            System.out.print("Panjang Barang (cm)     : ");
-            Panjang = inputDataPengiriman.nextDouble();
-            dataPengiriman[dataBaru][14] = String.valueOf(Panjang);
+                System.out.print("Berat Barang (kg)       : ");
+                BeratBarang = inputDataPengiriman.nextDouble();
+                dataPengiriman[dataBaru][13] = String.valueOf(BeratBarang);
 
-            System.out.print("Lebar Barang (cm)       : ");
-            Lebar = inputDataPengiriman.nextDouble();
-            dataPengiriman[dataBaru][15] = String.valueOf(Lebar);
+                System.out.print("Panjang Barang (cm)     : ");
+                Panjang = inputDataPengiriman.nextDouble();
+                dataPengiriman[dataBaru][14] = String.valueOf(Panjang);
 
-            System.out.print("Tinggi Barang (cm)      : ");
-            Tinggi = inputDataPengiriman.nextDouble();
-            dataPengiriman[dataBaru][16] = String.valueOf(Tinggi);
+                System.out.print("Lebar Barang (cm)       : ");
+                Lebar = inputDataPengiriman.nextDouble();
+                dataPengiriman[dataBaru][15] = String.valueOf(Lebar);
 
-            double volume = hitungVolume(Panjang, Lebar, Tinggi, dataBaru);
-            int biayaLayanan = pilihanLayanan(dataBaru, volume);
-            int jarak = hitungJarak(dataBaru, AlamatPengirim, AlamatPenerima, biayaLayanan);
-            double totalBiaya = hitungBiayaPengiriman(volume, BeratBarang, jarak, biayaLayanan, dataBaru);
+                System.out.print("Tinggi Barang (cm)      : ");
+                Tinggi = inputDataPengiriman.nextDouble();
+                dataPengiriman[dataBaru][16] = String.valueOf(Tinggi);
 
-            NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
-            String formattedPrice = numberFormat.format(totalBiaya);
-            dataPengiriman[dataBaru][19] = String.valueOf(formattedPrice);
+                double volume = hitungVolume(Panjang, Lebar, Tinggi, dataBaru);
+                int biayaLayanan = pilihanLayanan(dataBaru, volume);
+                int jarak = hitungJarak(dataBaru, AlamatPengirim, AlamatPenerima, biayaLayanan);
+                double totalBiaya = hitungBiayaPengiriman(volume, BeratBarang, jarak, biayaLayanan, dataBaru);
 
-            buatNomorResi(dataBaru);
-            pembayaran(dataBaru);
+                NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
+                String formattedPrice = numberFormat.format(totalBiaya);
+                dataPengiriman[dataBaru][19] = String.valueOf(formattedPrice);
 
-            System.out.println(
-                    "Apakah ingin memasukkan data pengiriman lagi? (Y/T)");
-            String lanjutkan = inputDataPengiriman.next();
-            if (lanjutkan.equalsIgnoreCase("T")) {
-                break;
+                buatNomorResi(dataBaru);
+                pembayaran(dataBaru);
+
+                System.out.println(
+                        "Apakah ingin memasukkan data pengiriman lagi? (Y/T)");
+                String lanjutkan = inputDataPengiriman.next();
+                if (lanjutkan.equalsIgnoreCase("T")) {
+                    break;
+                }
+
+            } else {
+
+                header();
+                System.out.println("          Data Pengiriman Penuh");
+                header();
+
             }
         }
     }
@@ -371,7 +379,7 @@ public class FungsiKel05_18 {
             header();
             System.out.println(ANSI_RED + "                  MAAF" + ANSI_RESET);
             header();
-            System.out.println(ANSI_RED +"       Masukkan Pilihan Yang Benar" + ANSI_RESET);
+            System.out.println(ANSI_RED + "       Masukkan Pilihan Yang Benar" + ANSI_RESET);
             header();
 
             pembayaran(dataBaru);
@@ -465,12 +473,12 @@ public class FungsiKel05_18 {
     }
 
     public static boolean loginAdmin(boolean login) {
-        
+
         final String ANSI_GREEN = "\u001B[33m";
         final String ANSI_RED = "\u001B[33m";
         final String ANSI_YELLOW = "\u001B[33m";
         final String ANSI_RESET = "\u001B[0m";
-        
+
         String usernameAdmin, passwordAdmin;
         int maxLoginAttempts = 3;
         login = false;
@@ -502,12 +510,12 @@ public class FungsiKel05_18 {
     }
 
     public static boolean loginUser(boolean login) {
-        
+
         final String ANSI_GREEN = "\u001B[33m";
         final String ANSI_YELLOW = "\u001B[33m";
         final String ANSI_RED = "\u001B[33m";
         final String ANSI_RESET = "\u001B[0m";
-        
+
         String usernameUser, passwordUser;
         int maxLoginAttempts = 3;
         login = false;
@@ -587,11 +595,10 @@ public class FungsiKel05_18 {
     }
 
     public static int hitungJarak(int dataBaru, String alamatPengirim, String alamatPenerima, int biayaLayanan) {
-        
+
         final String ANSI_YELLOW = "\u001B[33m";
         final String ANSI_RESET = "\u001B[0m";
 
-        
         int jarak;
 
         if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Jakarta")) ||
@@ -697,10 +704,10 @@ public class FungsiKel05_18 {
     }
 
     public static boolean cekResi(int dataBaru, boolean cekResi) {
-        
+
         final String ANSI_RED = "\u001B[33m";
         final String ANSI_RESET = "\u001B[0m";
-        
+
         System.out.print("Silahkan Masukkan Nomor Resi : ");
         String cariNomorResi = inputPilihan.next();
 
