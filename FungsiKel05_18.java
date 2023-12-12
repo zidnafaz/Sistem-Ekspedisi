@@ -118,15 +118,18 @@ public class FungsiKel05_18 {
 
                                                 laporanKeuanganHarian();
 
-                                                break;
-
                                             case 2:
 
-                                                break;
+                                                laporanKeuanganBulanan();
+
+                                            case 3:
+
+                                                breakText();
 
                                             default:
 
-                                                break;
+                                                defaultText();
+
                                         }
 
                                         break;
@@ -351,6 +354,7 @@ public class FungsiKel05_18 {
         System.out.println(" Pastikan Bahwa Pelanggan Sudah Membayar");
         System.out.println("1. Sudah");
         System.out.println("2. Belum");
+        System.out.println("3. Batalkan Pengiriman");
         System.out.println("            Masukkan Pilihan");
         header();
         int pilihan = inputPilihan.nextInt();
@@ -374,6 +378,16 @@ public class FungsiKel05_18 {
             header();
 
             pembayaran(dataBaru);
+
+        } else if (pilihan == 3) {
+
+            header();
+            System.out.println(ANSI_GREEN + "               TERIMA KASIH" + ANSI_RESET);
+            header();
+
+            for (int j = 0; j < 25; j++) {
+                dataPengiriman[dataBaru][j] = null;
+            }
 
         } else {
 
@@ -793,6 +807,7 @@ public class FungsiKel05_18 {
         String cariBulanString = String.valueOf(cariBulan);
 
         int totalHarian = 0;
+        boolean foundData = false;
 
         System.out.println(
                 "Rincian Pendapatan Pada Tanggal " + caritanggalString + " Bulan " + cariBulanString + " : \n");
@@ -806,60 +821,56 @@ public class FungsiKel05_18 {
                 System.out.println("Rp." + totalHarianString);
                 totalHarianString = totalHarianString.replace(",", "");
                 totalHarian += Integer.parseInt(totalHarianString);
-                
-            } else if (dataPengiriman[i][0] == null) {
-                System.out.println("Tanggal tidak ditemukan");
-                break;
+                foundData = true;
+
             }
 
         }
 
-        NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
-        String formattedPrice = numberFormat.format(totalHarian);
-        System.out.println(
-                "\nTotal Pendapatan Pada Tanggal " + cariTanggal + " Bulan " + cariBulan + " adalah Rp."
-                        + formattedPrice);
+        if (foundData) {
+            NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
+            String formattedPrice = numberFormat.format(totalHarian);
+            System.out.println("\nTotal Pendapatan Pada Tanggal " + cariTanggal + " Bulan " + cariBulan + " adalah Rp." + formattedPrice);
+        } else {
+            System.out.println("Data tidak ditemukan untuk bulan " + cariBulanString);
+        }
 
         System.out.print("\nCek Laporan lagi? (Y/T) : ");
         String lanjutkan = inputPilihan.next();
 
         if (lanjutkan.equalsIgnoreCase("y")) {
-            laporanKeuanganHarian();
+            laporanKeuanganBulanan();
         }
     }
 
     public static void laporanKeuanganBulanan() {
-
+        
         System.out.print("Masukkan Bulan          : ");
         int cariBulan = inputPilihan.nextInt();
         String cariBulanString = String.valueOf(cariBulan);
 
         int totalBulanan = 0;
+        boolean foundData = false;
 
-        System.out.println(
-                "Rincian Pendapatan Pada Bulan " + cariBulanString + " : \n");
+        System.out.println("Rincian Pendapatan Pada Bulan " + cariBulanString + " : \n");
 
         for (int i = 0; i < dataPengiriman.length; i++) {
-
             if (dataPengiriman[i][0] != null && dataPengiriman[i][3].equals(cariBulanString)) {
-
                 String totalHarianString = String.valueOf(dataPengiriman[i][19]);
                 System.out.println("Rp." + totalHarianString);
                 totalHarianString = totalHarianString.replace(",", "");
                 totalBulanan += Integer.parseInt(totalHarianString);
-            
-            } else if (dataPengiriman[i][0] == null) {
-                System.out.println("Tanggal tidak ditemukan");
-                break;
+                foundData = true;
             }
-
         }
 
-        NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
-        String formattedPrice = numberFormat.format(totalBulanan);
-        System.out.println(
-                "\nTotal Pendapatan Pada Bulan " + cariBulan + " adalah Rp."
-                        + formattedPrice);
+        if (foundData) {
+            NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
+            String formattedPrice = numberFormat.format(totalBulanan);
+            System.out.println("\nTotal Pendapatan Pada Bulan " + cariBulan + " adalah Rp." + formattedPrice);
+        } else {
+            System.out.println("Data tidak ditemukan untuk bulan " + cariBulanString);
+        }
 
         System.out.print("\nCek Laporan lagi? (Y/T) : ");
         String lanjutkan = inputPilihan.next();
