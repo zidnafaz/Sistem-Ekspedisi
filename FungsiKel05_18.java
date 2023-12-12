@@ -238,6 +238,7 @@ public class FungsiKel05_18 {
 
                 System.out.println("Nama Admin              : " + usernameDanPasswordAdmin[0]);
                 System.out.println("Nomor Urut              : " + (dataBaru + 1));
+                dataPengiriman[dataBaru][0] = String.valueOf(dataBaru + 1);
 
                 System.out.print("Lokasi Agen             : ");
                 lokasiPaket = inputDataPengiriman.next();
@@ -405,9 +406,9 @@ public class FungsiKel05_18 {
                 ANSI_YELLOW + "Estimasi Pengiriman     : " + dataPengiriman[dataBaru][21] + ANSI_RESET);
         System.out.println(
                 ANSI_YELLOW + "Jenis Layanan           : " + dataPengiriman[dataBaru][17] + ANSI_RESET);
-        System.out.println(
+        System.out.println(ANSI_YELLOW +
                 "Tanggal Pengiriman      : " + dataPengiriman[dataBaru][2] + "-" + dataPengiriman[dataBaru][3] + "-"
-                        + dataPengiriman[dataBaru][3]);
+                        + dataPengiriman[dataBaru][4] + ANSI_RESET);
         System.out.println(
                 ANSI_YELLOW + "Nama Pengirim           : " + dataPengiriman[dataBaru][5] + ANSI_RESET);
         System.out.println(
