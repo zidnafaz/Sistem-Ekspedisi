@@ -125,6 +125,7 @@ public class FungsiKel05_18 {
                                             case 3:
 
                                                 breakText();
+                                                menu = false;
 
                                             default:
 
@@ -134,6 +135,8 @@ public class FungsiKel05_18 {
 
                                         break;
                                     }
+
+                                    break;
 
                                 case 5:
 
@@ -840,7 +843,8 @@ public class FungsiKel05_18 {
 
         if (lanjutkan.equalsIgnoreCase("y")) {
             laporanKeuanganBulanan();
-        }
+        } 
+
     }
 
     public static void laporanKeuanganBulanan() {
