@@ -49,7 +49,7 @@ public class FungsiKel05_18 {
                         while (menu) {
 
                             header();
-                            System.out.println("             HELLO ADMIN");
+                            System.out.println("               HELLO ADMIN");
                             header();
                             System.out.println("1. Input Paket Baru");
                             System.out.println("2. Input Lokasi Paket");
@@ -101,7 +101,36 @@ public class FungsiKel05_18 {
 
                                 case 4:
 
-                                    break;
+                                    while (menu) {
+
+                                        header();
+                                        System.out.println("            Laporan Keuangan");
+                                        header();
+                                        System.out.println("1. Laporan Keuangan Harian");
+                                        System.out.println("2. Laporan Keuangan Bulanan");
+                                        System.out.println("3. Kembali\n");
+                                        System.out.println("            Masukkan Pilihan");
+                                        header();
+                                        pilihan = inputPilihan.nextInt();
+
+                                        switch (pilihan) {
+                                            case 1:
+
+                                                laporanKeuanganHarian();
+
+                                                break;
+
+                                            case 2:
+
+                                                break;
+
+                                            default:
+
+                                                break;
+                                        }
+
+                                        break;
+                                    }
 
                                 case 5:
 
@@ -198,7 +227,8 @@ public class FungsiKel05_18 {
     public static void inputDataPengiriman(int dataBaru) {
 
         String lokasiPaket, NamaPengirim, AlamatPengirim, TanggalPengiriman, BulanPengiriman, TahunPengiriman,
-                NamaPenerima, AlamatPenerima, JenisBarang, NomorTeleponPengirim, NomorTeleponPenerima, KodePos;
+                NamaPenerima, AlamatPenerima, JenisBarang, NomorTeleponPengirim, NomorTeleponPenerima, KodePos,
+                AlamatLengkapPenerima;
 
         double BeratBarang, Panjang, Lebar, Tinggi;
 
@@ -219,11 +249,11 @@ public class FungsiKel05_18 {
 
             System.out.print("Bulan Pengiriman        : ");
             BulanPengiriman = inputDataPengiriman.next();
-            dataPengiriman[dataBaru][3] = TanggalPengiriman;
+            dataPengiriman[dataBaru][3] = BulanPengiriman;
 
             System.out.print("Tahun Pengiriman        : ");
             TahunPengiriman = inputDataPengiriman.next();
-            dataPengiriman[dataBaru][4] = TanggalPengiriman;
+            dataPengiriman[dataBaru][4] = TahunPengiriman;
 
             System.out.print("Nama Pengirim           : ");
             NamaPengirim = inputDataPengiriman.next();
@@ -248,10 +278,11 @@ public class FungsiKel05_18 {
             System.out.print("Kota Penerima           : ");
             AlamatPenerima = inputDataPengiriman.next();
             dataPengiriman[dataBaru][10] = AlamatPenerima;
+            inputDataPengiriman.nextLine();
 
             System.out.print("Alamat Lengkap Penerima : ");
-            AlamatPenerima = inputDataPengiriman.nextLine();
-            dataPengiriman[dataBaru][22] = AlamatPenerima;
+            AlamatLengkapPenerima = inputDataPengiriman.nextLine();
+            dataPengiriman[dataBaru][22] = AlamatLengkapPenerima;
 
             System.out.print("Kode Pos                : ");
             KodePos = inputDataPengiriman.next();
@@ -361,7 +392,7 @@ public class FungsiKel05_18 {
                         + dataPengiriman[dataBaru][17]);
         System.out.println(
                 "Tanggal Pengiriman      : " + dataPengiriman[dataBaru][2] + "-" + dataPengiriman[dataBaru][3] + "-"
-                        + dataPengiriman[dataBaru][3]);
+                        + dataPengiriman[dataBaru][4]);
         System.out.println(
                 "Nama Pengirim           : " + dataPengiriman[dataBaru][5]);
         System.out.println(
@@ -398,7 +429,7 @@ public class FungsiKel05_18 {
 
     public static String buatNomorResi(int dataBaru) {
 
-        int jumlahAngka = 10000000;
+        int jumlahAngka = 100000;
         Set<Integer> angkaRandom = new HashSet<>();
         Random random = new Random();
 
@@ -626,7 +657,7 @@ public class FungsiKel05_18 {
     public static int searchingResi(String resiToFind) {
         int foundIndex = -1;
         for (int i = 0; i < dataPengiriman.length; i++) {
-            if (dataPengiriman[i][20] != null && dataPengiriman[i][20].equals(resiToFind)) {
+            if (dataPengiriman[i][2] != null && dataPengiriman[i][20].equals(resiToFind)) {
                 foundIndex = i;
                 break;
             }
@@ -685,6 +716,44 @@ public class FungsiKel05_18 {
         System.out.println("       Masukkan Pilihan Yang Benar");
         header();
 
+    }
+
+    public static void laporanKeuanganHarian() {
+
+        System.out.print("\nMasukkan Tanggal        : ");
+        int cariTanggal = inputPilihan.nextInt();
+        String caritanggalString = String.valueOf(cariTanggal);
+
+        System.out.print("Masukkan Bulan          : ");
+        int cariBulan = inputPilihan.nextInt();
+        String cariBulanString = String.valueOf(cariBulan);
+
+        int totalHarian = 0;
+
+        for (int i = 0; i < dataPengiriman.length; i++) {
+            for (int j = 0; j < dataPengiriman.length; j++) {
+                if (dataPengiriman[i][2] != null && dataPengiriman[i][2].equals(caritanggalString)
+                        && dataPengiriman[i][3].equals(cariBulanString)) {
+                    String totalHarianString = String.valueOf(dataPengiriman[i][19]);
+                    totalHarianString = totalHarianString.replace(",", "");
+                    totalHarian += Integer.parseInt(totalHarianString);
+                    System.out.println("Ketemu");
+
+                    System.out.println(
+                            "\nTotal Pendapatan Pada Tanggal " + cariTanggal + " Bulan " + cariBulan + " adalah : "
+                                    + totalHarian);
+                } else {
+                    System.out.println("Tanggal tidak ditemukan");
+                }
+            }
+        }
+
+        System.out.print("\nCek Laporan lagi? (Y/T) : ");
+        String lanjutkan = inputPilihan.next();
+
+        if (lanjutkan.equalsIgnoreCase("y")) {
+            laporanKeuanganHarian();
+        }
     }
 
 }
