@@ -38,7 +38,7 @@ public class FungsiKel05_18 {
 
         while (menuLogin) {
             header();
-            System.out.println("        WELCOME TO POS INDONESIA");
+            System.out.println(YELLOW + "        WELCOME TO POS INDONESIA" + RESET);
             header();
             System.out.println("             Silahkan Login");
             System.out.println("1. Admin");
@@ -54,9 +54,9 @@ public class FungsiKel05_18 {
                         while (menu) {
 
                             header();
-                            System.out.println("               HELLO ADMIN");
+                            System.out.println(YELLOW + "               HELLO ADMIN" + RESET);
                             header();
-                            System.out.println("1. Input Paket Baru");
+                            System.out.println("\n1. Input Paket Baru");
                             System.out.println("2. Input Lokasi Paket");
                             System.out.println("3. Cek Paket");
                             System.out.println("4. Laporan Keuangan");
@@ -77,7 +77,7 @@ public class FungsiKel05_18 {
                                     while (cekResi = true) {
                                         updateLokasiPaket(cekResi, dataBaru);
 
-                                        System.out.print("Update Lagi? (Y/N) : ");
+                                        System.out.print(YELLOW + "Update Lagi? (Y/N) : " + RESET);
                                         String kembaliKeMenu = inputPilihan.next();
                                         if (kembaliKeMenu.equalsIgnoreCase("N")) {
                                             break;
@@ -93,7 +93,7 @@ public class FungsiKel05_18 {
                                     while (cekResi = true) {
                                         cekResi(dataBaru, cekResi);
 
-                                        System.out.print("Cek Lagi? (Y/N) : ");
+                                        System.out.print(YELLOW + "Cek Lagi? (Y/N) : " + RESET);
                                         String kembaliKeMenu = inputPilihan.next();
                                         if (kembaliKeMenu.equalsIgnoreCase("N")) {
                                             break;
@@ -214,7 +214,7 @@ public class FungsiKel05_18 {
 
             if (dataPengiriman[dataBaru][0] == null) {
 
-                System.out.println("Nama Admin              : " + usernameDanPasswordAdmin[0]);
+                System.out.println("\nNama Admin              : " + usernameDanPasswordAdmin[0]);
                 System.out.println("Nomor Urut              : " + (dataBaru + 1));
                 dataPengiriman[dataBaru][0] = String.valueOf(dataBaru + 1);
 
@@ -299,18 +299,19 @@ public class FungsiKel05_18 {
                 buatNomorResi(dataBaru);
                 pembayaran(dataBaru);
 
-                System.out.println(
-                        "Apakah ingin memasukkan data pengiriman lagi? (Y/T)");
+                System.out.print(
+                        YELLOW + "Memasukkan data pengiriman lagi? (Y/T) : " + RESET);
                 String lanjutkan = inputDataPengiriman.next();
                 if (lanjutkan.equalsIgnoreCase("T")) {
                     break;
                 }
 
-            } else {
+            } else if (dataPengiriman[dataBaru][0] != null) {
 
                 header();
-                System.out.println("          Data Pengiriman Penuh");
+                System.out.println(RED + "          Data Pengiriman Penuh" + RESET);
                 header();
+                break;
 
             }
         }
@@ -319,12 +320,12 @@ public class FungsiKel05_18 {
     public static void pembayaran(int dataBaru) {
 
         header();
-        System.out.println("               PEMBAYARAN");
+        System.out.println(YELLOW + "               PEMBAYARAN" + RESET);
         header();
         System.out.println(" Pastikan Bahwa Pelanggan Sudah Membayar");
-        System.out.println("1. Sudah");
+        System.out.println("\n1. Sudah");
         System.out.println("2. Belum");
-        System.out.println("3. Batalkan Pengiriman");
+        System.out.println("3. Batalkan Pengiriman\n");
         System.out.println("            Masukkan Pilihan");
         header();
         int pilihan = inputPilihan.nextInt();
@@ -334,17 +335,17 @@ public class FungsiKel05_18 {
             cetakResi(dataBaru);
 
             header();
-            System.out.println("               TERIMA KASIH");
+            System.out.println(YELLOW + "               TERIMA KASIH" + RESET);
             header();
-            System.out.println("       Paket Akan Segera Dikirimkan");
+            System.out.println(BLUE + "       Paket Akan Segera Dikirimkan" + RESET);
             header();
 
         } else if (pilihan == 2) {
 
             header();
-            System.out.println("                  MAAF");
+            System.out.println(RED + "                  MAAF" + RESET);
             header();
-            System.out.println("       Mohon Selesaikan Pembayaran");
+            System.out.println(RED + "       Mohon Selesaikan Pembayaran" + RESET);
             header();
 
             pembayaran(dataBaru);
@@ -352,7 +353,7 @@ public class FungsiKel05_18 {
         } else if (pilihan == 3) {
 
             header();
-            System.out.println("               TERIMA KASIH");
+            System.out.println(YELLOW + "               TERIMA KASIH" + RESET);
             header();
 
             for (int j = 0; j < 25; j++) {
@@ -362,9 +363,9 @@ public class FungsiKel05_18 {
         } else {
 
             header();
-            System.out.println("                  MAAF");
+            System.out.println(RED + "                  MAAF" + RESET);
             header();
-            System.out.println("       Masukkan Pilihan Yang Benar");
+            System.out.println(RED + "       Masukkan Pilihan Yang Benar" + RESET);
             header();
 
             pembayaran(dataBaru);
@@ -376,7 +377,7 @@ public class FungsiKel05_18 {
     public static void cetakResi(int dataBaru) {
 
         header();
-        System.out.println("             DATA PENGIRIMAN");
+        System.out.println(YELLOW + "             DATA PENGIRIMAN" + RESET);
         header();
 
         System.out.println(
@@ -416,10 +417,10 @@ public class FungsiKel05_18 {
                 .println("Volume Barang (cm)      : "
                         + dataPengiriman[dataBaru][18]);
         System.out
-                .println("Total Biaya             : Rp."
-                        + dataPengiriman[dataBaru][19]);
+                .println("Total Biaya             : " + YELLOW + "Rp."
+                         + dataPengiriman[dataBaru][19] + RESET);
         System.out.println(
-                "Nomor Resi              : " + dataPengiriman[dataBaru][20]);
+                "Nomor Resi              : " + YELLOW +  dataPengiriman[dataBaru][20] + RESET);
         System.out.println();
 
     }
@@ -443,9 +444,9 @@ public class FungsiKel05_18 {
         dataPengiriman[dataBaru][20] = (hasilString);
 
         header();
-        System.out.println("Nomor Resi Anda adalah " + dataPengiriman[dataBaru][20]);
+        System.out.println("Nomor Resi Anda adalah " + YELLOW + dataPengiriman[dataBaru][20] + RESET);
         header();
-        System.out.println("Total Biaya adalah Rp." + dataPengiriman[dataBaru][19]);
+        System.out.println("Total Biaya adalah " + YELLOW + "Rp." + dataPengiriman[dataBaru][19] + RESET);
         header();
 
         return hasilString;
@@ -460,7 +461,7 @@ public class FungsiKel05_18 {
         for (int loginAttempt = 1; loginAttempt <= maxLoginAttempts; loginAttempt++) {
 
             header();
-            System.out.println("               Login Admin");
+            System.out.println(YELLOW + "               Login Admin" + RESET);
             header();
             System.out.print("Masukkan Username   = ");
             usernameAdmin = inputLogin.next();
@@ -470,14 +471,14 @@ public class FungsiKel05_18 {
 
             if (usernameDanPasswordAdmin[0].equals(usernameAdmin)
                     && usernameDanPasswordAdmin[1].equals(passwordAdmin)) {
-                System.out.println("           Login Successfully");
+                System.out.println(GREEN + "           Login Successfully" + RESET);
                 login = true;
                 break;
             } else if (loginAttempt >= 3) {
-                System.out.println("Melebihi Maksimal Login, Anda Akan Kembali Ke Menu Awal\n");
+                System.out.println(RED + "Melebihi Maksimal Login, Anda Akan Kembali Ke Menu Awal\n" + RESET);
                 login = false;
             } else {
-                System.out.println("     Login Gagal Silahkan Coba lagi");
+                System.out.println(RED + "     Login Gagal Silahkan Coba lagi" + RESET);
             }
         }
         return login;
@@ -491,7 +492,7 @@ public class FungsiKel05_18 {
         for (int loginAttempt = 1; loginAttempt <= maxLoginAttempts; loginAttempt++) {
 
             header();
-            System.out.println("                Login User");
+            System.out.println(YELLOW + "                Login User" + RESET);
             header();
             System.out.print("Masukkan Username   = ");
             usernameUser = inputLogin.next();
@@ -501,14 +502,14 @@ public class FungsiKel05_18 {
 
             if (usernameDanPasswordUser[0].equals(usernameUser)
                     && usernameDanPasswordUser[1].equals(passwordUser)) {
-                System.out.println("           Login Successfully");
+                System.out.println(GREEN + "           Login Successfully" + RESET);
                 login = true;
                 break;
             } else if (loginAttempt >= 3) {
-                System.out.println("Melebihi Maksimal Login Anda Akan Kembali Ke Menu Awal\n");
+                System.out.println(RED + "Melebihi Maksimal Login Anda Akan Kembali Ke Menu Awal\n" + RESET);
                 login = false;
             } else {
-                System.out.println("     Login Gagal Silahkan Coba lagi");
+                System.out.println(RED + "     Login Gagal Silahkan Coba lagi" + RESET);
             }
         }
         return login = true;
@@ -519,7 +520,7 @@ public class FungsiKel05_18 {
         int biayaLayanan = 0;
 
         header();
-        System.out.println("             Pilihan layanan");
+        System.out.println(YELLOW + "             Pilihan layanan" + RESET);
         header();
         System.out.println("\n1. Regular");
         System.out.println("2. Ekspress");
@@ -538,20 +539,21 @@ public class FungsiKel05_18 {
                 dataPengiriman[dataBaru][17] = "Ekspress";
                 break;
             case 3:
-                if (volume >= 1000000) {
+                if (volume >= 10000) {
                     biayaLayanan = 100;
                     dataPengiriman[dataBaru][17] = "Kargo";
                 } else {
                     header();
-                    System.out.println("        Paket anda terlalu kecil");
-                    System.out.println("       Silahkan pilih layanan lain");
+                    System.out.println(YELLOW + "        Paket anda terlalu kecil" + RESET);
+                    System.out.println(YELLOW + "       Silahkan pilih layanan lain" + RESET);
                     header();
 
                     pilihanLayanan(dataBaru, volume);
                 }
                 break;
             default:
-                System.out.println("Layanan Tidak Tersedia. Masukkan Dengan Benar.\n");
+                header();
+                System.out.println(RED + "Layanan Tidak Tersedia. Masukkan Dengan Benar.\n" + RESET);
                 return pilihanLayanan(dataBaru, volume);
         }
 
@@ -623,7 +625,7 @@ public class FungsiKel05_18 {
                 dataPengiriman[dataBaru][21] = "6 Hari";
             }
         } else {
-            System.out.println("Pengiriman tidak tersedia. Masukkan alamat dengan benar.\n");
+            System.out.println(RED + "Pengiriman tidak tersedia. Masukkan alamat dengan benar.\n" + RESET);
             System.out.print("Masukkan Alamat Pengirim : ");
             alamatPengirim = inputDataPengiriman.next();
 
@@ -675,7 +677,7 @@ public class FungsiKel05_18 {
 
     public static boolean cekResi(int dataBaru, boolean cekResi) {
 
-        System.out.print("Silahkan Masukkan Nomor Resi : ");
+        System.out.print("\nSilahkan Masukkan Nomor Resi : ");
         String cariNomorResi = inputPilihan.next();
 
         int index = searchingResi(cariNomorResi);
@@ -685,7 +687,7 @@ public class FungsiKel05_18 {
             cetakResi(index);
         } else {
             cekResi = false;
-            System.out.println("Nomor Resi Tidak Ditemukan");
+            System.out.println(RED + "Nomor Resi Tidak Ditemukan" + RESET);
         }
 
         return cekResi;
@@ -693,7 +695,7 @@ public class FungsiKel05_18 {
 
     public static boolean updateLokasiPaket(boolean update, int index) {
 
-        System.out.print("Silahkan Masukkan Nomor Resi : ");
+        System.out.print("\nSilahkan Masukkan Nomor Resi : ");
         String cariNomorResi = inputPilihan.next();
 
         index = searchingResi(cariNomorResi);
@@ -708,7 +710,7 @@ public class FungsiKel05_18 {
 
         } else {
             update = false;
-            System.out.println("Nomor Resi Tidak Ditemukan");
+            System.out.println(RED + "Nomor Resi Tidak Ditemukan" + RESET);
         }
 
         return update;
@@ -717,7 +719,7 @@ public class FungsiKel05_18 {
     public static void breakText() {
 
         header();
-        System.out.println("        THANK YOU - POS INDONESIA");
+        System.out.println(YELLOW + "        THANK YOU - POS INDONESIA" + RESET);
         header();
 
     }
@@ -725,12 +727,16 @@ public class FungsiKel05_18 {
     public static void defaultText() {
 
         header();
-        System.out.println("       Masukkan Pilihan Yang Benar");
+        System.out.println(RED + "       Masukkan Pilihan Yang Benar" + RESET);
         header();
 
     }
 
     public static boolean laporanKeuanganHarian(boolean menuLaporan) {
+
+        header();
+        System.out.println(YELLOW + "             Laporan Harian" + RESET);
+        header();
 
         System.out.print("\nMasukkan Tanggal        : ");
         int cariTanggal = inputPilihan.nextInt();
@@ -744,7 +750,7 @@ public class FungsiKel05_18 {
         boolean foundData = false;
 
         header();
-        System.out.println("          Rincian Pendapatan");
+        System.out.println(YELLOW + "          Rincian Pendapatan" + RESET);
         header();
 
         System.out.println("\nTanggal                : " + caritanggalString);
@@ -769,11 +775,11 @@ public class FungsiKel05_18 {
             NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
             String formattedPrice = numberFormat.format(totalHarian);
             header();
-            System.out.println("\nTotal Pendapatan Pada Tanggal " + cariTanggal + " Bulan " + cariBulan + " adalah Rp."
-                    + formattedPrice);
+            System.out.println("\nTotal Pendapatan Pada Tanggal " + cariTanggal + " Bulan \n" + cariBulan + " adalah " + YELLOW + "Rp."
+                    + formattedPrice + RESET);
             header();
         } else {
-            System.out.println("\nData tidak ditemukan pada bulan " + cariBulanString);
+            System.out.println(RED + "\nData tidak ditemukan pada bulan " + YELLOW + cariBulanString + RESET);
         }
 
         System.out.print("Cek Lagi? (Y/N) : ");
@@ -798,7 +804,7 @@ public class FungsiKel05_18 {
         boolean foundData = false;
 
         header();
-        System.out.println("          Rincian Pendapatan");
+        System.out.println(YELLOW + "          Rincian Pendapatan" + RESET);
         header();
 
         System.out.println("Bulan                  : " + cariBulanString + "\n");
@@ -817,10 +823,10 @@ public class FungsiKel05_18 {
             NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
             String formattedPrice = numberFormat.format(totalBulanan);
             header();
-            System.out.println("\nTotal Pendapatan Pada Bulan " + cariBulan + " adalah Rp." + formattedPrice);
+            System.out.println("\nTotal Pendapatan Pada Bulan " + cariBulan + " adalah " + YELLOW + "Rp." + formattedPrice + RESET);
             header();
         } else {
-            System.out.println("Data tidak ditemukan pada bulan " + cariBulanString);
+            System.out.println(RED + "Data tidak ditemukan pada bulan " + cariBulanString + RESET);
         }
 
         System.out.print("Cek Lagi? (Y/N) : ");
@@ -839,7 +845,7 @@ public class FungsiKel05_18 {
 
         while (menuLaporan = true) {
             header();
-            System.out.println("            Laporan Keuangan");
+            System.out.println(YELLOW + "            LAPORAN KEUANGAN" + RESET);
             header();
             System.out.println("1. Laporan Keuangan Harian");
             System.out.println("2. Laporan Keuangan Bulanan");
