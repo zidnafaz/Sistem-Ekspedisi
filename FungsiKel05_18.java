@@ -405,6 +405,9 @@ public class FungsiKel05_18 {
 
     public static String buatNomorResi(int dataBaru) {
 
+        final String ANSI_CYAN = "\u001B[33m";
+        final String ANSI_RESET = "\u001B[0m";
+
         int jumlahAngka = 10000000;
         Set<Integer> angkaRandom = new HashSet<>();
         Random random = new Random();
@@ -422,9 +425,9 @@ public class FungsiKel05_18 {
         dataPengiriman[dataBaru][20] = (hasilString);
 
         header();
-        System.out.println("Nomor Resi Anda adalah " + dataPengiriman[dataBaru][20]);
+        System.out.println(ANSI_CYAN + "Nomor Resi Anda adalah " + dataPengiriman[dataBaru][20] + ANSI_RESET);
         header();
-        System.out.println("Total Biaya adalah Rp." + dataPengiriman[dataBaru][19]);
+        System.out.println(ANSI_CYAN + "Total Biaya adalah Rp." + dataPengiriman[dataBaru][19] + ANSI_RESET);
         header();
 
         return hasilString;
@@ -434,6 +437,7 @@ public class FungsiKel05_18 {
         
         final String ANSI_GREEN = "\u001B[33m";
         final String ANSI_RED = "\u001B[33m";
+        final String ANSI_YELLOW = "\u001B[33m";
         final String ANSI_RESET = "\u001B[0m";
         
         String usernameAdmin, passwordAdmin;
@@ -460,7 +464,7 @@ public class FungsiKel05_18 {
                 System.out.println(ANSI_RED + "Melebihi Maksimal Login, Anda Akan Kembali Ke Menu Awal\n" + ANSI_RESET);
                 login = false;
             } else {
-                System.out.println(ANSI_GREEN + "Login Gagal Silahkan Coba lagi" + ANSI_RESET);
+                System.out.println(ANSI_YELLOW + "Login Gagal Silahkan Coba lagi" + ANSI_RESET);
             }
         }
         return login;
@@ -552,6 +556,11 @@ public class FungsiKel05_18 {
     }
 
     public static int hitungJarak(int dataBaru, String alamatPengirim, String alamatPenerima, int biayaLayanan) {
+        
+        final String ANSI_YELLOW = "\u001B[33m";
+        final String ANSI_RESET = "\u001B[0m";
+
+        
         int jarak;
 
         if ((alamatPengirim.equalsIgnoreCase("Malang") && alamatPenerima.equalsIgnoreCase("Jakarta")) ||
@@ -615,7 +624,7 @@ public class FungsiKel05_18 {
                 dataPengiriman[dataBaru][21] = "6 Hari";
             }
         } else {
-            System.out.println("Pengiriman tidak tersedia. Masukkan alamat dengan benar.\n");
+            System.out.println(ANSI_YELLOW + "Pengiriman tidak tersedia. Masukkan alamat dengan benar.\n" + ANSI_RESET);
             System.out.print("Masukkan Alamat Pengirim : ");
             alamatPengirim = inputDataPengiriman.next();
 
