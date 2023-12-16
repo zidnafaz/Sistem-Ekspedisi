@@ -77,7 +77,7 @@ public class BahasaInggris {
                                     while (cekResi = true) {
                                         updateLokasiPaket(cekResi, dataBaru);
 
-                                        System.out.print(YELLOW + "Update Lagi? (Y/N) : " + RESET);
+                                        System.out.print(YELLOW + "Update Again? (Y/N) : " + RESET);
                                         String kembaliKeMenu = inputPilihan.next();
                                         if (kembaliKeMenu.equalsIgnoreCase("N")) {
                                             break;
@@ -93,7 +93,7 @@ public class BahasaInggris {
                                     while (cekResi = true) {
                                         cekResi(dataBaru, cekResi);
 
-                                        System.out.print(YELLOW + "Cek Lagi? (Y/N) : " + RESET);
+                                        System.out.print(YELLOW + "Check Again? (Y/N) : " + RESET);
                                         String kembaliKeMenu = inputPilihan.next();
                                         if (kembaliKeMenu.equalsIgnoreCase("N")) {
                                             break;
@@ -135,10 +135,10 @@ public class BahasaInggris {
                             header();
                             System.out.println("        WELCOME TO POS INDONESIA");
                             header();
-                            System.out.println("             Silahkan Login");
-                            System.out.println("1. Cek Paket");
-                            System.out.println("2. Kembali\n");
-                            System.out.println("            Masukkan Pilihan");
+                            System.out.println("             Please Login");
+                            System.out.println("1. Package Check");
+                            System.out.println("2. Back\n");
+                            System.out.println("            Insert Option");
                             header();
                             pilihan = inputPilihan.nextInt();
 
@@ -148,7 +148,7 @@ public class BahasaInggris {
                                     while (cekResi = true) {
                                         cekResi(dataBaru, cekResi);
 
-                                        System.out.print("Cek Lagi? (Y/N) : ");
+                                        System.out.print("Check Again? (Y/N) : ");
                                         String kembaliKeMenu = inputPilihan.next();
                                         if (kembaliKeMenu.equalsIgnoreCase("N")) {
                                             break;
@@ -214,76 +214,76 @@ public class BahasaInggris {
 
         if (dataBaru != -1) {
 
-            System.out.println("\nNama Admin              : " + usernameDanPasswordAdmin[0]);
-            System.out.println("Nomor Urut              : " + (dataBaru + 1));
+            System.out.println("\nAdmin Name              : " + usernameDanPasswordAdmin[0]);
+            System.out.println("Number Order              : " + (dataBaru + 1));
             dataPengiriman[dataBaru][0] = String.valueOf(dataBaru + 1);
 
-            System.out.print("Lokasi Agen             : ");
+            System.out.print("Agent Location          : ");
             lokasiPaket = inputDataPengiriman.next();
             dataPengiriman[dataBaru][1] = lokasiPaket;
 
-            System.out.print("Tanggal Pengiriman      : ");
+            System.out.print("Shipping Date           : ");
             TanggalPengiriman = inputDataPengiriman.next();
             dataPengiriman[dataBaru][2] = TanggalPengiriman;
 
-            System.out.print("Bulan Pengiriman        : ");
+            System.out.print("Shipping Month          : ");
             BulanPengiriman = inputDataPengiriman.next();
             dataPengiriman[dataBaru][3] = BulanPengiriman;
 
-            System.out.print("Tahun Pengiriman        : ");
+            System.out.print("Shipping Year           : ");
             TahunPengiriman = inputDataPengiriman.next();
             dataPengiriman[dataBaru][4] = TahunPengiriman;
 
-            System.out.print("Nama Pengirim           : ");
+            System.out.print("Sender's Name           : ");
             NamaPengirim = inputDataPengiriman.next();
             dataPengiriman[dataBaru][5] = NamaPengirim;
 
-            System.out.print("Nomor Telepon Pengirim  : ");
+            System.out.print("Sender's Telephone Number : ");
             NomorTeleponPengirim = inputDataPengiriman.next();
             dataPengiriman[dataBaru][6] = String.valueOf(NomorTeleponPengirim);
 
-            System.out.print("Alamat Pengirim         : ");
+            System.out.print("Sender's Address        : ");
             AlamatPengirim = inputDataPengiriman.next();
             dataPengiriman[dataBaru][7] = AlamatPengirim;
 
-            System.out.print("Nama Penerima           : ");
+            System.out.print("Recipient's Name        : ");
             NamaPenerima = inputDataPengiriman.next();
             dataPengiriman[dataBaru][8] = NamaPenerima;
 
-            System.out.print("Nomor Telepon Penerima  : ");
+            System.out.print("Recipient's Telephone Number : ");
             NomorTeleponPenerima = inputDataPengiriman.next();
             dataPengiriman[dataBaru][9] = String.valueOf(NomorTeleponPenerima);
 
-            System.out.print("Kota Penerima           : ");
+            System.out.print("Recipient's City        : ");
             AlamatPenerima = inputDataPengiriman.next();
             dataPengiriman[dataBaru][10] = AlamatPenerima;
             inputDataPengiriman.nextLine();
 
-            System.out.print("Alamat Lengkap Penerima : ");
+            System.out.print("Recipient's Full Address: ");
             AlamatLengkapPenerima = inputDataPengiriman.nextLine();
             dataPengiriman[dataBaru][22] = AlamatLengkapPenerima;
 
-            System.out.print("Kode Pos                : ");
+            System.out.print("Postal Code             : ");
             KodePos = inputDataPengiriman.next();
             dataPengiriman[dataBaru][11] = KodePos;
 
-            System.out.print("Jenis Barang            : ");
+            System.out.print("Item Type               : ");
             JenisBarang = inputDataPengiriman.next();
             dataPengiriman[dataBaru][12] = JenisBarang;
 
-            System.out.print("Berat Barang (kg)       : ");
+            System.out.print("Item Weight (kg)        : ");
             BeratBarang = inputDataPengiriman.nextDouble();
             dataPengiriman[dataBaru][13] = String.valueOf(BeratBarang);
 
-            System.out.print("Panjang Barang (cm)     : ");
+            System.out.print("Item Length (cm)        : ");
             Panjang = inputDataPengiriman.nextDouble();
             dataPengiriman[dataBaru][14] = String.valueOf(Panjang);
 
-            System.out.print("Lebar Barang (cm)       : ");
+            System.out.print("Item Width (cm)         : ");
             Lebar = inputDataPengiriman.nextDouble();
             dataPengiriman[dataBaru][15] = String.valueOf(Lebar);
 
-            System.out.print("Tinggi Barang (cm)      : ");
+            System.out.print("Item Height (cm)        : ");
             Tinggi = inputDataPengiriman.nextDouble();
             dataPengiriman[dataBaru][16] = String.valueOf(Tinggi);
 
@@ -300,7 +300,7 @@ public class BahasaInggris {
             pembayaran(dataBaru);
 
             System.out.print(
-                    YELLOW + "Memasukkan data pengiriman lagi? (Y/T) : " + RESET);
+                    YELLOW + "Enter shipping data again? (Y/T) : " + RESET);
             String lanjutkan = inputDataPengiriman.next();
             if (lanjutkan.equalsIgnoreCase("Y")) {
                 inputDataPengiriman(dataBaru);
@@ -319,13 +319,13 @@ public class BahasaInggris {
     public static void pembayaran(int dataBaru) {
 
         header();
-        System.out.println(YELLOW + "               PEMBAYARAN" + RESET);
+        System.out.println(YELLOW + "               PAYMENT" + RESET);
         header();
-        System.out.println(" Pastikan Bahwa Pelanggan Sudah Membayar");
-        System.out.println("\n1. Sudah");
-        System.out.println("2. Belum");
-        System.out.println("3. Batalkan Pengiriman\n");
-        System.out.println("            Masukkan Pilihan");
+        System.out.println(" Make Sure That The Customer Has Paid For The Package");
+        System.out.println("\n1. Done");
+        System.out.println("2. Not Yet");
+        System.out.println("3. Cancel Shipping\n");
+        System.out.println("            Insert Option");
         header();
         int pilihan = inputPilihan.nextInt();
 
@@ -334,17 +334,17 @@ public class BahasaInggris {
             cetakResi(dataBaru);
 
             header();
-            System.out.println(YELLOW + "               TERIMA KASIH" + RESET);
+            System.out.println(YELLOW + "               THANK YOU" + RESET);
             header();
-            System.out.println(BLUE + "       Paket Akan Segera Dikirimkan" + RESET);
+            System.out.println(BLUE + "       Package Will Be Shipped Soon" + RESET);
             header();
 
         } else if (pilihan == 2) {
 
             header();
-            System.out.println(RED + "                  MAAF" + RESET);
+            System.out.println(RED + "                  SORRY" + RESET);
             header();
-            System.out.println(RED + "       Mohon Selesaikan Pembayaran" + RESET);
+            System.out.println(RED + "       Please Complete The Payment" + RESET);
             header();
 
             pembayaran(dataBaru);
@@ -352,7 +352,7 @@ public class BahasaInggris {
         } else if (pilihan == 3) {
 
             header();
-            System.out.println(YELLOW + "               TERIMA KASIH" + RESET);
+            System.out.println(YELLOW + "               THANK YOU" + RESET);
             header();
 
             for (int j = 0; j < 25; j++) {
@@ -362,9 +362,9 @@ public class BahasaInggris {
         } else {
 
             header();
-            System.out.println(RED + "                  MAAF" + RESET);
+            System.out.println(RED + "                  SORRY" + RESET);
             header();
-            System.out.println(RED + "       Masukkan Pilihan Yang Benar" + RESET);
+            System.out.println(RED + "        Enter The Correct Option" + RESET);
             header();
 
             pembayaran(dataBaru);
@@ -376,7 +376,7 @@ public class BahasaInggris {
     public static void cetakResi(int dataBaru) {
 
         header();
-        System.out.println(YELLOW + "             DATA PENGIRIMAN" + RESET);
+        System.out.println(YELLOW + "             SHIPMENT DATA" + RESET);
         header();
 
         System.out.println(
