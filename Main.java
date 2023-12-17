@@ -499,7 +499,6 @@ public class Main {
             if (buatAkunUser(usernameUser, passwordUser)) {
                 System.out.println(GREEN + "             Login Berhasil" + RESET);
                 login = true;
-                menuLogin = true;
                 break;
             } else if (loginAttempt >= 3) {
                 System.out.println(RED + "Melebihi Maksimal Login Anda Akan Kembali Ke Menu Awal\n" + RESET);
@@ -1464,7 +1463,6 @@ public class Main {
             if (buatAkunUserInggris(usernameUser, passwordUser)) {
                 System.out.println(GREEN + "           Login Successfully" + RESET);
                 login = true;
-                menuLogin = true;
                 break;
             } else if (loginAttempt >= 3) {
                 System.out.println(RED + "Exceeding the Maximum Login, You Will Return to the Start Menu\n" + RESET);
