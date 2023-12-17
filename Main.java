@@ -12,8 +12,8 @@ public class Main {
     static Scanner inputDataPengiriman = new Scanner(System.in);
 
     static String dataPengiriman[][] = new String[50][25];
-    static String usernameDanPasswordAdmin[][] = new String[][] { {"Wawan", "IniWawan"} };
-    static String usernameDanPasswordUser[][] = new String[][] { {"Iwan", "IniIwan"} };
+    static String usernameDanPasswordAdmin[][] = new String[][] { { "Wawan", "IniWawan" } };
+    static String usernameDanPasswordUser[][] = new String[50][2];
 
     public static final String RESET = "\u001B[0m";
     public static final String BLACK = "\u001B[30m";
@@ -29,7 +29,7 @@ public class Main {
 
         int pilihan;
         int dataBaru = 0;
-        String pilihaString;
+        String pilihanString;
 
         boolean menuLogin = true;
         boolean menu = true;
@@ -130,59 +130,15 @@ public class Main {
 
                 case 2:
 
-                    if (loginUser(menuLogin)) {
-                        while (menuLogin) {
-                            header();
-                            System.out.println("        WELCOME TO POS INDONESIA");
-                            header();
-                            System.out.println("             Silahkan Login");
-                            System.out.println("1. Cek Paket");
-                            System.out.println("2. Kembali\n");
-                            System.out.println("            Masukkan Pilihan");
-                            header();
-                            pilihan = inputPilihan.nextInt();
-
-                            switch (pilihan) {
-                                case 1:
-
-                                    while (cekResi = true) {
-                                        cekResi(dataBaru, cekResi);
-
-                                        System.out.print("Cek Lagi? (Y/N) : ");
-                                        String kembaliKeMenu = inputPilihan.next();
-                                        if (kembaliKeMenu.equalsIgnoreCase("N")) {
-                                            break;
-                                        } else if (kembaliKeMenu.equalsIgnoreCase("Y")) {
-                                            cekResi = true;
-                                        }
-                                    }
-
-                                    break;
-
-                                case 2:
-
-                                    breakText();
-
-                                    menuLogin = false;
-
-                                    break;
-
-                                default:
-
-                                    defaultText();
-
-                                    break;
-                            }
-                        }
-                    }
+                    menuAwalUser(menuLogin, cekResi, menuLaporan, dataBaru);
 
                     break;
 
                 case 3:
 
-                    menuLogin = false;
-
                     breakText();
+
+                    menuLogin = false;
 
                     break;
 
@@ -483,7 +439,11 @@ public class Main {
         return login;
     }
 
-    public static boolean loginUser(boolean login) {
+    public static boolean loginUser(boolean login, boolean menuLogin) {
+
+        usernameDanPasswordUser[0][0] = "Iwan";
+        usernameDanPasswordUser[0][1] = "IniIwan";
+
         String usernameUser, passwordUser;
         int maxLoginAttempts = 3;
         login = false;
@@ -499,19 +459,21 @@ public class Main {
             passwordUser = inputLogin.next();
             header();
 
-            if (usernameDanPasswordUser[0].equals(usernameUser)
-                    && usernameDanPasswordUser[1].equals(passwordUser)) {
+            if (buatAkunUser(usernameUser, passwordUser)) {
                 System.out.println(GREEN + "           Login Successfully" + RESET);
                 login = true;
+                menuLogin = true;
                 break;
             } else if (loginAttempt >= 3) {
                 System.out.println(RED + "Melebihi Maksimal Login Anda Akan Kembali Ke Menu Awal\n" + RESET);
                 login = false;
+                break;
             } else {
                 System.out.println(RED + "     Login Gagal Silahkan Coba lagi" + RESET);
             }
+
         }
-        return login = true;
+        return login;
     }
 
     public static int pilihanLayanan(int dataBaru, double volume) {
@@ -897,6 +859,141 @@ public class Main {
 
         return menuLaporan;
 
+    }
+
+    public static boolean buatAkunUser(String Username, String Password) {
+        boolean login = false;
+
+        for (int i = 0; i < 50; i++) {
+            if (usernameDanPasswordUser[i][0] != null && usernameDanPasswordUser[i][0].equals(Username)
+                    && usernameDanPasswordUser[i][1] != null && usernameDanPasswordUser[i][1].equals(Password)) {
+                login = true;
+                return true;
+            }
+        }
+        return login;
+    }
+
+    public static void menuAwalUser(boolean menuLogin, boolean cekResi, boolean menu, int dataBaru) {
+
+        int pilihan;
+
+        menu = true;
+
+        while (menu) {
+            header();
+            System.out.println("               HELLO USER");
+            header();
+            System.out.println("             Silahkan Login");
+            System.out.println("1. Login");
+            System.out.println("2. Buat Akun");
+            System.out.println("3. Kembali\n");
+            System.out.println("            Masukkan Pilihan");
+            header();
+            pilihan = inputPilihan.nextInt();
+
+            switch (pilihan) {
+                case 1:
+
+                    menuKeduaUser(menuLogin, cekResi, menu, dataBaru);
+
+                    break;
+
+                case 2:
+
+                    header();
+                    System.out.println(YELLOW + "              Buat Akun Baru" + RESET);
+                    header();
+
+                    for (int i = 0; i < usernameDanPasswordUser.length; i++) {
+                        if (usernameDanPasswordUser[i][0] == null
+                                && usernameDanPasswordUser[i][1] == null) {
+                            System.out.print("Masukkan Username   : ");
+                            usernameDanPasswordUser[i][0] = inputLogin.next();
+
+                            System.out.print("Masukkan Password   : ");
+                            usernameDanPasswordUser[i][1] = inputLogin.next();
+
+                            header();
+                            System.out.println(GREEN + "           Berhasil Buat Akun" + RESET);
+                            System.out.println(GREEN + "         Silahkan Login Kembali" + RESET);
+                            header();
+
+                            break;
+
+                        }
+                    }
+
+                    break;
+
+                case 3:
+
+                    breakText();
+
+                    menu = false;
+
+                    break;
+
+                default:
+
+                    defaultText();
+
+                    menu = true;
+            }
+        }
+    }
+
+    public static void menuKeduaUser(boolean menuLogin, boolean cekResi, boolean menu, int dataBaru) {
+
+        int pilihan;
+
+        if (loginUser(true, true)) {
+            while (menuLogin) {
+                header();
+                System.out.println("        WELCOME TO POS INDONESIA");
+                header();
+                System.out.println("             Silahkan Login");
+                System.out.println("1. Cek Paket");
+                System.out.println("2. Kembali\n");
+                System.out.println("            Masukkan Pilihan");
+                header();
+                pilihan = inputPilihan.nextInt();
+
+                switch (pilihan) {
+                    case 1:
+
+                        while (cekResi = true) {
+                            cekResi(dataBaru, cekResi);
+
+                            System.out.print("Cek Lagi? (Y/N) : ");
+                            String kembaliKeMenu = inputPilihan.next();
+                            if (kembaliKeMenu.equalsIgnoreCase("N")) {
+                                menuLogin = false;
+                                menu = true;
+                                break;
+                            } else if (kembaliKeMenu.equalsIgnoreCase("Y")) {
+                                cekResi = true;
+                            }
+                        }
+
+                        break;
+
+                    case 2:
+
+                        breakText();
+
+                        menuLogin = false;
+
+                        break;
+
+                    default:
+
+                        defaultText();
+
+                        break;
+                }
+            }
+        }
     }
 
 }
