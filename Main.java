@@ -1,5 +1,4 @@
 import java.text.NumberFormat;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Random;
@@ -470,10 +469,6 @@ public class Main {
             }
         }
         return login;
-    }
-
-    public static boolean Admin(String inputUsername) {
-        return Arrays.asList(usernameDanPasswordAdmin).contains(inputUsername);
     }
 
     public static boolean loginUser(boolean login, boolean menuLogin) {
