@@ -20,18 +20,17 @@ public class Main {
     public static final String GREEN = "\u001B[32m";
     public static final String YELLOW = "\u001B[33m";
     public static final String BLUE = "\u001B[34m";
-    public static final String ITALIC = "\u001B[34m";
 
     public static void main(String[] args) {
 
         header();
         System.out.println("              Pilih Bahasa");
-        System.out.println(ITALIC + "            Select Language" + ITALIC);
+        System.out.println("\033[3m            Select Language\033[0m");
         header();
         System.out.println("\n 1. Bahasa Indonesia");
         System.out.println("2. English\n");
         System.out.println("            Masukkan Pilihan");
-        System.out.println(ITALIC + "              Enter Options" + ITALIC);
+        System.out.println("\033[3m              Enter Options\033[0m");
         header();
         int pilihan = inputPilihan.nextInt();
 
@@ -52,7 +51,7 @@ public class Main {
 
                 header();
                 System.out.println(RED + "       Masukkan Pilihan Yang Benar" + RESET);
-                System.out.println(RED + ITALIC + "          Enter Correct Option" + ITALIC + RESET);
+                System.out.println(RED + "\033[3m          Enter Correct Option\033[0m" + RESET);
                 header();
 
                 break;
