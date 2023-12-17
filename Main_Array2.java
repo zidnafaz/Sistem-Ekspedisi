@@ -23,39 +23,45 @@ public class Main_Array2 {
 
     public static void main(String[] args) {
 
-        header();
-        System.out.println("              Pilih Bahasa");
-        System.out.println("\033[3m            Select Language\033[0m");
-        header();
-        System.out.println("\n1. Bahasa Indonesia");
-        System.out.println("2. English\n");
-        System.out.println("            Masukkan Pilihan");
-        System.out.println("\033[3m              Enter Options\033[0m");
-        header();
-        int pilihan = inputPilihan.nextInt();
+        boolean exitProgram = false;
 
-        switch (pilihan) {
-            case 1:
+        while (!exitProgram) {
+            header();
+            System.out.println("              Pilih Bahasa");
+            System.out.println("\033[3m            Select Language\033[0m");
+            header();
+            System.out.println("\n1. Bahasa Indonesia");
+            System.out.println("2. English");
+            System.out.print("3. Keluar ");
+            System.out.println("\033[3m(Exit)\033[0m\n");
+            System.out.println("            Masukkan Pilihan");
+            System.out.println("\033[3m              Enter Options\033[0m");
+            header();
 
-                BahasaIndonesia();
+            int pilihan = inputPilihan.nextInt();
 
-                break;
+            switch (pilihan) {
+                case 1:
+                    BahasaIndonesia();
+                    break;
 
-            case 2:
+                case 2:
+                    Bahasainggris();
+                    break;
 
-                Bahasainggris();
+                case 3:
+                    exitProgram = true;
+                    break;
 
-                break;
-
-            default:
-
-                header();
-                System.out.println(RED + "       Masukkan Pilihan Yang Benar" + RESET);
-                System.out.println(RED + "\033[3m          Enter Correct Option\033[0m" + RESET);
-                header();
-
-                break;
+                default:
+                    header();
+                    System.out.println(RED + "       Masukkan Pilihan Yang Benar" + RESET);
+                    System.out.println(RED + "\033[3m          Enter Correct Option\033[0m" + RESET);
+                    header();
+                    break;
+            }
         }
+
     }
 
     public static void BahasaIndonesia() {
@@ -75,7 +81,7 @@ public class Main_Array2 {
             System.out.println("             Silahkan Login");
             System.out.println("1. Admin");
             System.out.println("2. User");
-            System.out.println("3. Keluar\n");
+            System.out.println("3. Kembali\n");
             System.out.println("            Masukkan Pilihan");
             header();
             pilihan = inputPilihan.nextInt();
@@ -1046,7 +1052,7 @@ public class Main_Array2 {
             System.out.println("              Please Login");
             System.out.println("1. Admin");
             System.out.println("2. User");
-            System.out.println("3. Exit\n");
+            System.out.println("3. Back\n");
             System.out.println("              Enter Options");
             header();
             pilihan = inputPilihan.nextInt();
