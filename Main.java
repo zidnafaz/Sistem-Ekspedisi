@@ -1,4 +1,5 @@
 import java.text.NumberFormat;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Random;
@@ -12,7 +13,7 @@ public class Main {
     static Scanner inputDataPengiriman = new Scanner(System.in);
 
     static String dataPengiriman[][] = new String[50][25];
-    static String usernameDanPasswordAdmin[][] = new String[][] { { "Wawan", "IniWawan" } };
+    static String usernameDanPasswordAdmin[] = new String[] { "Wawan", "IniWawan" };
     static String usernameDanPasswordUser[][] = new String[50][2];
 
     public static final String RESET = "\u001B[0m";
@@ -458,7 +459,7 @@ public class Main {
 
             if (usernameDanPasswordAdmin[0].equals(usernameAdmin)
                     && usernameDanPasswordAdmin[1].equals(passwordAdmin)) {
-                System.out.println(GREEN + "           Login Successfully" + RESET);
+                System.out.println(GREEN + "             Login Berhasil" + RESET);
                 login = true;
                 break;
             } else if (loginAttempt >= 3) {
@@ -469,6 +470,10 @@ public class Main {
             }
         }
         return login;
+    }
+
+    public static boolean Admin(String inputUsername) {
+        return Arrays.asList(usernameDanPasswordAdmin).contains(inputUsername);
     }
 
     public static boolean loginUser(boolean login, boolean menuLogin) {
@@ -492,7 +497,7 @@ public class Main {
             header();
 
             if (buatAkunUser(usernameUser, passwordUser)) {
-                System.out.println(GREEN + "           Login Successfully" + RESET);
+                System.out.println(GREEN + "             Login Berhasil" + RESET);
                 login = true;
                 menuLogin = true;
                 break;
