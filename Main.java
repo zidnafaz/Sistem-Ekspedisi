@@ -27,7 +27,7 @@ public class Main {
         System.out.println("              Pilih Bahasa");
         System.out.println("\033[3m            Select Language\033[0m");
         header();
-        System.out.println("\n 1. Bahasa Indonesia");
+        System.out.println("\n1. Bahasa Indonesia");
         System.out.println("2. English\n");
         System.out.println("            Masukkan Pilihan");
         System.out.println("\033[3m              Enter Options\033[0m");
