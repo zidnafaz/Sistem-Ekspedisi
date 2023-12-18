@@ -626,9 +626,11 @@ public class Main_Array2 {
             System.out.println(RED + "Pengiriman tidak tersedia. Masukkan alamat dengan benar.\n" + RESET);
             System.out.print("Masukkan Alamat Pengirim : ");
             alamatPengirim = inputDataPengiriman.next();
+            dataPengiriman[dataBaru][7] = alamatPenerima;
 
             System.out.print("Masukkan Alamat Penerima : ");
             alamatPenerima = inputDataPengiriman.next();
+            dataPengiriman[dataBaru][10] = alamatPenerima;
 
             hitungJarak(dataBaru, alamatPengirim, alamatPenerima, biayaLayanan);
 
@@ -985,6 +987,7 @@ public class Main_Array2 {
     public static void menuKeduaUser(boolean menuLogin, boolean cekResi, boolean menu, int dataBaru) {
 
         int pilihan;
+        menuLogin = true;
 
         if (loginUser(true, true)) {
             while (menuLogin) {
@@ -1007,7 +1010,7 @@ public class Main_Array2 {
                             System.out.print("Cek Lagi? (Y/N) : ");
                             String kembaliKeMenu = inputPilihan.next();
                             if (kembaliKeMenu.equalsIgnoreCase("N")) {
-                                menuLogin = false;
+                                menuLogin = true;
                                 menu = true;
                                 break;
                             } else if (kembaliKeMenu.equalsIgnoreCase("Y")) {
@@ -1592,9 +1595,11 @@ public class Main_Array2 {
             System.out.println(RED + "Shipping is not available. Enter address correctly.\n" + RESET);
             System.out.print("Enter Sender's Address    : ");
             alamatPengirim = inputDataPengiriman.next();
+            dataPengiriman[dataBaru][7] = alamatPengirim;
 
             System.out.print("Enter Recipient's Address : ");
             alamatPenerima = inputDataPengiriman.next();
+            dataPengiriman[dataBaru][10] = alamatPenerima;
 
             hitungJarakInggris(dataBaru, alamatPengirim, alamatPenerima, biayaLayanan);
 
@@ -1975,7 +1980,7 @@ public class Main_Array2 {
                             System.out.print("Check again (Y/N) : ");
                             String kembaliKeMenu = inputPilihan.next();
                             if (kembaliKeMenu.equalsIgnoreCase("N")) {
-                                menuLogin = false;
+                                menuLogin = true;
                                 menu = true;
                                 break;
                             } else if (kembaliKeMenu.equalsIgnoreCase("Y")) {
