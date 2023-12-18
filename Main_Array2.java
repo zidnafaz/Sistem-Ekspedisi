@@ -630,6 +630,8 @@ public class Main_Array2 {
             System.out.print("Masukkan Alamat Penerima : ");
             alamatPenerima = inputDataPengiriman.next();
 
+            hitungJarak(dataBaru, alamatPengirim, alamatPenerima, biayaLayanan);
+
             return hitungJarak(dataBaru, alamatPengirim, alamatPenerima, biayaLayanan);
         }
 
@@ -1593,6 +1595,8 @@ public class Main_Array2 {
 
             System.out.print("Enter Recipient's Address : ");
             alamatPenerima = inputDataPengiriman.next();
+
+            hitungJarakInggris(dataBaru, alamatPengirim, alamatPenerima, biayaLayanan);
 
             return hitungJarakInggris(dataBaru, alamatPengirim, alamatPenerima, biayaLayanan);
         }
