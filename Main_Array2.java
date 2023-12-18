@@ -634,11 +634,16 @@ public class Main_Array2 {
             System.out.println(RED + "Pengiriman tidak tersedia. Masukkan alamat dengan benar.\n" + RESET);
             System.out.print("Masukkan Alamat Pengirim : ");
             alamatPengirim = inputDataPengiriman.next();
-            dataPengiriman[dataBaru][7] = alamatPenerima;
+            dataPengiriman[dataBaru][7] = alamatPengirim;
 
-            System.out.print("Masukkan Alamat Penerima : ");
+            System.out.print("Kota Penerima            : ");
             alamatPenerima = inputDataPengiriman.next();
             dataPengiriman[dataBaru][10] = alamatPenerima;
+            inputDataPengiriman.nextLine();
+
+            System.out.print("Alamat Lengkap Penerima  : ");
+            String AlamatLengkapPenerima = inputDataPengiriman.nextLine();
+            dataPengiriman[dataBaru][22] = AlamatLengkapPenerima;
 
             hitungJarak(dataBaru, alamatPengirim, alamatPenerima, biayaLayanan);
 
@@ -1617,13 +1622,18 @@ public class Main_Array2 {
             }
         } else {
             System.out.println(RED + "Shipping is not available. Enter address correctly.\n" + RESET);
-            System.out.print("Enter Sender's Address    : ");
+            System.out.print("Sender's Address          : ");
             alamatPengirim = inputDataPengiriman.next();
             dataPengiriman[dataBaru][7] = alamatPengirim;
 
-            System.out.print("Enter Recipient's Address : ");
+            System.out.print("Receiving City            : ");
             alamatPenerima = inputDataPengiriman.next();
             dataPengiriman[dataBaru][10] = alamatPenerima;
+            inputDataPengiriman.nextLine();
+
+            System.out.print("Full Address of Recipient : ");
+            String AlamatLengkapPenerima = inputDataPengiriman.nextLine();
+            dataPengiriman[dataBaru][22] = AlamatLengkapPenerima;
 
             hitungJarakInggris(dataBaru, alamatPengirim, alamatPenerima, biayaLayanan);
 
@@ -1992,7 +2002,7 @@ public class Main_Array2 {
         int pilihan;
 
         if (loginUserInggris(true, true)) {
-            
+
             while (menuLogin) {
                 header();
                 System.out.println("        WELCOME TO POS INDONESIA");
