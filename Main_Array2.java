@@ -150,9 +150,17 @@ public class Main_Array2 {
 
                                 case 5:
 
-                                    breakText();
-
-                                    menu = false;
+                                    header();
+                                    System.out.println(YELLOW + "            KONFIRMASI KELUAR" + RESET);
+                                    header();
+                                    System.out.print(RED + "Anda Yakin Ingin Keluar (Y/N)? : " + RESET);
+                                    String kembaliKeMenu = inputPilihan.next();
+                                    if (kembaliKeMenu.equalsIgnoreCase("N")) {
+                                        menu = true;
+                                    } else if (kembaliKeMenu.equalsIgnoreCase("Y")) {
+                                        breakText();
+                                        menu = false;
+                                    }
 
                                     break;
 
@@ -969,9 +977,17 @@ public class Main_Array2 {
 
                 case 3:
 
-                    breakText();
-
-                    menu = false;
+                    header();
+                    System.out.println(YELLOW + "            KONFIRMASI KELUAR" + RESET);
+                    header();
+                    System.out.print(RED + "Anda Yakin Ingin Keluar (Y/N)? : " + RESET);
+                    String kembaliKeMenu = inputPilihan.next();
+                    if (kembaliKeMenu.equalsIgnoreCase("N")) {
+                        menu = true;
+                    } else if (kembaliKeMenu.equalsIgnoreCase("Y")) {
+                        breakText();
+                        menu = false;
+                    }
 
                     break;
 
@@ -1126,9 +1142,17 @@ public class Main_Array2 {
 
                                 case 5:
 
-                                    breakTextInggris();
-
-                                    menu = false;
+                                    header();
+                                    System.out.println(YELLOW + "              CONFIRM EXIT" + RESET);
+                                    header();
+                                    System.out.print(RED + "Are you sure you want to quit? (Y/N)? : " + RESET);
+                                    String kembaliKeMenu = inputPilihan.next();
+                                    if (kembaliKeMenu.equalsIgnoreCase("N")) {
+                                        menu = true;
+                                    } else if (kembaliKeMenu.equalsIgnoreCase("Y")) {
+                                        breakText();
+                                        menu = false;
+                                    }
 
                                     break;
 
@@ -1940,9 +1964,17 @@ public class Main_Array2 {
 
                 case 3:
 
-                    breakTextInggris();
-
-                    menu = false;
+                    header();
+                    System.out.println(YELLOW + "              CONFIRM EXIT" + RESET);
+                    header();
+                    System.out.print(RED + "Are you sure you want to quit? (Y/N)? : " + RESET);
+                    String kembaliKeMenu = inputPilihan.next();
+                    if (kembaliKeMenu.equalsIgnoreCase("N")) {
+                        menu = true;
+                    } else if (kembaliKeMenu.equalsIgnoreCase("Y")) {
+                        breakText();
+                        menu = false;
+                    }
 
                     break;
 
@@ -1960,6 +1992,7 @@ public class Main_Array2 {
         int pilihan;
 
         if (loginUserInggris(true, true)) {
+            
             while (menuLogin) {
                 header();
                 System.out.println("        WELCOME TO POS INDONESIA");
@@ -1975,6 +2008,7 @@ public class Main_Array2 {
                     case 1:
 
                         while (cekResi = true) {
+
                             cekResi(dataBaru, cekResi);
 
                             System.out.print("Check again (Y/N) : ");
