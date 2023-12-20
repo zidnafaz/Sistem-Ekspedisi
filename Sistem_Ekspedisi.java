@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
 
-public class Main {
+public class Sistem_Ekspedisi {
 
     static Scanner inputPilihan = new Scanner(System.in);
     static Scanner inputLogin = new Scanner(System.in);
@@ -76,12 +76,13 @@ public class Main {
 
         while (menuLogin) {
             header();
-            System.out.println(YELLOW + "        WELCOME TO POS INDONESIA" + RESET);
+            System.out.println(YELLOW + "            SELAMAT DATANG DI" + RESET);
+            System.out.println(YELLOW + "              POS INDONESIA" + RESET);
             header();
             System.out.println("             Silahkan Login");
             System.out.println("1. Admin");
             System.out.println("2. User");
-            System.out.println("3. Keluar\n");
+            System.out.println("3. Kembali\n");
             System.out.println("            Masukkan Pilihan");
             header();
             pilihan = inputPilihan.nextInt();
@@ -92,7 +93,7 @@ public class Main {
                         while (menu) {
 
                             header();
-                            System.out.println(YELLOW + "               HELLO ADMIN" + RESET);
+                            System.out.println(YELLOW + "               HALO ADMIN" + RESET);
                             header();
                             System.out.println("\n1. Input Paket Baru");
                             System.out.println("2. Input Lokasi Paket");
@@ -150,9 +151,17 @@ public class Main {
 
                                 case 5:
 
-                                    breakText();
-
-                                    menu = false;
+                                    header();
+                                    System.out.println(YELLOW + "            KONFIRMASI KELUAR" + RESET);
+                                    header();
+                                    System.out.print(RED + "Anda Yakin Ingin Keluar (Y/N)? : " + RESET);
+                                    String kembaliKeMenu = inputPilihan.next();
+                                    if (kembaliKeMenu.equalsIgnoreCase("N")) {
+                                        menu = true;
+                                    } else if (kembaliKeMenu.equalsIgnoreCase("Y")) {
+                                        breakText();
+                                        menu = false;
+                                    }
 
                                     break;
 
@@ -626,9 +635,18 @@ public class Main {
             System.out.println(RED + "Pengiriman tidak tersedia. Masukkan alamat dengan benar.\n" + RESET);
             System.out.print("Masukkan Alamat Pengirim : ");
             alamatPengirim = inputDataPengiriman.next();
+            dataPengiriman[dataBaru][7] = alamatPengirim;
 
-            System.out.print("Masukkan Alamat Penerima : ");
+            System.out.print("Kota Penerima            : ");
             alamatPenerima = inputDataPengiriman.next();
+            dataPengiriman[dataBaru][10] = alamatPenerima;
+            inputDataPengiriman.nextLine();
+
+            System.out.print("Alamat Lengkap Penerima  : ");
+            String AlamatLengkapPenerima = inputDataPengiriman.nextLine();
+            dataPengiriman[dataBaru][22] = AlamatLengkapPenerima;
+
+            hitungJarak(dataBaru, alamatPengirim, alamatPenerima, biayaLayanan);
 
             return hitungJarak(dataBaru, alamatPengirim, alamatPenerima, biayaLayanan);
         }
@@ -728,7 +746,7 @@ public class Main {
     public static void breakText() {
 
         header();
-        System.out.println(YELLOW + "        THANK YOU - POS INDONESIA" + RESET);
+        System.out.println(YELLOW + "      TERIMA KASIH - POS INDONESIA" + RESET);
         header();
 
     }
@@ -919,7 +937,7 @@ public class Main {
 
         while (menu) {
             header();
-            System.out.println("               HELLO USER");
+            System.out.println("                HALO USER");
             header();
             System.out.println("             Silahkan Login");
             System.out.println("1. Login");
@@ -965,9 +983,17 @@ public class Main {
 
                 case 3:
 
-                    breakText();
-
-                    menu = false;
+                    header();
+                    System.out.println(YELLOW + "            KONFIRMASI KELUAR" + RESET);
+                    header();
+                    System.out.print(RED + "Anda Yakin Ingin Keluar (Y/N)? : " + RESET);
+                    String kembaliKeMenu = inputPilihan.next();
+                    if (kembaliKeMenu.equalsIgnoreCase("N")) {
+                        menu = true;
+                    } else if (kembaliKeMenu.equalsIgnoreCase("Y")) {
+                        breakText();
+                        menu = false;
+                    }
 
                     break;
 
@@ -983,11 +1009,12 @@ public class Main {
     public static void menuKeduaUser(boolean menuLogin, boolean cekResi, boolean menu, int dataBaru) {
 
         int pilihan;
+        menuLogin = true;
 
         if (loginUser(true, true)) {
             while (menuLogin) {
                 header();
-                System.out.println("        WELCOME TO POS INDONESIA");
+                System.out.println("                HALO USER");
                 header();
                 System.out.println("             Silahkan Login");
                 System.out.println("1. Cek Paket");
@@ -1005,7 +1032,7 @@ public class Main {
                             System.out.print("Cek Lagi? (Y/N) : ");
                             String kembaliKeMenu = inputPilihan.next();
                             if (kembaliKeMenu.equalsIgnoreCase("N")) {
-                                menuLogin = false;
+                                menuLogin = true;
                                 menu = true;
                                 break;
                             } else if (kembaliKeMenu.equalsIgnoreCase("Y")) {
@@ -1052,7 +1079,7 @@ public class Main {
             System.out.println("              Please Login");
             System.out.println("1. Admin");
             System.out.println("2. User");
-            System.out.println("3. Exit\n");
+            System.out.println("3. Back\n");
             System.out.println("              Enter Options");
             header();
             pilihan = inputPilihan.nextInt();
@@ -1121,9 +1148,17 @@ public class Main {
 
                                 case 5:
 
-                                    breakTextInggris();
-
-                                    menu = false;
+                                    header();
+                                    System.out.println(YELLOW + "              CONFIRM EXIT" + RESET);
+                                    header();
+                                    System.out.print(RED + "Are you sure you want to quit? (Y/N)? : " + RESET);
+                                    String kembaliKeMenu = inputPilihan.next();
+                                    if (kembaliKeMenu.equalsIgnoreCase("N")) {
+                                        menu = true;
+                                    } else if (kembaliKeMenu.equalsIgnoreCase("Y")) {
+                                        breakText();
+                                        menu = false;
+                                    }
 
                                     break;
 
@@ -1588,11 +1623,20 @@ public class Main {
             }
         } else {
             System.out.println(RED + "Shipping is not available. Enter address correctly.\n" + RESET);
-            System.out.print("Enter Sender's Address    : ");
+            System.out.print("Sender's Address          : ");
             alamatPengirim = inputDataPengiriman.next();
+            dataPengiriman[dataBaru][7] = alamatPengirim;
 
-            System.out.print("Enter Recipient's Address : ");
+            System.out.print("Receiving City            : ");
             alamatPenerima = inputDataPengiriman.next();
+            dataPengiriman[dataBaru][10] = alamatPenerima;
+            inputDataPengiriman.nextLine();
+
+            System.out.print("Full Address of Recipient : ");
+            String AlamatLengkapPenerima = inputDataPengiriman.nextLine();
+            dataPengiriman[dataBaru][22] = AlamatLengkapPenerima;
+
+            hitungJarakInggris(dataBaru, alamatPengirim, alamatPenerima, biayaLayanan);
 
             return hitungJarakInggris(dataBaru, alamatPengirim, alamatPenerima, biayaLayanan);
         }
@@ -1931,9 +1975,17 @@ public class Main {
 
                 case 3:
 
-                    breakTextInggris();
-
-                    menu = false;
+                    header();
+                    System.out.println(YELLOW + "              CONFIRM EXIT" + RESET);
+                    header();
+                    System.out.print(RED + "Are you sure you want to quit? (Y/N)? : " + RESET);
+                    String kembaliKeMenu = inputPilihan.next();
+                    if (kembaliKeMenu.equalsIgnoreCase("N")) {
+                        menu = true;
+                    } else if (kembaliKeMenu.equalsIgnoreCase("Y")) {
+                        breakText();
+                        menu = false;
+                    }
 
                     break;
 
@@ -1951,6 +2003,7 @@ public class Main {
         int pilihan;
 
         if (loginUserInggris(true, true)) {
+
             while (menuLogin) {
                 header();
                 System.out.println("        WELCOME TO POS INDONESIA");
@@ -1966,12 +2019,13 @@ public class Main {
                     case 1:
 
                         while (cekResi = true) {
+
                             cekResi(dataBaru, cekResi);
 
                             System.out.print("Check again (Y/N) : ");
                             String kembaliKeMenu = inputPilihan.next();
                             if (kembaliKeMenu.equalsIgnoreCase("N")) {
-                                menuLogin = false;
+                                menuLogin = true;
                                 menu = true;
                                 break;
                             } else if (kembaliKeMenu.equalsIgnoreCase("Y")) {
