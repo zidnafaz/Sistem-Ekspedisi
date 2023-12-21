@@ -39,8 +39,8 @@ public class Sistem_Ekspedisi {
 
         while (!exitProgram) {
             header();
-            System.out.println("              Pilih Bahasa");
-            System.out.println("\033[3m            Select Language\033[0m");
+            System.out.println(YELLOW + "              Pilih Bahasa" + RESET);
+            System.out.println(YELLOW + "\033[3m            Select Language\033[0m" + RESET);
             header();
             System.out.println("\n1. Bahasa Indonesia");
             System.out.println("2. English");
@@ -248,9 +248,10 @@ public class Sistem_Ekspedisi {
             System.out.print("Tahun Pengiriman        : ");
             TahunPengiriman = inputDataPengiriman.next();
             dataPengiriman[dataBaru][4] = TahunPengiriman;
+            inputDataPengiriman.nextLine();
 
             System.out.print("Nama Pengirim           : ");
-            NamaPengirim = inputDataPengiriman.next();
+            NamaPengirim = inputDataPengiriman.nextLine();
             dataPengiriman[dataBaru][5] = NamaPengirim;
 
             System.out.print("Nomor Telepon Pengirim  : ");
@@ -260,9 +261,10 @@ public class Sistem_Ekspedisi {
             System.out.print("Alamat Pengirim         : ");
             AlamatPengirim = inputDataPengiriman.next();
             dataPengiriman[dataBaru][7] = AlamatPengirim;
+            inputDataPengiriman.nextLine();
 
             System.out.print("Nama Penerima           : ");
-            NamaPenerima = inputDataPengiriman.next();
+            NamaPenerima = inputDataPengiriman.nextLine();
             dataPengiriman[dataBaru][8] = NamaPenerima;
 
             System.out.print("Nomor Telepon Penerima  : ");
@@ -281,9 +283,10 @@ public class Sistem_Ekspedisi {
             System.out.print("Kode Pos                : ");
             KodePos = inputDataPengiriman.next();
             dataPengiriman[dataBaru][11] = KodePos;
+            inputDataPengiriman.nextLine();
 
             System.out.print("Jenis Barang            : ");
-            JenisBarang = inputDataPengiriman.next();
+            JenisBarang = inputDataPengiriman.nextLine();
             dataPengiriman[dataBaru][12] = JenisBarang;
 
             System.out.print("Berat Barang (kg)       : ");
@@ -1238,9 +1241,10 @@ public class Sistem_Ekspedisi {
             System.out.print("Delivery Year             : ");
             TahunPengiriman = inputDataPengiriman.next();
             dataPengiriman[dataBaru][4] = TahunPengiriman;
+            inputDataPengiriman.nextLine();
 
             System.out.print("Sender's Name             : ");
-            NamaPengirim = inputDataPengiriman.next();
+            NamaPengirim = inputDataPengiriman.nextLine();
             dataPengiriman[dataBaru][5] = NamaPengirim;
 
             System.out.print("Sender's Phone Number     : ");
@@ -1250,9 +1254,10 @@ public class Sistem_Ekspedisi {
             System.out.print("Sender's Address          : ");
             AlamatPengirim = inputDataPengiriman.next();
             dataPengiriman[dataBaru][7] = AlamatPengirim;
+            inputDataPengiriman.nextLine();
 
             System.out.print("Recipient's Name          : ");
-            NamaPenerima = inputDataPengiriman.next();
+            NamaPenerima = inputDataPengiriman.nextLine();
             dataPengiriman[dataBaru][8] = NamaPenerima;
 
             System.out.print("Recipient's Phone Number  : ");
@@ -1271,9 +1276,10 @@ public class Sistem_Ekspedisi {
             System.out.print("Postcode                  : ");
             KodePos = inputDataPengiriman.next();
             dataPengiriman[dataBaru][11] = KodePos;
+            inputDataPengiriman.nextLine();
 
             System.out.print("Item Type                 : ");
-            JenisBarang = inputDataPengiriman.next();
+            JenisBarang = inputDataPengiriman.nextLine();
             dataPengiriman[dataBaru][12] = JenisBarang;
 
             System.out.print("Item Weight (kg)          : ");
