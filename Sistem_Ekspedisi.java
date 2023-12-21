@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class Sistem_Ekspedisi {
 
-    // DISCLAIMER !!!!!!!!!!!!!
+    // DISCLAIMER !!!
 
     // Program ini hanya untuk pengiriman
     // 1. dari MALANG ke Jakarta, Bandung, Surabaya, Semarang, dan Serang (Bolak-balik)
