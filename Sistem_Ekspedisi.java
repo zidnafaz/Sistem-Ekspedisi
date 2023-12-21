@@ -7,6 +7,18 @@ import java.util.Set;
 
 public class Sistem_Ekspedisi {
 
+    // DISCLAIMER !!!!!!!!!!!!!
+
+    // Program ini hanya untuk pengiriman
+    // 1. dari MALANG ke Jakarta, Bandung, Surabaya, Semarang, dan Serang (Bolak-balik)
+    // 2. dari SURABAYA ke Solo (Bolak-balik)
+
+    // Username dan Password ADMIN sudah di setting agar tidak semua orang dapat menginpukan pengiriman
+    // Username : Wawan
+    // Password : IniWawan
+
+    // Untuk Username dan Password USER dapat anda buat sesuai keinginan anda
+
     static Scanner inputPilihan = new Scanner(System.in);
     static Scanner inputLogin = new Scanner(System.in);
     static Scanner inputDataPengiriman = new Scanner(System.in);
