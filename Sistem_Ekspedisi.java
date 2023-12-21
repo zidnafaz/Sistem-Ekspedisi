@@ -555,7 +555,7 @@ public class Sistem_Ekspedisi {
                     System.out.println(YELLOW + "       Silahkan pilih layanan lain" + RESET);
                     header();
 
-                    pilihanLayanan(dataBaru, volume);
+                    return pilihanLayanan(dataBaru, volume);
                 }
                 break;
             default:
@@ -1545,7 +1545,7 @@ public class Sistem_Ekspedisi {
                     System.out.println(YELLOW + "      Please choose another service" + RESET);
                     header();
 
-                    pilihanLayananInggris(dataBaru, volume);
+                    return pilihanLayananInggris(dataBaru, volume);
                 }
                 break;
             default:
